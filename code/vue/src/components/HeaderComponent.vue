@@ -1,8 +1,10 @@
 <script setup>
 
+
 defineProps({
   title: String
 })
+
 
 </script>
 
