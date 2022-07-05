@@ -19,7 +19,7 @@ defineProps({
 
 </template>
 
-<style scoped>
+<style  scoped>
 .header{
     display: flex;
     background: #E5004E;

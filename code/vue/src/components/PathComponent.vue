@@ -14,7 +14,7 @@ defineProps({
 
 </template>
 
-<style scoped>
+<style  scoped>
 
 .path{
     padding-left: 10%;

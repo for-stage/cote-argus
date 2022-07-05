@@ -18,7 +18,7 @@ defineProps({
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 
 
 .card{
@@ -32,13 +32,16 @@ defineProps({
     height:210px;
     border-radius: 10px;
 
-    .header{
-       width: 100%;
-       height: 50px;
-        img{
+    
+}
+.header img{
             width: 100px;
             height: 100px;
         }
+        
+     .header{
+       width: 100%;
+       height: 50px;
+        
     }
-}
 </style>
