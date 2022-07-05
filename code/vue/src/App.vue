@@ -12,9 +12,9 @@ import SearchBar from './components/SearchBar.vue'
   <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
   <HeaderComponent title="Choisissez la catégorie et la marque de votre véhicule"/>
   <PathComponent path="Voitures particulières"/>
+  <SearchBar />
   <div class="marque">
   <div class="sous-marque">
-
   <CardMarque />
   <CardMarque />
   <CardMarque />
@@ -30,11 +30,12 @@ body {
   font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 .marque{
+  margin-top:3%;
  display: flex;
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 .sous-marque{
-      width: 80%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
 }

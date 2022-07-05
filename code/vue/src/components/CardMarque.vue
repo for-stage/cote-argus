@@ -27,7 +27,7 @@ defineProps({
     align-items: center;
     color: white;
     border: solid 1px #C1C1C1;
-    width: 260px;
+    width: 23%;
     height: 210px;
     border-radius: 6px;
     display: flex;
