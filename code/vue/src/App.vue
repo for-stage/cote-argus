@@ -19,6 +19,8 @@ import SearchBar from './components/SearchBar.vue'
   <CardMarque />
   <CardMarque />
   <CardMarque />
+  <CardMarque />
+  <CardMarque />
     </div>
   </div>
   </body>
@@ -28,15 +30,18 @@ import SearchBar from './components/SearchBar.vue'
 body {
   margin: 0;
   font-family: Roboto, Arial, Helvetica, sans-serif;
+  padding-bottom: 1%;
 }
 .marque{
-  margin-top:3%;
+  margin-top:1%;
  display: flex;
   justify-content: space-evenly;
 }
 .sous-marque{
     width: 80%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: baseline;
 }
 </style>

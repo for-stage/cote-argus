@@ -26,23 +26,26 @@ defineProps({
     justify-content: center;
     align-items: center;
     color: white;
-    border: solid 1px #C1C1C1;
+    border: solid 2px #C1C1C1;
     width: 23%;
     height: 210px;
-    border-radius: 6px;
+    border-radius: 5px;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+    margin-top: 2%;
 }
 
 .card:hover {
-    border: solid 1px #E5004E;
+    border: solid 2px #E5004E;
     transition: 0.3s;
-    box-shadow: #E5004E 0px 0px 10px;
+    box-shadow: #000000 0px 0px 7px;
 }
 
 .card:hover .card-title {
     color: #E5004E;
+    border-top: solid 2px #E5004E;
+    background:white;
 }
 
 .card-img {
@@ -66,6 +69,6 @@ defineProps({
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 2px 2px;
 }
 </style>

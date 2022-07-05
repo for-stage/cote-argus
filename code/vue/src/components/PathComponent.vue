@@ -22,6 +22,10 @@ defineProps({
 }
 .path a{
     color:#E5004E;
+    cursor:pointer;
+}
+.path a:hover{
+    text-decoration:underline;
 }
 
 </style>
