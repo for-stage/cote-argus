@@ -9,10 +9,10 @@ defineProps({
 
 <template>
     <div class="card">
-        <div class="header">
+        <div class="card-img">
             <img src="../assets/logo.png" alt="hhhhh">
         </div>
-        <div class="footer">
+        <div class="">
         <h2>renault</h2>
         </div>
     </div>
@@ -32,9 +32,9 @@ defineProps({
     height:210px;
     border-radius: 10px;
 
-    .header{
+    .card-img{
        width: 100%;
-       height: 50px;
+       height: 150px;
         img{
             width: 100px;
             height: 100px;
