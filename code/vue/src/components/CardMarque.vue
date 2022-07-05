@@ -12,16 +12,14 @@ defineProps({
         <div class="card-img">
             <img src="../assets/logo.png" alt="hhhhh">
         </div>
-        <div class="">
-        <h2>renault</h2>
+        <div class="card-title">
+            <h2>renault</h2>
         </div>
     </div>
 </template>
 
-<style lang="scss" scoped>
-
-
-.card{
+<style scoped>
+.card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,16 +27,33 @@ defineProps({
     color: white;
     border: solid 1px #C1C1C1;
     width: 260px;
-    height:210px;
-    border-radius: 10px;
-
-    .card-img{
-       width: 100%;
-       height: 150px;
-        img{
-            width: 100px;
-            height: 100px;
-        }
-    }
+    height: 210px;
+    border-radius: 6px;
+        display: flex;
+    justify-content: space-between;
 }
+
+.card-img {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img img {
+    width: 150px;
+    height: 100px;
+}
+.card-title {
+    width: 100%;
+    height: 50px;
+    background-color: #D9D9D9;
+    color: #555555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 5px 5px;
+}
+
 </style>

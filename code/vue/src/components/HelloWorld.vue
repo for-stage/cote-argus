@@ -33,7 +33,7 @@ const count = ref(0)
   </p>
 </template>
 
-<style scoped>
+<style  scoped>
 a {
   color: #42b983;
 }
