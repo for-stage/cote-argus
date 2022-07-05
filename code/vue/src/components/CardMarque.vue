@@ -10,12 +10,13 @@ defineProps({
 <template>
     <div class="card">
         <div class="card-img">
-            <img src="../assets/logo.png" alt="hhhhh">
+            <img src="../assets/audi.png" alt="hhhhh">
         </div>
         <div class="card-title">
             <h2>renault</h2>
         </div>
     </div>
+    
 </template>
 
 <style scoped>
@@ -31,6 +32,16 @@ defineProps({
     border-radius: 6px;
         display: flex;
     justify-content: space-between;
+    cursor: pointer;
+}
+.card:hover{
+       border: solid 1px #E5004E;
+        transition :  0.3s ;    
+        box-shadow: #E5004E 0px 0px 10px;
+}
+
+.card:hover .card-title {
+    color: #E5004E;     
 }
 
 .card-img {
