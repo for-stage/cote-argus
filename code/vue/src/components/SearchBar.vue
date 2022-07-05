@@ -18,9 +18,9 @@
 .search a {
 background: #E5004E;
     position: absolute;
-    padding: 2% 3%;
+    padding: 1% 3%;
     width: 3%;
-    height: 17px;
+    height: 78%;
     right: -1%;
     top: 2%;
     border-radius: 0;
