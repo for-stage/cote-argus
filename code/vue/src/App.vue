@@ -12,7 +12,9 @@ import SearchBar from './components/SearchBar.vue'
   <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
   <HeaderComponent title="Choisissez la catégorie et la marque de votre véhicule"/>
   <PathComponent path="Voitures particulières"/>
+   <SearchBar />
   <CardMarque />
+
   </body>
 </template>
 
