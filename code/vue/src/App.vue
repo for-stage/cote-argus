@@ -9,7 +9,7 @@ import HeaderComponent from './components/HeaderComponent.vue'
 <body>
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
-  <HeaderComponent/>
+  <HeaderComponent title="Choisissez la catégorie et la marque de votre véhicule"/>
   </body>
 </template>
 

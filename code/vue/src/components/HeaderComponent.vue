@@ -1,5 +1,9 @@
 <script setup>
 
+defineProps({
+  title: String
+})
+
 </script>
 
 <template>
@@ -7,7 +11,7 @@
 
     <div class="header">
         <div class="title">
-            <h2>Choisissez la catégorie et la marque de votre véhicule</h2>
+            <h2>{{ title }}</h2>
         </div>
     </div>
 
