@@ -16,7 +16,7 @@ defineProps({
             <h2>renault</h2>
         </div>
     </div>
-    
+
 </template>
 
 <style scoped>
@@ -30,18 +30,19 @@ defineProps({
     width: 260px;
     height: 210px;
     border-radius: 6px;
-        display: flex;
+    display: flex;
     justify-content: space-between;
     cursor: pointer;
 }
-.card:hover{
-       border: solid 1px #E5004E;
-        transition :  0.3s ;    
-        box-shadow: #E5004E 0px 0px 10px;
+
+.card:hover {
+    border: solid 1px #E5004E;
+    transition: 0.3s;
+    box-shadow: #E5004E 0px 0px 10px;
 }
 
 .card:hover .card-title {
-    color: #E5004E;     
+    color: #E5004E;
 }
 
 .card-img {
@@ -56,6 +57,7 @@ defineProps({
     width: 150px;
     height: 100px;
 }
+
 .card-title {
     width: 100%;
     height: 50px;
@@ -66,5 +68,4 @@ defineProps({
     align-items: center;
     border-radius: 0 0 5px 5px;
 }
-
 </style>
