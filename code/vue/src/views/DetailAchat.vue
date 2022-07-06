@@ -4,6 +4,7 @@
    <div class="quest">
     <Questions/>
     <Sms/>
+    <UploadPics/>
      <div class="retour">
     <img src="../assets/Vector.png" alt="">
     <img src="../assets/retour.png" alt="">
@@ -21,6 +22,8 @@
 import Infos from '../components/detailAchat/Infos.vue'
 import Questions from '../components/detailAchat/Questions.vue'
 import Sms from '../components/detailAchat/Sms.vue'
+import UploadPics from '../components/detailAchat/UploadPics.vue';
+
 
 
 export default {
@@ -28,7 +31,8 @@ export default {
     components: {
         Infos, 
          Questions,         
-         Sms
+         Sms,
+         UploadPics
     },
     props: {
         msg: String

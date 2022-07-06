@@ -17,12 +17,12 @@
         
     <div class="pictures-uploaded">
         <div class="picture-uploaded">
-            <img class="picture" src="../assets/car1.jpg">
-            <a><img class="delete" src="../assets/delete.png"></a>
+            <img class="picture" src="../../assets/car1.jpg">
+            <a href="#"><img class="delete" src="../../assets/delete.png"></a>
         </div>
         <div class="picture-uploaded">
-            <img class="picture" src="../assets/car2.jpg">
-            <a><img class="delete" src="../assets/delete.png"></a>
+            <img class="picture" src="../../assets/car2.jpg">
+            <a href="#"><img class="delete" src="../../assets/delete.png"></a>
         </div>
     </div>
 </div>
@@ -54,7 +54,7 @@
 }
 .picture-uploaded{
     width: 6%;
-    height: 72px;
+    height: 60px;
     position: relative;
     border-radius: 10px;
     margin-right: 2%;
