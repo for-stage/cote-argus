@@ -3,8 +3,16 @@
    <div class="container">
    <div class="quest">
     <Questions/>
+    <Sms/>
+     <div class="retour">
+    <img src="../assets/Vector.png" alt="">
+    <img src="../assets/retour.png" alt="">
+    <div>Retour</div>
    </div>
    </div>
+   
+   </div>
+  
    
 
 </template>
@@ -12,13 +20,15 @@
 <script>
 import Infos from '../components/detailAchat/Infos.vue'
 import Questions from '../components/detailAchat/Questions.vue'
+import Sms from '../components/detailAchat/Sms.vue'
 
 
 export default {
     name: 'DetailAchat',
     components: {
         Infos, 
-         Questions         
+         Questions,         
+         Sms
     },
     props: {
         msg: String
@@ -32,7 +42,10 @@ export default {
 }
 .quest{
     width: 80%;
-    
-
 }
+.retour{
+    margin-top: 30px;
+    display: flex;
+}
+
 </style>
