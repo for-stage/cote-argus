@@ -6,7 +6,7 @@
 
 <div class="search-bar">
     <div class="search">
-    <input type="text" name="search">
+    <input type="text" name="search" placeholder="Chercher ...">
     <a><img src="../assets/search-icon.png"></a>
     </div>
 </div>

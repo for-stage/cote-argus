@@ -4,6 +4,7 @@ import HeaderComponent from './components/HeaderComponent.vue'
 import PathComponent from './components/PathComponent.vue'
 import CardMarque from './components/CardMarque.vue'
 import SearchBar from './components/SearchBar.vue'
+import DetailCar from './components/DetailCar.vue'
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import SearchBar from './components/SearchBar.vue'
   <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
   <HeaderComponent title="Choisissez la catégorie et la marque de votre véhicule"/>
   <PathComponent path="Voitures particulières"/>
-  <SearchBar />
+  <!-- <SearchBar /> -->
   <div class="marque">
   <div class="sous-marque">
   <CardMarque />
@@ -23,6 +24,7 @@ import SearchBar from './components/SearchBar.vue'
   <CardMarque />
     </div>
   </div>
+  <DetailCar />
   </body>
 </template>
 
@@ -36,6 +38,7 @@ body {
   margin-top:1%;
  display: flex;
   justify-content: space-evenly;
+  display:none;
 }
 .sous-marque{
     width: 80%;
