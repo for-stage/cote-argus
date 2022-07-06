@@ -35,5 +35,25 @@ ul{
     padding: 2% 0;
     color: #717171;
 }
+.choice{
+    margin-left:-1%;
+}
+.sous-model {
+    width: 101% ;
+}
+
+@media( max-width: 768px){
+    ul{
+        width: 80%;
+    }  
+}
+@media( max-width: 480px){
+    ul{
+        width: 100%;
+    }
+    .search{
+    width: 80%;
+    }
+}
 
 </style>

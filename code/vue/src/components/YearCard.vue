@@ -32,4 +32,12 @@ background: #e8e8e8;
     color:white;
 }
 
+@media( max-width: 480px){
+
+p{
+    font-size:10px;
+}
+
+}
+
 </style>

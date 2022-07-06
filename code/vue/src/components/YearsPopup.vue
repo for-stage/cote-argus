@@ -39,9 +39,9 @@ import YearCard from './YearCard.vue'
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    width: 80%;
-    padding-left: 22%;
+    width: 100%;
     color:#717171;
+    text-align: center;
 }
 .popup-years{
     border: solid 2px #6C6C6C;
@@ -69,6 +69,27 @@ import YearCard from './YearCard.vue'
 .title{
     height: 50px;
     border-bottom: solid 1px #bfbfbf;
+    width:100%;
+}
+
+
+@media( max-width: 768px){
+.popup-years{
+    left: 15%;
+    width: 66%;
+}
+
+}
+@media( max-width: 480px){
+.popup-years{
+    left: 7%;
+    width: 80%;
+}
+
+h3{
+    font-size:15px;
+}
+
 }
 
 </style>
