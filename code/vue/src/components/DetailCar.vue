@@ -1,8 +1,9 @@
 <script setup>
 
 import NumPorte from './NumPorte.vue'
-import DatePage from './DatePage.vue'
+import DateComponent from './DateComponent.vue'
 import YearsPopup from './YearsPopup.vue'
+import DateChoice from './DateChoice.vue'
 
 </script>
 
@@ -10,10 +11,11 @@ import YearsPopup from './YearsPopup.vue'
 <div class="details">
     <div class="padd-details">
       <NumPorte />
-      <DatePage />
+      <DateComponent />
       <div class="back-pop">
-      <YearsPopup />
+      <YearsPopup />   
       </div>
+      <DateChoice />
     </div>
 
 
