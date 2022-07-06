@@ -19,7 +19,7 @@ import Model from './components/Model.vue';
     <!-- <SearchBar /> -->
     <div class="marque">
       <div class="sous-marque">
-        <CardMarque />
+        <CardMarque /> 
         <CardMarque />
         <CardMarque />
         <CardMarque />
