@@ -49,7 +49,7 @@ import Model from './components/Model.vue';
 body {
   margin: 0;
   font-family: Roboto, Arial, Helvetica, sans-serif;
-  padding-bottom: 1%;
+  padding-bottom: 2%;
 }
 
 .marque {

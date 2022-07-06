@@ -5,6 +5,7 @@ import DateComponent from './DateComponent.vue'
 import YearsPopup from './YearsPopup.vue'
 import DateChoice from './DateChoice.vue'
 import CarburantChoice from './CarburantChoice.vue'
+import KilometrageComponent from './KilometrageComponent.vue'
 
 </script>
 
@@ -18,6 +19,7 @@ import CarburantChoice from './CarburantChoice.vue'
       </div>
       <DateChoice />
       <CarburantChoice />
+      <KilometrageComponent />
     </div>
 
 
