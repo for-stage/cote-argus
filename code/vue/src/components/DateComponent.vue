@@ -26,7 +26,7 @@ import LittleCard from './LittleCard.vue'
 
 <style  scoped>
 .date-circulation{
-    margin-top:3%;
+    margin-top:5%;
 }
 .choice{
     width: 100%;

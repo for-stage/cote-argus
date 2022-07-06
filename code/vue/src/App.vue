@@ -17,7 +17,7 @@ import Model from './components/Model.vue';
     <HeaderComponent title="Choisissez la catégorie et la marque de votre véhicule" />
     <PathComponent path="Voitures particulières" />
     <!-- <SearchBar /> -->
-    <div class="marque">
+    <!-- <div class="marque">
       <div class="sous-marque">
         <CardMarque /> 
         <CardMarque />
@@ -36,7 +36,7 @@ import Model from './components/Model.vue';
         <Model />
         <Model />
       </div>
-    </div>
+    </div> -->
     <DetailCar />
 
 
@@ -49,7 +49,7 @@ import Model from './components/Model.vue';
 body {
   margin: 0;
   font-family: Roboto, Arial, Helvetica, sans-serif;
-  padding-bottom: 1%;
+  padding-bottom: 2%;
 }
 
 .marque {
