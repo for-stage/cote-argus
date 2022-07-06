@@ -1,5 +1,6 @@
 <script setup>
 
+
 defineProps({
     title: String,
     image: String
@@ -16,6 +17,7 @@ defineProps({
             <h2>renault</h2>
         </div>
     </div>
+
 
 </template>
 
@@ -70,5 +72,21 @@ defineProps({
     justify-content: center;
     align-items: center;
     border-radius: 0 0 2px 2px;
+}
+@media (max-width: 768px) { /*breakpoint*/
+ .card{
+        width: 30%;
+ }
+}
+@media (max-width: 450px) and (min-width:768px) { /*breakpoint*/
+ .card{
+        width: 60%;
+ }
+}
+@media (max-width: 450px) { /*breakpoint*/
+    .card{
+            width: 100%;
+    }
+ 
 }
 </style>
