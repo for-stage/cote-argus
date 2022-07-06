@@ -1,15 +1,19 @@
 <script setup>
 
-// defineProps({
-//   path: String
-// })
+import Model from './Model.vue';
 
 </script>
 
 <template>
 <div class="nbr-porte">
     <div class="header"><h3>Carrosserie et nombre de portes*</h3></div>
-    <div class="choice"></div>
+    <div class="choice">
+    <div class="sous-model">
+    <Model/>
+    <Model/>
+    <Model/>
+    </div>
+    </div>
     <div class="info">
         <ul>
             <li>*3 portes : 2 portes + coffre avec un hayon (porte + vitre)</li>

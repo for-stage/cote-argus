@@ -1,6 +1,6 @@
 <template>
 <div class="model">
-    <h2 class="title">Fiesta</h2>
+    <h3 class="title">Fiesta</h3>
 </div>
 
   
@@ -18,13 +18,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped >
 .model{
-    width: 300px;
+    width: 90%;
     height: 70px;
     background-color: #EEEEEE;
     border-radius: 10px;
     border : solid 2px #909090;
     display: flex;
-        align-items: center;
+    align-items: center;
     justify-content: center;
     cursor:pointer;
 
@@ -49,11 +49,9 @@ export default {
 }
 
 .title{
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 500;
     color: #717171;
-
-
 }
 
 </style>

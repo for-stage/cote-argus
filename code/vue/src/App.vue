@@ -15,7 +15,7 @@ import Model from './components/Model.vue';
   <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
   <HeaderComponent title="Choisissez la catégorie et la marque de votre véhicule"/>
   <PathComponent path="Voitures particulières"/>
-  <!-- <SearchBar /> -->
+  <SearchBar />
   <div class="marque">
   <div class="sous-marque">
   <CardMarque  />
@@ -66,13 +66,13 @@ body {
 }
 
 @media (max-width: 768px) { /*breakpoint*/
-  /* .sous-model {
+  .sous-model {
     grid-template-columns: 1fr 1fr;
-  } */
+  }
 }
 @media (max-width: 450px) { /*breakpoint*/
-  /* .sous-model {
+  .sous-model {
     grid-template-columns: 1fr;
-  } */
+  }
 }
 </style>
