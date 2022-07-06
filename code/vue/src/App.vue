@@ -7,7 +7,6 @@ import SearchBar from './components/SearchBar.vue'
 import DetailCar from './components/DetailCar.vue'
 import Model from './components/Model.vue';
  
-
 </script>
 
 <template>
@@ -71,10 +70,21 @@ body {
 
 }
 
-@media (max-width: 768px) { /*breakpoint*/
+@media (max-width: 768px) { 
+
  
 }
-@media (max-width: 450px) { /*breakpoint*/
+@media (max-width: 450px) { 
   
+
+  .sous-model {
+    grid-template-columns: 1fr 1fr;
+  } 
+}
+@media (max-width: 450px) {
+   .sous-model {
+    grid-template-columns: 1fr;
+  } 
+
 }
 </style>
