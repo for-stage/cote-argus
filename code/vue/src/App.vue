@@ -31,17 +31,17 @@ import Model from './components/Model.vue';
   </div>
   <DetailCar />
   <div class="sous-model">
-    <!-- <Model/>
     <Model/>
     <Model/>
     <Model/>
-    <Model/>  -->
+    <Model/>
+    <Model/> 
   </div>
 
   </body>
 </template>
 
-<style>
+<style >
 body {
   margin: 0;
   font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -50,6 +50,11 @@ body {
 .marque{
   margin-top:1%;
  display: flex;
+  justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.sous-marque{
+  display: flex;
   justify-content: space-evenly;
     width: 80%;
     flex-wrap: wrap;
