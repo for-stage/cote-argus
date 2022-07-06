@@ -24,7 +24,7 @@ import YearsPopup from './YearsPopup.vue'
 .details{
     width:100%;
     display:flex;
-        justify-content: center;
+    justify-content: center;
 }
 .padd-details{
     width:80%;

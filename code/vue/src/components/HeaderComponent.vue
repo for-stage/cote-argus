@@ -29,4 +29,16 @@ defineProps({
 h2{
     font-weight: 600;
 }
+
+@media( max-width: 768px){
+    h2{
+    font-size: 20px;
+    }
+}
+@media( max-width: 480px){
+    h2{
+    font-size: 15px;
+    }
+}
+
 </style>

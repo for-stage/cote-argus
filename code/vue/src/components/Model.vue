@@ -18,7 +18,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped >
 .model{
-    width: 90%;
+    width: 30%;
     height: 70px;
     background-color: #EEEEEE;
     border-radius: 10px;
