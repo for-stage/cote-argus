@@ -4,6 +4,7 @@ import NumPorte from './NumPorte.vue'
 import DateComponent from './DateComponent.vue'
 import YearsPopup from './YearsPopup.vue'
 import DateChoice from './DateChoice.vue'
+import CarburantChoice from './CarburantChoice.vue'
 
 </script>
 
@@ -16,6 +17,7 @@ import DateChoice from './DateChoice.vue'
       <YearsPopup />   
       </div>
       <DateChoice />
+      <CarburantChoice />
     </div>
 
 
