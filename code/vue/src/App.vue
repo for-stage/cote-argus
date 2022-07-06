@@ -6,6 +6,7 @@ import CardMarque from './components/CardMarque.vue'
 import SearchBar from './components/SearchBar.vue'
 import DetailCar from './components/DetailCar.vue'
 import Model from './components/Model.vue';
+import UploadPics from './components/UploadPics.vue';
 
 </script>
 
@@ -38,6 +39,7 @@ import Model from './components/Model.vue';
       </div>
     </div> -->
     <DetailCar />
+    <UploadPics />
 
 
   </body>
