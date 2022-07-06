@@ -75,14 +75,10 @@ defineProps({
 }
 @media (max-width: 768px) { /*breakpoint*/
  .card{
-        width: 30%;
+        width: 47%;
  }
 }
-@media (max-width: 450px) and (min-width:768px) { /*breakpoint*/
- .card{
-        width: 60%;
- }
-}
+
 @media (max-width: 450px) { /*breakpoint*/
     .card{
             width: 100%;
