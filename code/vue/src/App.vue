@@ -5,6 +5,9 @@ import PathComponent from './components/PathComponent.vue'
 import CardMarque from './components/CardMarque.vue'
 import SearchBar from './components/SearchBar.vue'
 import DetailCar from './components/DetailCar.vue'
+import Model from './components/Model.vue';
+ 
+
 </script>
 
 <template>
@@ -16,6 +19,8 @@ import DetailCar from './components/DetailCar.vue'
   <!-- <SearchBar /> -->
   <div class="marque">
   <div class="sous-marque">
+  <CardMarque  />
+  <CardMarque />
   <CardMarque />
   <CardMarque />
   <CardMarque />
@@ -25,6 +30,14 @@ import DetailCar from './components/DetailCar.vue'
     </div>
   </div>
   <DetailCar />
+  <div class="sous-model">
+    <!-- <Model/>
+    <Model/>
+    <Model/>
+    <Model/>
+    <Model/>  -->
+  </div>
+
   </body>
 </template>
 
@@ -38,13 +51,24 @@ body {
   margin-top:1%;
  display: flex;
   justify-content: space-evenly;
-  display:none;
-}
-.sous-marque{
     width: 80%;
-    display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    align-items: baseline;
+}
+.sous-model{
+      display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) { /*breakpoint*/
+  .sous-model {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 450px) { /*breakpoint*/
+  .sous-model {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
