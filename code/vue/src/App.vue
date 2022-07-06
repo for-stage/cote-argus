@@ -7,7 +7,6 @@ import SearchBar from './components/SearchBar.vue'
 import DetailCar from './components/DetailCar.vue'
 import Model from './components/Model.vue';
  
-
 </script>
 
 <template>
@@ -29,14 +28,14 @@ import Model from './components/Model.vue';
   <CardMarque />
     </div>
   </div>
-  <DetailCar />
-  <div class="sous-model">
+  <!-- <DetailCar /> -->
+  <!-- <div class="sous-model"> -->
     <!-- <Model/>
     <Model/>
     <Model/>
     <Model/>
     <Model/>  -->
-  </div>
+  <!-- </div> -->
 
   </body>
 </template>
@@ -62,13 +61,13 @@ body {
 }
 
 @media (max-width: 768px) { /*breakpoint*/
-  .sous-model {
+  /* .sous-model {
     grid-template-columns: 1fr 1fr;
-  }
+  } */
 }
 @media (max-width: 450px) { /*breakpoint*/
-  .sous-model {
+  /* .sous-model {
     grid-template-columns: 1fr;
-  }
+  } */
 }
 </style>
