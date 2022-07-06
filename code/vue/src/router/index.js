@@ -7,7 +7,6 @@ const routes = [
     {
         path: '/',
         name: 'app',
-        component: () => import('../App.vue'),
 
     },
     {

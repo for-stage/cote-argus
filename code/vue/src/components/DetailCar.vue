@@ -2,6 +2,7 @@
 
 import NumPorte from './NumPorte.vue'
 import DatePage from './DatePage.vue'
+import YearsPopup from './YearsPopup.vue'
 
 </script>
 
@@ -10,7 +11,11 @@ import DatePage from './DatePage.vue'
     <div class="padd-details">
       <NumPorte />
       <DatePage />
+      <div class="back-pop">
+      <YearsPopup />
+      </div>
     </div>
+
 
 </div>
 </template>
@@ -23,6 +28,15 @@ import DatePage from './DatePage.vue'
 }
 .padd-details{
     width:80%;
+}
+.back-pop{
+    display:none;
+    background: rgb(0 0 0 / 40%);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 
