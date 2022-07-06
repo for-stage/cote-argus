@@ -28,15 +28,17 @@ import Model from './components/Model.vue';
   <CardMarque />
   <CardMarque />
     </div>
-  </div>
-  <DetailCar />
-  <div class="sous-model">
+  
+    <div class="sous-model">
     <Model/>
     <Model/>
     <Model/>
     <Model/>
     <Model/> 
   </div>
+  </div>
+  <DetailCar />
+
 
   </body>
 </template>
@@ -60,20 +62,19 @@ body {
     flex-wrap: wrap;
 }
 .sous-model{
-      display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
     justify-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    width: 80%;
+
 }
 
 @media (max-width: 768px) { /*breakpoint*/
-  .sous-model {
-    grid-template-columns: 1fr 1fr;
-  }
+ 
 }
 @media (max-width: 450px) { /*breakpoint*/
-  .sous-model {
-    grid-template-columns: 1fr;
-  }
+  
 }
 </style>

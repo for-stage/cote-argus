@@ -27,6 +27,7 @@ export default {
         align-items: center;
     justify-content: center;
     cursor:pointer;
+    margin-bottom: 15px;
 
 }
 .model:hover{
@@ -55,5 +56,21 @@ export default {
 
 
 }
+
+@media( max-width: 768px){
+    .model{
+        width: 48%;
+     
+    }  
+}
+@media( max-width: 480px){
+    .model{
+        width: 80%;
+       
+    }
+
+    
+}
+
 
 </style>
