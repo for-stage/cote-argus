@@ -1,11 +1,11 @@
 <script setup>
 
-import HeaderComponent from './components/HeaderComponent.vue'
-import PathComponent from './components/PathComponent.vue'
-import CardMarque from './components/CardMarque.vue'
-import SearchBar from './components/SearchBar.vue'
-import DetailCar from './components/DetailCar.vue'
-import Model from './components/Model.vue';
+// import HeaderComponent from './components/HeaderComponent.vue'
+// import PathComponent from './components/PathComponent.vue'
+// import CardMarque from './components/CardMarque.vue'
+// import SearchBar from './components/SearchBar.vue'
+// import DetailCar from './components/DetailCar.vue'
+// import Model from './components/Model.vue';
 
 </script>
 
@@ -14,10 +14,10 @@ import Model from './components/Model.vue';
   <body>
     <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
     <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
-    <HeaderComponent title="Choisissez la catégorie et la marque de votre véhicule" />
+    <!-- <HeaderComponent title="Choisissez la catégorie et la marque de votre véhicule" />
     <PathComponent path="Voitures particulières" />
-    <!-- <SearchBar /> -->
-    <!-- <div class="marque">
+    <SearchBar />
+    <div class="marque">
       <div class="sous-marque">
         <CardMarque /> 
         <CardMarque />
@@ -36,8 +36,8 @@ import Model from './components/Model.vue';
         <Model />
         <Model />
       </div>
-    </div> -->
-    <DetailCar />
+    </div>
+    <DetailCar /> -->
 
 
 

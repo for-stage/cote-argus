@@ -1,12 +1,18 @@
-<script setup>
+<script >
 
+export default {
+    name: 'DetailCar',
+    props: {
+        year: String
+    }
+}
 
 </script>
 
 <template>
 
 <div class="year">
-    <p>2022</p>
+    <p>{{year}}</p>
 </div>
 
 </template>

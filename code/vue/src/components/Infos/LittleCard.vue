@@ -1,16 +1,17 @@
-<script setup>
-
-
-</script>
-
 <template>
-
 <div class="card">
-    <p>Janvier</p>
+    <p>{{month}}</p>
 </div>
-
 </template>
-
+<script >
+export default {
+    name: 'MonthCard',
+  
+    props: {
+        month: String
+    },
+}
+</script>
 <style  scoped>
 
 .card{
@@ -24,7 +25,6 @@
     color:#717171;
     margin-top: 2%;
     background:#EEE;
-    box-shadow: 0px 0px 10px;
     cursor:pointer;
 }
 .card:hover{
