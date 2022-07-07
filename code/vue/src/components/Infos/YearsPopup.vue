@@ -1,6 +1,6 @@
-<!-- v-if="showPopup" -->
+
 <template>
-<div class="back-pop"  >
+<div class="back-pop"   v-if="showPopup">
 <div class="popup-years"  ref="popup" :style="top">
     <div class="header">
         <div class="title">

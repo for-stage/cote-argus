@@ -2,7 +2,7 @@
 
 <template>
  <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
-        <PathComponent path="Voitures particulières" />
+<PathComponent path="Voitures particulières" />
 
 <div class="details">
     <div class="padd-details">
@@ -11,7 +11,7 @@
       <div class="back-pop">
       <YearsPopup />   
       </div>
-      <h1>{{date.month}} hhhhhhh</h1>
+      <h1>{{date.month}}</h1>
       <DateChoice :month="date.month" :year="date.year" />
       <CarburantChoice />
       <KilometrageComponent />
@@ -63,7 +63,7 @@ export default {
 
 </script>
 
-<template>
+<!-- <template>
  <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
         <PathComponent path="Voitures particulières" />
 
@@ -82,7 +82,7 @@ export default {
 
 
 </div>
-</template>
+</template> -->
 
 <style  scoped>
 .details{
