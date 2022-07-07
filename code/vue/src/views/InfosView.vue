@@ -1,3 +1,26 @@
+
+
+<template>
+ <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
+        <PathComponent path="Voitures particulières" />
+
+<div class="details">
+    <div class="padd-details">
+      <NumPorte />
+      <DateComponent  />
+      <div class="back-pop">
+      <YearsPopup />   
+      </div>
+      <h1>{{date.month}} hhhhhhh</h1>
+      <DateChoice :month="date.month" :year="date.year" />
+      <CarburantChoice />
+      <KilometrageComponent />
+      <Years/>
+    </div>
+
+
+</div>
+</template>
 <script >
 import HeaderComponent from '../components/ModelComponent/HeaderModel.vue'
 import PathComponent from '../components/Marque/PathComponent.vue'
@@ -26,32 +49,18 @@ export default {
     },
     props: {
         msg: String
+    },
+    data(){
+        return {
+            date:{
+                month: '',
+                year: ''
+            }
+        }
     }
 }
 
 </script>
-
-<template>
- <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
-        <PathComponent path="Voitures particulières" />
-
-<div class="details">
-    <div class="padd-details">
-      <NumPorte />
-      <DateComponent />
-      <div class="back-pop">
-      <YearsPopup />   
-      </div>
-      <DateChoice />
-      <CarburantChoice />
-      <KilometrageComponent />
-      <Years/>
-    </div>
-
-
-</div>
-</template>
-
 <style  scoped>
 .details{
     width:100%;
