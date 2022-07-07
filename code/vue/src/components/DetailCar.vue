@@ -36,7 +36,7 @@ import KilometrageComponent from './KilometrageComponent.vue'
     width:80%;
 }
 .back-pop{
-    display:none;
+    /* display:none; */
     background: rgb(0 0 0 / 40%);
     width: 100%;
     position: absolute;
