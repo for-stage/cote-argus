@@ -8,6 +8,7 @@ import DateChoice from '../components/Infos/DateChoice.vue'
 import CarburantChoice from '../components/Infos/CarburantChoice.vue'
 import KilometrageComponent from '../components/Infos/KilometrageComponent.vue'
 import Model from '../components/ModelComponent/Model.vue'
+import Years from '../components/Infos/YearsPopup.vue'
 
 export default {
     name: 'DetailCar',
@@ -20,7 +21,8 @@ export default {
         DateChoice,
         CarburantChoice,
         KilometrageComponent,   
-        Model   
+        Model,
+        Years
     },
     props: {
         msg: String
@@ -32,7 +34,7 @@ export default {
 <template>
  <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
         <PathComponent path="Voitures particulières" />
-        
+
 <div class="details">
     <div class="padd-details">
       <NumPorte />
@@ -43,6 +45,7 @@ export default {
       <DateChoice />
       <CarburantChoice />
       <KilometrageComponent />
+      <Years/>
     </div>
 
 
