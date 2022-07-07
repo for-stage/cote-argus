@@ -10,11 +10,11 @@
 </script>
 
 <template>
-
+<!-- 
   <body>
-    <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-    <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
-    <!-- <HeaderComponent title="Choisissez la catégorie et la marque de votre véhicule" />
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Hello Vue 3 + Vite" />
+     <HeaderComponent title="Choisissez la catégorie et la marque de votre véhicule" />
     <PathComponent path="Voitures particulières" />
     <SearchBar />
     <div class="marque">
@@ -37,11 +37,11 @@
         <Model />
       </div>
     </div>
-    <DetailCar /> -->
+    <DetailCar /> 
 
 
 
-  </body>
+  </body> -->
 
   <router-view />
 </template>

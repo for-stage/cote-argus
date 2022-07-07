@@ -27,6 +27,9 @@ defineProps({
     color: white;
     justify-content: center;
 }
+.title{
+    text-align: center;
+}
 h2{
     font-weight: 600;
 }
