@@ -1,18 +1,22 @@
-<script setup>
-
-import Model from './Model.vue';
+<script >
+import Model from '../ModelComponent/Model.vue'
+export default {
+    name: 'NumeroPort',
+    components: {
+        Model
+          
+    },
+    props: {
+        msg: String
+    }
+}
 
 </script>
-
 <template>
 <div class="nbr-porte">
     <div class="header"><h3>Carrosserie et nombre de portes*</h3></div>
     <div class="choice">
-    <div class="sous-model">
-    <Model/>
-    <Model/>
-    <Model/>
-    </div>
+    <Model/> <Model/> <Model/>
     </div>
     <div class="info">
         <ul>
@@ -36,7 +40,8 @@ ul{
     color: #717171;
 }
 .choice{
-    margin-left:-1%;
+   display: flex;
+   justify-content: space-around;
 }
 .sous-model {
     width: 101% ;

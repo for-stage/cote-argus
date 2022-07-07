@@ -11,7 +11,7 @@ defineProps({
 <template>
     <div class="card">
         <div class="card-img">
-            <img src="../assets/volkswagen.png" alt="hhhhh">
+            <img src="../../assets/volkswagen.png" alt="hhhhh">
         </div>
         <div class="card-title">
             <h2>renault</h2>
