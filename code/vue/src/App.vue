@@ -38,12 +38,14 @@
       </div>
     </div>
     <DetailCar /> 
+   
 
 
 
   </body> -->
-
   <router-view />
+
+
 </template>
 
 <style >

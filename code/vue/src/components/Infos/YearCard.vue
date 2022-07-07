@@ -3,7 +3,20 @@
 export default {
     name: 'DetailCar',
     props: {
-        year: String
+        year: String,
+        value:""
+    },
+    data(){
+        return{
+            data : "",
+        };
+    },
+    methods: {
+        value(event) {
+            let targetId = event.currentTarget.id;
+            this.data = targetId;
+            this.$emit('clicked', 'someValue')
+        },
     }
 }
 
@@ -11,8 +24,8 @@ export default {
 
 <template>
 
-<div class="year">
-    <p>{{year}}</p>
+<div :id="200" class="year" v-on:click="value($event)">
+    <p>2000</p>
 </div>
 
 </template>

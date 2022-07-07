@@ -8,7 +8,8 @@ import DateChoice from '../components/Infos/DateChoice.vue'
 import CarburantChoice from '../components/Infos/CarburantChoice.vue'
 import KilometrageComponent from '../components/Infos/KilometrageComponent.vue'
 import Model from '../components/ModelComponent/Model.vue'
-import Years from '../components/Infos/YearsPopup.vue'
+
+
 
 export default {
     name: 'DetailCar',
@@ -22,7 +23,7 @@ export default {
         CarburantChoice,
         KilometrageComponent,   
         Model,
-        Years
+  
     },
     props: {
         msg: String
@@ -39,13 +40,13 @@ export default {
     <div class="padd-details">
       <NumPorte />
       <DateComponent />
-      <div class="back-pop">
+
       <YearsPopup />   
-      </div>
+
       <DateChoice />
       <CarburantChoice />
       <KilometrageComponent />
-      <Years/>
+
     </div>
 
 
@@ -61,15 +62,7 @@ export default {
 .padd-details{
     width:80%;
 }
-.back-pop{
-    display:none;
-    background: rgb(0 0 0 / 40%);
-    width: 100%;
-    position: absolute;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
+
 
 
 </style>

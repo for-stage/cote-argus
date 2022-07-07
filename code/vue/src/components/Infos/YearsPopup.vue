@@ -1,22 +1,24 @@
-
+<!-- v-if="showPopup" -->
 <template>
-<div class="popup-years"  v-if="showPopup">
+<div class="back-pop"  >
+<div class="popup-years"  ref="popup" :style="top">
     <div class="header">
         <div class="title">
-        <h3>Année de mise en circulation*</h3>
+        <h3>Année de mise en circulation* {{ value }}</h3>
         </div>
         <div class="out">
-            <a><img src="../../assets/out.png"></a>
+            <a @click="getData"><img src="../../assets/out.png"></a>
         </div>
     </div>
     <div class="years" @click="showPopup=!showPopup"   >
-        <YearCard v-for="(data,index) in Years" :key="index"  :year="data"  />
+        <YearCard v-for="(data,index) in Years" :key="index"  :year="data" @name="getYear"/>
        
     </div>
 </div>
+</div>
 </template>
 
-<script >
+<script>
 
 import YearCard from './YearCard.vue'
 
@@ -24,17 +26,41 @@ export default {
     name: 'YearsPopup',
     components: {
            YearCard
-             
     },
+
     props: {
-        msg: String
+        msg: String,
+        // value:String
     },
-     data() {
-        return {
-           Years : [2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003],
+
+    data() {
+         return {
+           Years : [2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007],
             showPopup: true,
+            top: 0,
+            value: ""
         }
     },
+
+    mounted() {
+        let height=this.$refs.popup.clientHeight;
+            this.top = height - 40;
+            console.log(this.top);
+            console.log(height);
+    },
+
+    computed: {
+        top () {
+            return {
+                top: `${this.top}px`,
+            }
+        }
+    },
+    method:{
+        getYear(value){
+          this.value = value
+        }
+    }
 }
 </script>
 
@@ -53,7 +79,7 @@ export default {
     background: white;
     border-radius: 8px;
     padding: 0% 2% 2%;
-    top: 40%;
+    top: 160px;
     left: 30%;
     width: 35%;
 }
@@ -75,7 +101,15 @@ export default {
     border-bottom: solid 1px #bfbfbf;
     width:100%;
 }
-
+.back-pop{
+    /* display:none; */
+    background: rgb(0 0 0 / 40%);
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
 
 @media( max-width: 768px){
 .popup-years{

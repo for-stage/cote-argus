@@ -1,6 +1,6 @@
 <template>
-<div class="model">
-    <h3 class="title">Fiesta</h3>
+<div class="model" :class="{ checkeddiv: checked }" v-on:click="checked = !checked">
+    <h3 class="title" :class="{ checkedtitle: checked }">Fiesta</h3>
 </div>
 
   
@@ -11,7 +11,12 @@ export default {
   name: 'Model',
   props: {
     msg: String
-  }
+  },
+  data(){
+    return{
+        checked :false,
+    };
+  },
 }
 </script>
 
@@ -30,6 +35,11 @@ export default {
     margin-bottom: 15px;
 
 }
+.title{
+    font-size: 25px;
+    font-weight: 500;
+    color: #717171;
+}
 .model:hover{
     background-color: #E5004E;
     transition: 1s;
@@ -37,8 +47,15 @@ export default {
 }
 .model:hover .title{
     color: white;
+}
 
-   
+.checkeddiv{
+    background-color: #E5004E;
+    transition: 1s;
+    border: solid 2px #E5004E;
+}
+.checkedtitle{
+    color: white;
 }
 
 .btn:focus {
@@ -47,12 +64,6 @@ export default {
 
 .btn:active {
   transform: scale(0.98);
-}
-
-.title{
-    font-size: 25px;
-    font-weight: 500;
-    color: #717171;
 }
 
 @media( max-width: 768px){
