@@ -4,10 +4,10 @@
 <div class="popup-years"  ref="popup" :style="top">
     <div class="header">
         <div class="title">
-        <h3>Année de mise en circulation* {{ value }}</h3>
+        <h3>Année de mise en circulation*</h3>
         </div>
         <div class="out">
-            <a @click="getData"><img src="../../assets/out.png"></a>
+            <a v-on:click="showPopup = !showPopup"><img src="../../assets/out.png"></a>
         </div>
     </div>
     <div class="years" @click="showPopup=!showPopup"   >
