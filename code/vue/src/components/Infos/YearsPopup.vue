@@ -1,6 +1,6 @@
 
 <template>
-<div class="back-pop"  v-if="showPopup">
+<div class="back-pop">
 <div class="popup-years"  ref="popup" :style="top">
     <div class="header">
         <div class="title">
@@ -10,7 +10,7 @@
             <a v-on:click="showPopup = !showPopup"><img src="../../assets/out.png"></a>
         </div>
     </div>
-    <div class="years" @click="showPopup=!showPopup"   >
+    <div class="years" >
    
             <div v-for="(year,index) in Years" :key="index"   class="year" @click="showDetailYear(year)">
                 <p>{{year}}</p>

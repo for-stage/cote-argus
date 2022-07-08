@@ -14,7 +14,6 @@
                 <div class="card">
                     <p class="title"> {{ year }}</p>
                 </div>
-
             </div>
         </div>
     </div>
