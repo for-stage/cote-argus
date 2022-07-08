@@ -105,14 +105,6 @@ export default {
     transform: scale(0.98);
 }
 
-@media(max-width: 768px) {
-    .model {
-        width: 48%;
-
-    }
-}
-
-
 ul {
     list-style: none;
     border-top: solid 1px #A7A7A7;
@@ -124,7 +116,7 @@ ul {
 }
 
 .choice {
-       width: 33%;
+    width: 33%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -150,17 +142,13 @@ ul {
     .search {
         width: 80%;
     }
-}
-@media(max-width: 480px) {
     .model {
-        width: 80%;
+        width: 100%;
 
     }
     .choice{
         width: 80%;
     }
-
-
 }
 
 </style>

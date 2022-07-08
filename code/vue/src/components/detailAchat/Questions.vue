@@ -145,4 +145,14 @@ export default {
     font-weight: bold;
     color: #8C8C8C;
 }
+
+@media(max-width: 768px) {
+  
+}
+
+@media(max-width: 480px) {
+    .choix {
+        flex-direction: column;
+    }
+}
 </style>

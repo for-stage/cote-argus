@@ -97,4 +97,13 @@ export default {
     border: solid 2px #E5004F;
     transition: 1s;
 }
+@media(max-width: 768px) {
+  
+}
+
+@media(max-width: 480px) {
+   .card {
+    width: 48%;
+}
+}
 </style>
