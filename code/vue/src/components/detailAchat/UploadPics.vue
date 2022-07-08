@@ -1,4 +1,19 @@
-<script setup>
+<script >
+export default{
+
+data() {
+        return {
+           images : null,
+        }
+    },
+    methods: {
+      uploadFile() {
+        this.images = this.$refs.file.files;
+        console.log(this.images)
+      },
+    }
+
+}
 
 
 </script>
@@ -11,21 +26,19 @@
         <h3>Téléchargez des images de véhicules</h3>
         </div>
         <div class="input">
-            <p>Faites Glisser ou <a>Téléchargez</a> des images de véhicules</p>
+            <p>Faites Glisser ou <a v-on:click="hi">Téléchargez</a> des images de véhicules</p>
+            <input type="file" @change="uploadFile" ref="file" multiple />
         </div>
     </div>
         
     <div class="pictures-uploaded">
-        <div class="picture-uploaded">
-            <img class="picture" src="../../assets/car1.jpg">
+        <div class="picture-uploaded" v-for="image in images" :key="image.name">
+            <img class="picture" :src="'../../src/assets/'+image.name">
             <a href="#"><img class="delete" src="../../assets/delete.png"></a>
         </div>
-        <div class="picture-uploaded">
-            <img class="picture" src="../../assets/car2.jpg">
-            <a href="#"><img class="delete" src="../../assets/delete.png"></a>
-        </div>
-    </div>
 </div>
+
+    </div>
 
 </template>
 

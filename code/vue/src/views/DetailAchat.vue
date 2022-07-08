@@ -9,6 +9,13 @@
     <img src="../assets/Vector.png" alt="">
     <img src="../assets/retour.png" alt="">
     <div>Retour</div>
+     <!-- <div v-if="filenames.length" >
+                <ul> 
+                    <li v-for= '(filename,index) in filenames' > 
+                        {{ filename }} 
+                    </li> 
+                </ul>
+            </div>  -->
    </div>
    </div>
    
@@ -26,16 +33,28 @@ import UploadPics from '../components/detailAchat/UploadPics.vue';
 
 
 
+
 export default {
     name: 'DetailAchat',
     components: {
         Infos, 
          Questions,         
          Sms,
-         UploadPics
+         UploadPics ,
     },
+
     props: {
         msg: String
+    },
+    data: () => ({images: null}),
+    methods: {
+      uploadFile() {
+        this.images = this.$refs.file.files[0];
+        console.log(this.images)
+      },
+      hi(){
+        alert('parent');
+    }
     }
 }
 </script>
