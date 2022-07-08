@@ -29,7 +29,6 @@ import YearsPopup from '../components/Infos/YearsPopup.vue'
 import DateChoice from '../components/Infos/DateChoice.vue'
 import CarburantChoice from '../components/Infos/CarburantChoice.vue'
 import KilometrageComponent from '../components/Infos/KilometrageComponent.vue'
-import Model from '../components/ModelComponent/Model.vue'
 
 
 
@@ -44,7 +43,6 @@ export default {
         DateChoice,
         CarburantChoice,
         KilometrageComponent,   
-        Model,
   
     },
     props: {
