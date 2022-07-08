@@ -7,9 +7,9 @@
             <h3>Indiquez le carburant*</h3>
         </div>
         <div class="div-choice">
-            <div class="choice">
-                <div v-for="(carbur, index) in carburant " :key="index" class="card">
-                    <p>{{ carbur }} </p>
+            <div class="choice" >
+                <div  v-for="(carbur, index) in carburant " :key="index" v-on:click="giveStyle(index)"  class="card"  :class="{ checkeddiv: selected == index }">
+                    <p :class="{ checkedtitle: selected == index }">{{ carbur }}  </p>
                 </div>
             </div>
         </div>
@@ -25,18 +25,30 @@ export default {
     },
     data() {
         return {
+            status: false,
             carburant: [
                 'Essence',
                 'Diesel',
                 'Hybride',
 
             ],
+            selected :null,
         }
     },
+     methods: {
+        giveStyle(i){
+        this.selected = i;
+        console.log("imin");
+        console.log(this.selected);
+    }
+  }
 
 }
 </script>
 <style  scoped>
+
+
+
 .date-choice {
     margin-top: 5%;
 }
@@ -78,5 +90,13 @@ export default {
     color: #ffffff;
     border: solid 2px #E5004F;
     transition: 1s;
+}
+.checkeddiv {
+    background-color: #E5004E;
+    transition: 1s;
+    border: solid 2px #E5004E;
+}
+.checkedtitle {
+    color: white;
 }
 </style>

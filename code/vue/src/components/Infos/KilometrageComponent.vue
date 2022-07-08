@@ -1,7 +1,4 @@
-<script setup>
 
-
-</script>
 
 <template>
 
@@ -12,8 +9,16 @@
         <input type="text" name="kilo" placeholder="kilométrage de votre véhicule ">
     </div>
     <div class="kilometrage-btn">
-        <button type="submit" name="valider">Valider</button>
+      <router-link to="/details">
+        <button  type="submit" name="valider">Valider</button>
+        </router-link>
     </div>
+
+
+    
+
+
+
     </form>
 </div>
 
@@ -57,6 +62,7 @@
     color:white;
     font-weight:bold;
     font-size:16px;
+    cursor:pointer;
 }
 
 </style>

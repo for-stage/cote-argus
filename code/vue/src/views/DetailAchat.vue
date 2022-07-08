@@ -3,19 +3,13 @@
    <div class="container">
    <div class="quest">
     <Questions/>
+      <UploadPics/>
     <Sms/>
-    <UploadPics/>
+  
      <div class="retour">
-    <img src="../assets/Vector.png" alt="">
-    <img src="../assets/retour.png" alt="">
+    <img src="../assets/return.png" alt="">
     <div>Retour</div>
-     <!-- <div v-if="filenames.length" >
-                <ul> 
-                    <li v-for= '(filename,index) in filenames' > 
-                        {{ filename }} 
-                    </li> 
-                </ul>
-            </div>  -->
+    
    </div>
    </div>
    
@@ -69,6 +63,32 @@ export default {
 .retour{
     margin-top: 30px;
     display: flex;
+    cursor: pointer;
 }
+.retour img{
+    border: solid 3px #E5004E;
+    padding: 8px;
+}
+.retour div{
+    border:  solid 3px #E5004E;
+    border-left: 0 ;
+    padding: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #E5004E;
+}
+.retour div{
+    display: none;
+}
+.retour:hover div{
+    display: block;
+    transition: 3s;
+}
+.retour:hover img{
+    transform: rotate(360deg);
+    transition: 1s;
+    border-right: 0ch;
+}
+
 
 </style>
