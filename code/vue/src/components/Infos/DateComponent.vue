@@ -32,8 +32,6 @@ export default {
              monthSelected: {},
            Months : ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
            selected : "",
-            show: false,
-            showpopup: true,
         }
     },
     methods: {
@@ -43,14 +41,16 @@ export default {
       this.monthSelected = Month;
       this.$emit('clicked-show-detail', Month);
       this.checked(Month);
-      this.changeShow();
     },
     changeShow(){
             this.show = true;
             this.showpopup = !this.showpopup;
+            let visibility = this.showpopup;
+            this.$emit('showpopup', visibility);
     },
     checked(mounth){
-    this.selected = mounth
+    this.selected = mounth;
+    this.changeShow();
   }
   },
   

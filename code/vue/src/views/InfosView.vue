@@ -7,9 +7,9 @@
 <div class="details">
     <div class="padd-details">
       <NumPorte />
-      <DateComponent  @clicked-show-detail="clickedShowDetailMonth"/>
+      <DateComponent  @clicked-show-detail="clickedShowDetailMonth" @showpopup="visibilty"/>
       <div class="back-pop">
-      <YearsPopup v-if="!showpopup" @click="showpopup=!showpopup"  @clicked-show-detail="clickedShowDetailYear"/>   
+      <YearsPopup v-if="showpopup" @clicked-show-detail="clickedShowDetailYear"/>   
       </div>
       <DateChoice v-if="show" :month=" monthSelected " :year="yearSelected" />
       <CarburantChoice />
@@ -57,7 +57,9 @@ export default {
             date:{
                 month: '',
                 year: ''
-            }
+            },
+            show: false,
+            showpopup: true,
         }
     },
     methods:{
@@ -67,9 +69,12 @@ export default {
         },
         clickedShowDetailYear(value){
             this.yearSelected = value;
-            console.log(this.yearSelected);
-        
+
         },
+        visibilty(value){
+            this.showpopup = value ;
+            console.log(this.showpopup)
+        }
         
     },
    
