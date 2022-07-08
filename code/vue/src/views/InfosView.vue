@@ -83,27 +83,6 @@ export default {
 
 </script>
 
-<!-- 
-    <template>
-    <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
-        <PathComponent path="Voitures particulières" />
-
-<div class="details">
-    <div class="padd-details">
-      <NumPorte />
-      <DateComponent />
-
-      <YearsPopup />   
-
-      <DateChoice />
-      <CarburantChoice />
-      <KilometrageComponent />
-
-    </div>
-
-
-</div>
-</template> -->
 
 <style  scoped>
 .details{
