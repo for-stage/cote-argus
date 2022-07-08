@@ -5,9 +5,9 @@
             <h3>Carrosserie et nombre de portes*</h3>
         </div>
         <div class="choices">
-        <div class="choice" v-for="(model,index) in models" :key="index" >
-            <div class="model"  :class="{ checkeddiv: checked }" v-on:click="checked = !checked">
-                <h3 :class="{ checkedtitle: checked }" class="title">Fiesta <br><span>{{model}} portes</span></h3>
+        <div class="choice" v-for="(model,index) in models" :key="index" v-on:click="giveStyle(index)" >
+            <div class="model"  :class="{ checkeddiv: selected == index }" >
+                <h3 :class="{ checkedtitle: selected == index }" class="title">Fiesta <br><span>{{model}} portes</span></h3>
             </div>
         </div>
      
@@ -37,9 +37,16 @@ export default {
         return {
             models: [
                 3, 4, 5
-            ]
+            ],
+            checked :false,
+            selected : null,
         }
     },
+    methods: {
+    giveStyle(i) {
+        this.selected = i;
+    }
+  }
 }
 
 </script>

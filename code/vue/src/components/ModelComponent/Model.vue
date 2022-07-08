@@ -1,5 +1,5 @@
 <template>
-<div class="model"  :class="{ checkeddiv: checked }"  v-on:click="checked = !checked">
+<div class="model"  :class="{ checkeddiv: checked }"  v-on:click="checked = !checked , giveStyle">
     <h3 :class="{ checkedtitle: checked }" class="title" >Fiesta</h3>
 </div>
 
