@@ -23,13 +23,8 @@
     </div>
 </template>
 <script >
-import Model from '../ModelComponent/Model.vue'
 export default {
     name: 'NumeroPort',
-    components: {
-        Model
-
-    },
     props: {
         msg: String
     },

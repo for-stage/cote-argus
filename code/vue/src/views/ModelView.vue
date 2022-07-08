@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
        <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
         <PathComponent path="Voitures particulières" />
          <SearchBar />
@@ -76,4 +76,4 @@ export default {
 
 }
 
-</style>
+</style> -->
