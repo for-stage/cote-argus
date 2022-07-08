@@ -4,7 +4,11 @@
 <div class="date-circulation">
     <div class="header"><h3>Mois de mise en circulation*</h3></div>
     <div class="choice">
-          <LittleCard  v-for="(Month,index) in Months" :key="index"  :month="Month"/>
+
+          <!-- <LittleCard  v-for="(Month,index) in Months" :key="index"  :month="Month"/> -->
+           <div class="card"  v-for="(Month,index) in Months" :key="index" @click="showDetailModal(Month)">
+        <p >{{Month}} </p>
+    </div>
          
     </div>
     <div class="info">
@@ -22,14 +26,22 @@ export default {
     components: {
               LittleCard    
     },
-    props: {
-        msg: String
-    },
+  
      data() {
         return {
+             monthSelected: {},
            Months : ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
         }
     },
+    methods: {
+    showDetailModal(Month){
+       console.log('click product in child, how can i pass this product to productSelected data in parent?');
+      console.log(Month);
+      this.monthSelected = Month;
+      this.$emit('clicked-show-detail', Month);
+    }
+  },
+
 }
 </script>
 <style  scoped>
@@ -48,5 +60,24 @@ export default {
     color: #848484;
     margin-top: 3%;
 }
+.card {
+    border: solid 2px #909090;
+    border-radius: 10px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #717171;
+    margin-top: 2%;
+    background: #EEE;
+    cursor: pointer;
+}
 
+.card:hover {
+    background: #e5004e;
+    color: #ffffff;
+    border: solid 2px #E5004F;
+    transition: 1s;
+}
 </style>

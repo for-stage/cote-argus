@@ -11,13 +11,7 @@ export default {
             data : "",
         };
     },
-    methods: {
-        value(event) {
-            let targetId = event.currentTarget.id;
-            this.data = targetId;
-            this.$emit('clicked', 'someValue')
-        },
-    }
+    
 }
 
 </script>

@@ -7,12 +7,11 @@
 <div class="details">
     <div class="padd-details">
       <NumPorte />
-      <DateComponent  />
+      <DateComponent  @clicked-show-detail="clickedShowDetailMonth" @click="changeShow" />
       <div class="back-pop">
-      <YearsPopup />   
+      <YearsPopup v-if="!showpopup" @click="showpopup=!showpopup"  @clicked-show-detail="clickedShowDetailYear"/>   
       </div>
-      <h1>{{date.month}} hhhhhhh</h1>
-      <DateChoice :month="date.month" :year="date.year" />
+      <DateChoice v-if="show" :month=" monthSelected " :year="yearSelected" />
       <CarburantChoice />
       <KilometrageComponent />
       <Years/>
@@ -53,16 +52,37 @@ export default {
     },
     data(){
         return {
+            show: false,
+            showpopup: true,
+            monthSelected: "",
+            yearSelected: "",
             date:{
                 month: '',
                 year: ''
             }
         }
-    }
+    },
+    methods:{
+        clickedShowDetailMonth(value){
+            this.monthSelected = value;
+            console.log(this.monthSelected);
+        },
+        clickedShowDetailYear(value){
+            this.yearSelected = value;
+            console.log(this.yearSelected);
+        
+        },
+        changeShow(){
+            this.show = true;
+            this.showpopup = !this.showpopup;
+            
+        }
+    },
+   
 }
 
 </script>
-
+<!-- 
 <template>
  <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
         <PathComponent path="Voitures particulières" />
@@ -82,7 +102,7 @@ export default {
 
 
 </div>
-</template>
+</template> -->
 
 <style  scoped>
 .details{

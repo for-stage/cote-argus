@@ -1,6 +1,6 @@
-<!-- v-if="showPopup" -->
+
 <template>
-<div class="back-pop"  >
+<div class="back-pop"  v-if="showPopup">
 <div class="popup-years"  ref="popup" :style="top">
     <div class="header">
         <div class="title">
@@ -11,7 +11,11 @@
         </div>
     </div>
     <div class="years" @click="showPopup=!showPopup"   >
-        <YearCard v-for="(data,index) in Years" :key="index"  :year="data" @name="getYear"/>
+   
+            <div v-for="(year,index) in Years" :key="index"   class="year" @click="showDetailYear(year)">
+                <p>{{year}}</p>
+
+        </div>
        
     </div>
 </div>
@@ -20,13 +24,9 @@
 
 <script>
 
-import YearCard from './YearCard.vue'
-
 export default {
     name: 'YearsPopup',
-    components: {
-           YearCard
-    },
+ 
 
     props: {
         msg: String,
@@ -35,6 +35,7 @@ export default {
 
     data() {
          return {
+              yearSelected: {},
            Years : [2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007],
             showPopup: true,
             top: 0,
@@ -45,8 +46,6 @@ export default {
     mounted() {
         let height=this.$refs.popup.clientHeight;
             this.top = height - 40;
-            console.log(this.top);
-            console.log(height);
     },
 
     computed: {
@@ -56,11 +55,12 @@ export default {
             }
         }
     },
-    method:{
-        getYear(value){
-          this.value = value
-        }
+    methods: {
+    showDetailYear(year){
+      this.yearSelected = year;
+      this.$emit('clicked-show-detail', year);
     }
+  },
 }
 </script>
 
@@ -130,4 +130,30 @@ h3{
 
 }
 
+.year{
+background: #e8e8e8;
+    width: 24%;
+    text-align: center;
+    border-radius: 10px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #737373;
+    margin-top: 2%;
+    cursor: pointer;
+    font-weight: bold;
+}
+.year:hover{
+    background:#e5004e;
+    color:white;
+}
+
+@media( max-width: 480px){
+
+p{
+    font-size:10px;
+}
+
+}
 </style>

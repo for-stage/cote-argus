@@ -11,7 +11,7 @@
                 <div class="card">
                     <p class="title"> {{ month }}</p>
                 </div>
-                 <div class="card">
+                <div class="card">
                     <p class="title"> {{ year }}</p>
                 </div>
 
@@ -28,7 +28,11 @@
 export default {
     name: 'DateChoice',
     props: {
-        month: String,
+        month: {
+            type: String,
+            default: "hhhhhhh",
+        },
+
         year: String,
     },
 
@@ -36,16 +40,15 @@ export default {
 </script>
 <style  scoped>
 .card {
-    border: solid 2px #909090;
     border-radius: 10px;
     width: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: #717171;
     margin-top: 2%;
-    background: #EEE;
+    background:#E5004F;
+    color: white;
 }
 
 .date-choice {
