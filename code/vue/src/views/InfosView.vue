@@ -82,13 +82,8 @@ export default {
 }
 
 </script>
-<<<<<<< HEAD
 <!-- 
 <template>
-=======
-
-<!-- <template>
->>>>>>> af29a83e696316c6a78c2fd218e87d89ec64890f
  <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
         <PathComponent path="Voitures particulières" />
 
