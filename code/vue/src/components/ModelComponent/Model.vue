@@ -1,6 +1,6 @@
 <template>
-<div class="model" :class="{ checkeddiv: checked }" v-on:click="checked = !checked">
-    <h3 class="title" :class="{ checkedtitle: checked }">Fiesta</h3>
+<div class="model"  :class="{ checkeddiv: checked }"  v-on:click="checked = !checked">
+    <h3 :class="{ checkedtitle: checked }" class="title" >Fiesta</h3>
 </div>
 
   
@@ -33,20 +33,16 @@ export default {
     justify-content: center;
     cursor:pointer;
     margin-bottom: 15px;
-
 }
 .title{
     font-size: 25px;
     font-weight: 500;
     color: #717171;
 }
+
 .model:hover{
-    background-color: #E5004E;
     transition: 1s;
     border: solid 2px #E5004E;
-}
-.model:hover .title{
-    color: white;
 }
 
 .checkeddiv{

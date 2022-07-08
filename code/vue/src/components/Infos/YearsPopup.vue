@@ -7,11 +7,11 @@
         <h3>Année de mise en circulation*</h3>
         </div>
         <div class="out">
-            <a @click="getData"><img src="../../assets/out.png"></a>
+            <a v-on:click="showPopup = !showPopup"><img src="../../assets/out.png"></a>
         </div>
     </div>
     <div class="years" @click="showPopup=!showPopup"   >
-        <YearCard v-for="(data,index) in Years" :key="index"  :year="data" @name="getYear"/>
+        <YearCard  @clicked="getYear"/>
        
     </div>
 </div>
@@ -58,7 +58,7 @@ export default {
     },
     method:{
         getYear(value){
-          this.value = value
+          console.log(value)
         }
     }
 }
