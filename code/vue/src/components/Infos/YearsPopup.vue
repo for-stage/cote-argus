@@ -1,16 +1,16 @@
 
 <template>
-<div class="back-pop"  v-if="showPopup">
+<div class="back-pop"  >
 <div class="popup-years"  ref="popup" :style="top">
     <div class="header">
         <div class="title">
         <h3>Année de mise en circulation*</h3>
         </div>
         <div class="out">
-            <a v-on:click="showPopup = !showPopup"><img src="../../assets/out.png"></a>
+            <a v-on:click="showpopup = !showpopup"><img src="../../assets/out.png"></a>
         </div>
     </div>
-    <div class="years" @click="showPopup=!showPopup"   >
+    <div class="years"  >
    
             <div v-for="(year,index) in Years" :key="index"   class="year" @click="showDetailYear(year)">
                 <p>{{year}}</p>
@@ -35,9 +35,8 @@ export default {
 
     data() {
          return {
-              yearSelected: {},
+            yearSelected: {},
            Years : [2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007],
-            showPopup: true,
             top: 0,
             value: ""
         }
@@ -45,7 +44,7 @@ export default {
 
     mounted() {
         let height=this.$refs.popup.clientHeight;
-            this.top = height - 40;
+        this.top = height - 40;
     },
 
     computed: {

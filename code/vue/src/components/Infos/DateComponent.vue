@@ -1,13 +1,13 @@
 
 
 <template>
-<div class="date-circulation">
+<div class="date-circulation" >
     <div class="header"><h3>Mois de mise en circulation*</h3></div>
     <div class="choice">
 
           <!-- <LittleCard  v-for="(Month,index) in Months" :key="index"  :month="Month"/> -->
-           <div class="card"  v-for="(Month,index) in Months" :key="index" @click="showDetailModal(Month)">
-        <p >{{Month}} </p>
+           <div class="card"   v-for="(Month,index) in Months" :key="index" @click="showDetailModal(Month)" :class="{ checkeddiv: selected == Month }"  >
+        <p>{{Month}}</p>
     </div>
          
     </div>
@@ -31,6 +31,7 @@ export default {
         return {
              monthSelected: {},
            Months : ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+           selected : "",
         }
     },
     methods: {
@@ -39,8 +40,20 @@ export default {
       console.log(Month);
       this.monthSelected = Month;
       this.$emit('clicked-show-detail', Month);
-    }
+      this.checked(Month);
+    },
+    changeShow(){
+            this.show = true;
+            this.showpopup = !this.showpopup;
+            let visibility = this.showpopup;
+            this.$emit('showpopup', visibility);
+    },
+    checked(mounth){
+    this.selected = mounth;
+    this.changeShow();
+  }
   },
+  
 
 }
 </script>
@@ -75,8 +88,12 @@ export default {
 }
 
 .card:hover {
+    border: solid 2px #E5004F;
+    transition: 1s;
+}
+.checkeddiv{
     background: #e5004e;
-    color: #ffffff;
+    color:white;
     border: solid 2px #E5004F;
     transition: 1s;
 }
