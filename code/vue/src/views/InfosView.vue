@@ -9,7 +9,7 @@
       <NumPorte />
       <DateComponent  @clicked-show-detail="clickedShowDetailMonth" @showpopup="visibilty"/>
       <div class="back-pop">
-      <YearsPopup v-if="this.showpopup" @clicked-show-detail="clickedShowDetailYear" @popupclose="close"/>   
+      <YearsPopup v-if="this.showpopup" @clicked-show-detail="clickedShowDetailYear" @popupclose="choose" @close="exit"/>   
       </div>
       <DateChoice v-if="this.show" :month=" monthSelected " :year="yearSelected" />
       <CarburantChoice />
@@ -89,10 +89,13 @@ export default {
             this.showpopup = value ;
             // console.log(this.showpopup)
         },
-        close(value){
+        choose(value){
             this.showpopup = value ;
             this.show = !value ;
         },
+        exit(value){
+            this.showpopup = value ;
+        }
         
     },
    

@@ -3,7 +3,7 @@
 <template> 
     <div class="">
         <div class="">
-            <h2>Recevoir la Cote Argus par SMS</h2>
+            <h3>Recevoir la Cote Argus par SMS</h3>
         </div> 
         <div>
             <input  type="text" placeholder="Votre numero de telephone">

@@ -3,7 +3,7 @@
    <div class="container">
    <div class="quest">
     <Questions/>
-      <UploadPics/>
+    <UploadPics/>
     <Sms/>
     
    
@@ -68,6 +68,7 @@ export default {
     margin-top: 30px;
     display: flex;
     cursor: pointer;
+    width: 6%;
 }
 .retour img{
     border: solid 3px #E5004E;
