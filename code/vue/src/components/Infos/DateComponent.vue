@@ -52,7 +52,7 @@ export default {
     checked(mounth){
     this.selected = mounth;
     this.changeShow();
-  }
+  },
   },
   
 

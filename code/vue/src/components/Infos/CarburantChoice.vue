@@ -40,9 +40,14 @@ export default {
         this.selected = i;
         console.log("imin");
         console.log(this.selected);
-    }
+    },
+    
   },
-  
+  mounted(){
+    if(this.carburant.length == 1){
+        this.selected= 0
+    }
+  }
 
 }
 </script>
