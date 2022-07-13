@@ -27,7 +27,6 @@ export default {
             status: false,
             carburant: [
                 'Manuel',
-                'Automatique',
             ],
             selected :null,
         }

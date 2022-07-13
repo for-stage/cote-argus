@@ -80,6 +80,7 @@ data() {
 
 .delete{
     width: 40%;
+    cursor: pointer;
 }
 .input a{
     color:#E5004E;
