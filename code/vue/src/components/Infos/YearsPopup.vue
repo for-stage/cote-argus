@@ -1,6 +1,5 @@
-
 <template>
-<div class="back-pop"  >
+<div class="back-pop">
 <div class="popup-years"  ref="popup" :style="top">
     <div class="header">
         <div class="title">
@@ -58,6 +57,11 @@ export default {
     showDetailYear(year){
       this.yearSelected = year;
       this.$emit('clicked-show-detail', year);
+      this.visibility();
+    },
+    visibility(){
+        this.$emit('datechoice', true);
+        this.$emit('popupclose', false);
     }
   },
 }
