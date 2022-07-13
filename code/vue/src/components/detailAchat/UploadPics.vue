@@ -20,7 +20,11 @@ data() {
         }else{
         this.images = e.dataTransfer.files;
         }
-      }
+      },
+      removePic(index) {
+        console.log(index);
+        this.images.splice(1,1);
+    }
     },
 
 }
@@ -44,9 +48,10 @@ data() {
     </div>
         
     <div class="pictures-uploaded">
-        <div class="picture-uploaded" v-for="image in images" :key="image.name">
+        <div class="picture-uploaded" v-for="(image, index) in images" :key="image.id">
             <img class="picture" :src="'../../src/assets/'+image.name">
-            <a href="#"><img class="delete" src="../../assets/delete.png"></a>
+            <!-- <p>{{image.name}}</p> -->
+            <a @click="removePic(index)"><img class="delete" src="../../assets/delete.png"></a>
         </div>
 </div>
 
