@@ -22,8 +22,10 @@ data() {
         }
       },
       removePic(index) {
+        const arr = Array.from(this.images);
+        console.log(arr);
         console.log(index);
-        this.images.splice(1,1);
+        this.arr.splice(index, 1);
     }
     },
 

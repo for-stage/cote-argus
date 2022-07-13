@@ -52,7 +52,7 @@
 body {
   margin: 0;
   font-family: Roboto, Arial, Helvetica, sans-serif;
-  padding-bottom: 2%;
+  padding-bottom: 3%;
 }
 
 .marque {
