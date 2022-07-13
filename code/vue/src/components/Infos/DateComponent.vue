@@ -37,7 +37,7 @@ export default {
     },
     methods: {
     showDetailModal(Month){
-       console.log('click product in child, how can i pass this product to productSelected data in parent?');
+    //    console.log('click product in child, how can i pass this product to productSelected data in parent?');
       console.log(Month);
       this.monthSelected = Month;
       this.$emit('clicked-show-detail', Month);

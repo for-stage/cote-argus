@@ -1,20 +1,31 @@
-<script setup>
+<script>
+export default {
+    name: 'DateChoice',
+    props: {
+            title: String,
+            image: String,
+            name: String,
+            logo: String
+    },
+    methods:{
+        step(){
+           this.$emit('clicked', true);
+           console.log("click")
+        }
+    }
 
+}
 
-defineProps({
-    title: String,
-    image: String
-})
 
 </script>
 
 <template>
-    <div class="card">
+    <div class="card" @click ="step()">
         <div class="card-img">
-            <img src="../../assets/volkswagen.png" alt="hhhhh">
+            <img :src="logo" alt="hhhhh">
         </div>
         <div class="card-title">
-            <h2>renault</h2>
+            <h2>{{name}}</h2>
         </div>
     </div>
 
