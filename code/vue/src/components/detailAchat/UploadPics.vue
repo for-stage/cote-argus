@@ -8,10 +8,18 @@ data() {
     },
     methods: {
       uploadFile() {
-        this.images = this.$refs.file.files;
+        if (this.$refs.file.files.length > 5) {
+        alert(`Only 5 files are allowed to upload.`);
+        }else{
+            this.images = this.$refs.file.files;
+        }
       },
       dragFile(e) {
+        if (e.dataTransfer.files.length > 5) {
+        alert(`Only 5 files are allowed to upload.`);
+        }else{
         this.images = e.dataTransfer.files;
+        }
       }
     },
 
@@ -107,7 +115,7 @@ input{
     border-radius: 10px;
 }
 .upload{
-    margin-top:3%;
+    margin-top:5%;
 }
 
 </style>
