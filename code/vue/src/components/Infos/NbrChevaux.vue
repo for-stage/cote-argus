@@ -39,7 +39,8 @@ export default {
         console.log("imin");
         console.log(this.selected);
     }
-  }
+  },
+  
 
 }
 </script>

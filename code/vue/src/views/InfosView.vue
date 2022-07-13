@@ -17,6 +17,10 @@
       <BoiteVitesse/>
       <NbrChevaux/>
       </div>
+      <div class="same-line">
+      <LitreCylindr/>
+      <LaPuissance/>
+      </div>
       <KilometrageComponent />
     </div>
       <Years/>
@@ -34,6 +38,8 @@ import DateChoice from '../components/Infos/DateChoice.vue'
 import CarburantChoice from '../components/Infos/CarburantChoice.vue'
 import BoiteVitesse from '../components/Infos/BoiteVitesse.vue'
 import NbrChevaux from '../components/Infos/NbrChevaux.vue'
+import LitreCylindr from '../components/Infos/LitreCylindr.vue'
+import LaPuissance from '../components/Infos/LaPuissance.vue'
 import KilometrageComponent from '../components/Infos/KilometrageComponent.vue'
 
 
@@ -50,6 +56,8 @@ export default {
         CarburantChoice,
         BoiteVitesse,
         NbrChevaux,
+        LitreCylindr,
+        LaPuissance,
         KilometrageComponent,   
   
     },

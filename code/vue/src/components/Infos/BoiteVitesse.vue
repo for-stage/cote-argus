@@ -38,6 +38,11 @@ export default {
         console.log("imin");
         console.log(this.selected);
     }
+  },
+  mounted(){
+    if(this.carburant.length == 1){
+        this.selected= 0
+    }
   }
 
 }

@@ -41,7 +41,8 @@ export default {
     giveStyle(i) {
         this.selected = i;
     }
-  }
+  },
+  
 }
 
 </script>

@@ -2,9 +2,9 @@
 
 <template>
 
-    <div class="date-choice">
+    <div class="boite-choice">
         <div class="header">
-            <h3>Indiquez le carburant*</h3>
+            <h3>Indiquez le type de boîte de vitesses</h3>
         </div>
         <div class="div-choice">
             <div class="choice" >
@@ -13,8 +13,7 @@
                 </div>
             </div>
         </div>
-        <p class="message">*Pour trouver le carburant de votre voiture, référez-vous à votre carte grise. Cette information se trouve
-            dans le champ P3.</p>
+        <p class="message">*Pour trouver la cylindrée en cm3 de votre voiture, référez-vous à votre carte grise. Cette information se trouve dans le champ P1.</p>
     </div>
 
 </template>
@@ -27,10 +26,7 @@ export default {
         return {
             status: false,
             carburant: [
-                'Essence',
-                'Diesel',
-                'Hybride',
-
+                '1,2 l (1 248 cm³)',
             ],
             selected :null,
         }
@@ -42,7 +38,11 @@ export default {
         console.log(this.selected);
     }
   },
-  
+  mounted(){
+    if(this.carburant.length == 1){
+        this.selected= 0
+    }
+  }
 
 }
 </script>
@@ -50,8 +50,9 @@ export default {
 
 
 
-.date-choice {
+.boite-choice {
     margin-top: 5%;
+    width: 49%;
 }
 
 .choice {
@@ -75,7 +76,7 @@ export default {
 .card {
     border: solid 2px #909090;
     border-radius: 10px;
-    width: 30%;
+    width: 48%;
     display: flex;
     align-items: center;
     justify-content: center;
