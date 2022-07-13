@@ -24,7 +24,12 @@ export default {
             this.$emit('getValue', this.div);
         }
 
+    },
+    mounted(){
+    if(this.carburant.length == 1){
+        this.selected= 0
     }
+  }
 }
 </script>
 <style  scoped>

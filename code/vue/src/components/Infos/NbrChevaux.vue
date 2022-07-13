@@ -2,9 +2,9 @@
 
 <template>
 
-    <div class="date-choice">
+    <div class="chev-choice">
         <div class="header">
-            <h3>Indiquez le carburant*</h3>
+            <h3>Indiquez le nombre de chevaux fiscaux (CV)*</h3>
         </div>
         <div class="div-choice">
             <div class="choice" >
@@ -13,8 +13,7 @@
                 </div>
             </div>
         </div>
-        <p class="message">*Pour trouver le carburant de votre voiture, référez-vous à votre carte grise. Cette information se trouve
-            dans le champ P3.</p>
+        <p class="message">*Pour trouver la puissance fiscale de votre voiture, référez-vous à votre carte grise. Cette information se trouve dans le champ P6</p>
     </div>
 
 </template>
@@ -27,10 +26,9 @@ export default {
         return {
             status: false,
             carburant: [
-                'Essence',
-                'Diesel',
-                'Hybride',
-
+                '4',
+                '5',
+                'Je ne sais pas',
             ],
             selected :null,
         }
@@ -40,14 +38,14 @@ export default {
         this.selected = i;
         console.log("imin");
         console.log(this.selected);
-    },
-    
+    }
   },
   mounted(){
     if(this.carburant.length == 1){
         this.selected= 0
     }
   }
+  
 
 }
 </script>
@@ -55,8 +53,9 @@ export default {
 
 
 
-.date-choice {
+.chev-choice {
     margin-top: 5%;
+    width: 49%;
 }
 
 .choice {
@@ -80,7 +79,7 @@ export default {
 .card {
     border: solid 2px #909090;
     border-radius: 10px;
-    width: 30%;
+    width: 48%;
     display: flex;
     align-items: center;
     justify-content: center;

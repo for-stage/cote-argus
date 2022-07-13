@@ -3,9 +3,10 @@
    <div class="container">
    <div class="quest">
     <Questions/>
-      <UploadPics/>
+    <UploadPics/>
     <Sms/>
-    
+        
+    <!-- <vue-recaptcha ref="recaptcha" sitekey="6LcqpOogAAAAAPpyqWMgU128ifep-Ax_AvWDMgKI" /> -->
    
                        
                       
@@ -28,6 +29,8 @@ import Infos from '../components/detailAchat/Infos.vue'
 import Questions from '../components/detailAchat/Questions.vue'
 import Sms from '../components/detailAchat/Sms.vue'
 import UploadPics from '../components/detailAchat/UploadPics.vue';
+import { VueRecaptcha } from 'vue-recaptcha';
+
 
 
 
@@ -39,6 +42,7 @@ export default {
          Questions,         
          Sms,
          UploadPics ,
+         VueRecaptcha
     },
 
     props: {
@@ -52,7 +56,11 @@ export default {
       },
       hi(){
         alert('parent');
-    }
+    },
+    onEvent() {
+        // when you need a reCAPTCHA challenge
+        this.$refs.recaptcha.execute();
+      }
     }
 }
 </script>
@@ -68,6 +76,7 @@ export default {
     margin-top: 30px;
     display: flex;
     cursor: pointer;
+    width: 6%;
 }
 .retour img{
     border: solid 3px #E5004E;

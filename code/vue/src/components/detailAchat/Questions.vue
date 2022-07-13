@@ -5,7 +5,7 @@
         </div>
         <div class="choix">
             <div class="vente">
-                <p class="titre">Pour vendre</p>
+                <p class="titre">Pour Vendre</p>
                 <div class="all">
                     <div class="check" v-for="vente in questionVendre">
                         <label class="checkinput">
@@ -20,7 +20,7 @@
 
             </div>
             <div class="vente">
-                <p class="titre">Pour acheter</p>
+                <p class="titre">Pour Acheter</p>
                 <div class="all">
                     <div class="check" v-for="vente in questionAchat">
                         <label class="checkinput">
@@ -76,7 +76,7 @@ export default {
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 16px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -136,12 +136,12 @@ export default {
 .choix {
     display: flex;
     justify-content: space-between;
-
+    width: 93%; 
 }
 
 .titre {
     text-decoration: 2px underline #8C8C8C;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: #8C8C8C;
 }

@@ -31,7 +31,7 @@ export default {
     data() {
         return {
             models: [
-                3, 4, 5
+                3,4,5
             ],
             checked :false,
             selected : null,
@@ -41,7 +41,14 @@ export default {
     giveStyle(i) {
         this.selected = i;
     }
+  },
+  mounted(){
+    if(this.models.length == 1){
+        this.selected= 0;
+        console.log('hell yeah');
+    }
   }
+  
 }
 
 </script>

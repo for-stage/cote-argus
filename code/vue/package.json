@@ -10,6 +10,7 @@
   
   "dependencies": {
     "vue": "^3.2.25",
+    "vue-recaptcha": "^2.0.2",
     "vue-router": "^4.0.13",
     "vue-upload-multiple-image": "^1.1.6"
   },

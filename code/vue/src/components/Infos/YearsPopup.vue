@@ -6,7 +6,7 @@
         <h3>Année de mise en circulation*</h3>
         </div>
         <div class="out">
-            <a v-on:click="showpopup = !showpopup"><img src="../../assets/out.png"></a>
+            <a @click="close"><img src="../../assets/out.png"></a>
         </div>
     </div>
     <div class="years"  >
@@ -60,8 +60,10 @@ export default {
       this.visibility();
     },
     visibility(){
-        this.$emit('datechoice', true);
         this.$emit('popupclose', false);
+    },
+    close(){
+        this.$emit('close', false);     
     }
   },
 }
