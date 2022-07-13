@@ -13,6 +13,10 @@
       </div>
       <DateChoice v-if="this.show" :month=" monthSelected " :year="yearSelected" />
       <CarburantChoice />
+      <div class="same-line">
+      <BoiteVitesse/>
+      <NbrChevaux/>
+      </div>
       <KilometrageComponent />
     </div>
       <Years/>
@@ -28,6 +32,8 @@ import DateComponent from '../components/Infos/DateComponent.vue'
 import YearsPopup from '../components/Infos/YearsPopup.vue'
 import DateChoice from '../components/Infos/DateChoice.vue'
 import CarburantChoice from '../components/Infos/CarburantChoice.vue'
+import BoiteVitesse from '../components/Infos/BoiteVitesse.vue'
+import NbrChevaux from '../components/Infos/NbrChevaux.vue'
 import KilometrageComponent from '../components/Infos/KilometrageComponent.vue'
 
 
@@ -42,6 +48,8 @@ export default {
         YearsPopup,
         DateChoice,
         CarburantChoice,
+        BoiteVitesse,
+        NbrChevaux,
         KilometrageComponent,   
   
     },
@@ -94,7 +102,10 @@ export default {
 .padd-details{
     width:80%;
 }
-
+.same-line{
+    display: flex;
+    justify-content: space-between;
+}
 
 
 </style>

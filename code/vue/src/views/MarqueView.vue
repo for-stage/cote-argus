@@ -52,6 +52,7 @@ export default {
                 {name:"BMW" , logo:"../src/assets/bmw.png"},
                 {name:"Mini" , logo:"../src/assets/mini.png"},
                 {name:"Tesla" , logo:"../src/assets/tesla.png"},
+                {name:"Mercedes" , logo:"../src/assets/mercedes.png"},
                 ]
       }
     },
