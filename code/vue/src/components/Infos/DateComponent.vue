@@ -32,20 +32,21 @@ export default {
              monthSelected: {},
            Months : ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
            selected : "",
+           show: true,
         }
     },
     methods: {
     showDetailModal(Month){
-       console.log('click product in child, how can i pass this product to productSelected data in parent?');
+    //    console.log('click product in child, how can i pass this product to productSelected data in parent?');
       console.log(Month);
       this.monthSelected = Month;
       this.$emit('clicked-show-detail', Month);
       this.checked(Month);
     },
     changeShow(){
-            this.show = true;
-            this.showpopup = !this.showpopup;
-            let visibility = this.showpopup;
+            // this.show = true;
+            let visibility = this.show;
+            console.log(visibility);
             this.$emit('showpopup', visibility);
     },
     checked(mounth){

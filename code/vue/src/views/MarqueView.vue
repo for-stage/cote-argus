@@ -3,15 +3,8 @@
         <PathComponent path="Voitures particulières" />
          <SearchBar />
     <div class="marque">
-      <div class="sous-marque">
-        <CardMarque /> 
-        <CardMarque />
-        <CardMarque />
-        <CardMarque />
-        <CardMarque />
-        <CardMarque />
-        <CardMarque />
-        <CardMarque />
+      <div class="sous-marque" >
+        <CardMarque v-for="(car,index) in cars" :key="index" @clicked="next" :name="car.name" :logo="car.logo"/> 
       </div>
 
     </div>
@@ -35,13 +28,35 @@ export default {
         HeaderComponent, 
         PathComponent,         
         CardMarque,
-        SearchBar,
-     
-
-      
+        SearchBar,     
     },
     props: {
         msg: String
+    },
+    methods:{
+      next(value){
+        if(value){
+           window.location="./infos";
+        }
+        console.log('goto')
+       
+      }
+    },
+    data(){
+      return{
+        cars:[
+                {name:"Renault" , logo:"../src/assets/renault.png"},
+                {name:"Ford" , logo:"../src/assets/ford.png"},
+                {name:"Audi" , logo:"../src/assets/audi.png"},
+                {name:"Dacia" , logo:"../src/assets/dacia.png"},
+                {name:"BMW" , logo:"../src/assets/bmw.png"},
+                {name:"Mini" , logo:"../src/assets/mini.png"},
+                {name:"Tesla" , logo:"../src/assets/tesla.png"},
+                ]
+      }
+    },
+    mounted(){
+      console.log(this.cars[0].name)
     }
 }
 </script>
