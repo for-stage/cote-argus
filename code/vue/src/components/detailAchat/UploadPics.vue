@@ -3,30 +3,29 @@ export default{
 
 data() {
         return {
-           images : null,
+           filelist: []
         }
     },
     methods: {
-      uploadFile() {
-        if (this.$refs.file.files.length > 5) {
-        alert(`Only 5 files are allowed to upload.`);
-        }else{
-            this.images = this.$refs.file.files;
-        }
-      },
       dragFile(e) {
         if (e.dataTransfer.files.length > 5) {
         alert(`Only 5 files are allowed to upload.`);
         }else{
-        this.images = e.dataTransfer.files;
+        this.filelist = [...this.$refs.file.files];
         }
       },
-      removePic(index) {
-        const arr = Array.from(this.images);
-        console.log(arr);
-        console.log(index);
-        this.arr.splice(index, 1);
-    }
+      onChange() {
+        if (this.$refs.file.files.length > 5) {
+        alert(`Only 5 files are allowed to upload.`);
+        }else{
+            this.filelist = [...this.$refs.file.files];
+        }
+    },
+    remove(i) {
+    console.log(this.filelist);
+    this.filelist.splice(i, 1);
+    console.log(this.filelist);
+    },
     },
 
 }
@@ -41,21 +40,39 @@ data() {
         <div class="title">
         <h3>Téléchargez des images de véhicules</h3>
         </div>
-        <a @click="$refs.file.click()" @dragover.prevent @drop.prevent>
+        <a  @dragover.prevent @drop.prevent>
         <div class="input" @drop="dragFile">
             <p>Faites Glisser ou <a>Téléchargez</a> des images de véhicules</p>
-            <input type="file" @change="uploadFile" ref="file" multiple />
+            <!-- <input type="file" @change="uploadFile"  multiple /> -->
+            <input type="file" multiple name="fields[assetsFieldHandle][]" id="assetsFieldHandle" class="w-px h-px opacity-0 overflow-hidden absolute" @change="onChange" ref="file" accept=".pdf,.jpg,.jpeg,.png" />
         </div>
         </a>
     </div>
         
     <div class="pictures-uploaded">
-        <div class="picture-uploaded" v-for="(image, index) in images" :key="image.id">
-            <img class="picture" :src="'../../src/assets/'+image.name">
+        <div class="picture-uploaded" v-for="file in filelist">
+            <img class="picture" :src="'../../src/assets/'+file.name">
             <!-- <p>{{image.name}}</p> -->
-            <a @click="removePic(index)"><img class="delete" src="../../assets/delete.png"></a>
+            <a @click="remove(filelist.indexOf(file))"><img class="delete" src="../../assets/delete.png"></a>
         </div>
 </div>
+<!-- <div class="flex w-full h-screen items-center justify-center text-center" id="app">
+  <div class="p-12 bg-gray-100 border border-gray-300" @dragover="dragover" @dragleave="dragleave" @drop="drop">
+    
+  
+    <label for="assetsFieldHandle" class="block cursor-pointer">
+      <div>
+        Explain to our users they can drop files in here 
+        or <span class="underline">click here</span> to upload their files
+      </div>
+    </label>
+    <ul class="mt-4" v-if="this.filelist.length" v-cloak>
+      <li class="text-sm p-1" >
+        ${ file.name }<button class="ml-2" type="button" @click="remove(filelist.indexOf(file))" title="Remove file">remove</button>
+      </li>
+    </ul>
+  </div>
+</div> -->
 
     </div>
 
@@ -87,8 +104,11 @@ data() {
     font-weight: bold;
     cursor:pointer;
 }
-input{
+/* input{
     display: none;
+} */
+[v-cloak] {
+  display: none;
 }
 .pictures-uploaded{
     display:flex;
