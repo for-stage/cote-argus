@@ -2,14 +2,12 @@
 
 <template>
 <div class="date-circulation" >
-    <div class="header"><h3>Mois de mise en circulation*</h3></div>
+    <div class="header">
+    <h3>Mois de mise en circulation*</h3></div>
     <div class="choice">
-
-          <!-- <LittleCard  v-for="(Month,index) in Months" :key="index"  :month="Month"/> -->
-           <div class="card"   v-for="(Month,index) in Months" :key="index" @click="showDetailModal(Month)" :class="{ checkeddiv: selected == Month }"  >
-        <p>{{Month}}</p>
-    </div>
-         
+        <div class="card"   v-for="(Month,index) in Months" :key="index" @click="showDetailModal(Month)" :class="{ checkeddiv: selected == Month }"  >
+            <p>{{Month}}</p>
+        </div>    
     </div>
     <div class="info">
         <p>*Pour trouver la date de mise en circulation (mois et année) de votre voiture, référez-vous à votre carte grise. Cette information se trouve dans le champ B</p>
@@ -37,14 +35,12 @@ export default {
     },
     methods: {
     showDetailModal(Month){
-    //    console.log('click product in child, how can i pass this product to productSelected data in parent?');
       console.log(Month);
       this.monthSelected = Month;
       this.$emit('clicked-show-detail', Month);
       this.checked(Month);
     },
     changeShow(){
-            // this.show = true;
             let visibility = this.show;
             console.log(visibility);
             this.$emit('showpopup', visibility);

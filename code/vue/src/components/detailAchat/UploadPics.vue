@@ -67,27 +67,9 @@ data() {
     <div class="pictures-uploaded">
         <div class="picture-uploaded" v-for="file in filelist">
             <img class="picture" :src="'../../src/assets/'+file.name">
-            <!-- <p>{{image.name}}</p> -->
             <a @click="remove(filelist.indexOf(file))"><img class="delete" src="../../assets/delete.png"></a>
         </div>
 </div>
-<!-- <div class="flex w-full h-screen items-center justify-center text-center" id="app">
-  <div class="p-12 bg-gray-100 border border-gray-300" @dragover="dragover" @dragleave="dragleave" @drop="drop">
-    
-  
-    <label for="assetsFieldHandle" class="block cursor-pointer">
-      <div>
-        Explain to our users they can drop files in here 
-        or <span class="underline">click here</span> to upload their files
-      </div>
-    </label>
-    <ul class="mt-4" v-if="this.filelist.length" v-cloak>
-      <li class="text-sm p-1" >
-        ${ file.name }<button class="ml-2" type="button" @click="remove(filelist.indexOf(file))" title="Remove file">remove</button>
-      </li>
-    </ul>
-  </div>
-</div> -->
 
     </div>
 
@@ -149,7 +131,6 @@ data() {
     left: 0;
     width: 100%;
     height: 100%;
-    /* text-align: center; */
     display: flex;
     align-items: center;
     justify-content: center;
