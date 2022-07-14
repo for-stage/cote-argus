@@ -1,9 +1,49 @@
+
+
+<template>
+
+<div class="upload">
+    <div class="input-upload">
+        <div class="title">
+        <h3>Téléchargez des images de véhicules</h3>
+        </div>
+        <a @click="$refs.file.click()" @dragover.prevent @drop.prevent>
+        <div class="input" @drop="dragFile">
+            <p>Faites Glisser ou <a>Téléchargez</a> des images de véhicules</p>
+            <input hidden type="file" @change="uploadFile" ref="file" multiple />
+        </div>
+        </a>
+    </div>
+        
+    <div class="pictures-uploaded">
+        <div class="picture-uploaded" v-for="(image, index) in images" :key="image.id">
+            <img class="picture" :src="'../../src/assets/'+image.name">
+            <a @click="deletePic(index)"><img class="delete" src="../../assets/delete.png"></a>
+        </div>
+       
+          
+</div>
+
+
+    </div>
+
+</template>
 <script >
+import { remove } from '@vue/shared';
+
 export default{
 
 data() {
         return {
+<<<<<<< HEAD
            filelist: []
+=======
+           images : [],
+        //    arr : ['foo', 'bar', 10, 'qux'],
+            arr : [0,1,2]
+
+
+>>>>>>> 1d4d97c414230bfcf2911d2a505aa636c89cd4da
         }
     },
     methods: {
@@ -14,6 +54,7 @@ data() {
         this.filelist = [...this.$refs.file.files];
         }
       },
+<<<<<<< HEAD
       onChange() {
         if (this.$refs.file.files.length > 5) {
         alert(`Only 5 files are allowed to upload.`);
@@ -26,12 +67,36 @@ data() {
     this.filelist.splice(i, 1);
     console.log(this.filelist);
     },
+=======
+<<<<<<< HEAD
+    deletePic(index) {
+        console.log(this.images)
+        console.log(JSON.stringify(this.images));
+        // delete this.images[0][index];
+        console.log(JSON.stringify(this.images[index]));
+        this.images = this.images[0];
+        console.log(JSON.stringify(this.images));
+       
+=======
+      removePic(index) {
+        const arr = Array.from(this.images);
+        console.log(arr);
+        console.log(index);
+        this.arr.splice(index, 1);
+    }
+>>>>>>> 1d2217d750a8e3ef7b9a5b3f47e3ef1bab20c6c9
+>>>>>>> 1d4d97c414230bfcf2911d2a505aa636c89cd4da
     },
+     
+  
 
+
+}
 }
 
 
 </script>
+<<<<<<< HEAD
 
 <template>
 
@@ -78,6 +143,8 @@ data() {
 
 </template>
 
+=======
+>>>>>>> 1d4d97c414230bfcf2911d2a505aa636c89cd4da
 <style  scoped>
 
 .input{
@@ -104,12 +171,16 @@ data() {
     font-weight: bold;
     cursor:pointer;
 }
+<<<<<<< HEAD
 /* input{
     display: none;
 } */
 [v-cloak] {
   display: none;
 }
+=======
+
+>>>>>>> 1d4d97c414230bfcf2911d2a505aa636c89cd4da
 .pictures-uploaded{
     display:flex;
     margin-top: 1%;

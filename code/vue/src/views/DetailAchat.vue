@@ -29,7 +29,7 @@ import Infos from '../components/detailAchat/Infos.vue'
 import Questions from '../components/detailAchat/Questions.vue'
 import Sms from '../components/detailAchat/Sms.vue'
 import UploadPics from '../components/detailAchat/UploadPics.vue';
-import { VueRecaptcha } from 'vue-recaptcha';
+// import { VueRecaptcha } from 'vue-recaptcha';
 
 
 
@@ -42,7 +42,7 @@ export default {
          Questions,         
          Sms,
          UploadPics ,
-         VueRecaptcha
+        //  VueRecaptcha
     },
 
     props: {
