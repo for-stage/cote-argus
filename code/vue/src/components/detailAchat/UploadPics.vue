@@ -12,11 +12,16 @@ data() {
         if (e.dataTransfer.files.length > 5) {
         alert(`Only 5 files are allowed to upload.`);
         }else{
+        event.preventDefault();
+        this.$refs.file.files = event.dataTransfer.files;
         this.filelist = [...this.$refs.file.files];
         }
       },
       onChange() {
-        if (this.$refs.file.files.length > 5) {
+        if(this.$refs.file.files.length == 0){
+            return;
+        }
+        else if (this.$refs.file.files.length > 5) {
         alert(`Only 5 files are allowed to upload.`);
         }else{
             this.filelist = [...this.$refs.file.files];
@@ -28,6 +33,11 @@ data() {
       this.filelist.splice(i, 1);
       console.log(this.filelist);
     },
+
+    dragover(event) {
+      event.preventDefault();
+    },
+
     },
 
 }
@@ -42,10 +52,9 @@ data() {
         <div class="title">
         <h3>Téléchargez des images de véhicules</h3>
         </div>
-        <a  @dragover.prevent @drop.prevent>
+        <a  @dragover="dragover" @dragleave="dragleave" >
         <div class="input" @drop="dragFile">
             <p>Faites Glisser ou <a>Téléchargez</a> des images de véhicules</p>
-            <!-- <input type="file" @change="uploadFile"  multiple /> -->
             <input type="file" multiple name="fields[assetsFieldHandle][]" id="assetsFieldHandle" class="w-px h-px opacity-0 overflow-hidden absolute" @change="onChange" ref="file" accept=".pdf,.jpg,.jpeg,.png" />
         </div>
         </a>
