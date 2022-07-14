@@ -112,5 +112,8 @@ export default {
    .card {
     width: 100%;
 }
+.chev-choice {
+    width: 100%;
+}
 }
 </style>
