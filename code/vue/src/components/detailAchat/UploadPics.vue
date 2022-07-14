@@ -1,9 +1,45 @@
+
+
+<template>
+
+<div class="upload">
+    <div class="input-upload">
+        <div class="title">
+        <h3>Téléchargez des images de véhicules</h3>
+        </div>
+        <a @click="$refs.file.click()" @dragover.prevent @drop.prevent>
+        <div class="input" @drop="dragFile">
+            <p>Faites Glisser ou <a>Téléchargez</a> des images de véhicules</p>
+            <input hidden type="file" @change="uploadFile" ref="file" multiple />
+        </div>
+        </a>
+    </div>
+        
+    <div class="pictures-uploaded">
+        <div class="picture-uploaded" v-for="(image, index) in images" :key="image.id">
+            <img class="picture" :src="'../../src/assets/'+image.name">
+            <a @click="deletePic(index)"><img class="delete" src="../../assets/delete.png"></a>
+        </div>
+       
+          
+</div>
+
+
+    </div>
+
+</template>
 <script >
+import { remove } from '@vue/shared';
+
 export default{
 
 data() {
         return {
-           images : null,
+           images : [],
+        //    arr : ['foo', 'bar', 10, 'qux'],
+            arr : [0,1,2]
+
+
         }
     },
     methods: {
@@ -21,44 +57,24 @@ data() {
         this.images = e.dataTransfer.files;
         }
       },
-      removePic(index) {
-        console.log(index);
-        this.images.splice(1,1);
-    }
+    deletePic(index) {
+        console.log(this.images)
+        console.log(JSON.stringify(this.images));
+        // delete this.images[0][index];
+        console.log(JSON.stringify(this.images[index]));
+        this.images = this.images[0];
+        console.log(JSON.stringify(this.images));
+       
     },
+     
+  
 
+
+}
 }
 
 
 </script>
-
-<template>
-
-<div class="upload">
-    <div class="input-upload">
-        <div class="title">
-        <h3>Téléchargez des images de véhicules</h3>
-        </div>
-        <a @click="$refs.file.click()" @dragover.prevent @drop.prevent>
-        <div class="input" @drop="dragFile">
-            <p>Faites Glisser ou <a>Téléchargez</a> des images de véhicules</p>
-            <input type="file" @change="uploadFile" ref="file" multiple />
-        </div>
-        </a>
-    </div>
-        
-    <div class="pictures-uploaded">
-        <div class="picture-uploaded" v-for="(image, index) in images" :key="image.id">
-            <img class="picture" :src="'../../src/assets/'+image.name">
-            <!-- <p>{{image.name}}</p> -->
-            <a @click="removePic(index)"><img class="delete" src="../../assets/delete.png"></a>
-        </div>
-</div>
-
-    </div>
-
-</template>
-
 <style  scoped>
 
 .input{
@@ -84,9 +100,7 @@ data() {
     font-weight: bold;
     cursor:pointer;
 }
-input{
-    display: none;
-}
+
 .pictures-uploaded{
     display:flex;
     margin-top: 1%;
