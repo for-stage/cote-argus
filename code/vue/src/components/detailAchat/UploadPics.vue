@@ -57,7 +57,6 @@ data() {
         this.images = e.dataTransfer.files;
         }
       },
-<<<<<<< HEAD
     deletePic(index) {
         console.log(this.images)
         console.log(JSON.stringify(this.images));
@@ -66,14 +65,6 @@ data() {
         this.images = this.images[0];
         console.log(JSON.stringify(this.images));
        
-=======
-      removePic(index) {
-        const arr = Array.from(this.images);
-        console.log(arr);
-        console.log(index);
-        this.arr.splice(index, 1);
-    }
->>>>>>> 1d2217d750a8e3ef7b9a5b3f47e3ef1bab20c6c9
     },
      
   

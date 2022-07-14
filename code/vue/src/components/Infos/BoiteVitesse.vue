@@ -109,5 +109,9 @@ export default {
    .card {
     width: 100%;
 }
+.boite-choice{
+    width: 100%;
+}
+
 }
 </style>

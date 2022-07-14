@@ -117,6 +117,12 @@ export default {
     display: flex;
     justify-content: space-between;
 }
+@media  (max-width: 445px) {
+   .same-line{
+       flex-direction: column;
+   }
 
+    
+}
 
 </style>
