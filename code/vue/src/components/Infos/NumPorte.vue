@@ -7,7 +7,7 @@
         <div class="choices">
         <div class="choice" v-for="(model,index) in models" :key="index" v-on:click="giveStyle(index)" >
             <div class="model"  :class="{ checkeddiv: selected == index }" >
-                <h3 :class="{ checkedtitle: selected == index }" class="title">Fiesta <br><span>{{model}} portes</span></h3>
+                <h3 :class="{ checkedtitle: selected == index }" class="title">Fiesta <br><span>Fiesta {{model}} portes</span></h3>
             </div>
         </div>
      
