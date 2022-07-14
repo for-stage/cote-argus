@@ -21,6 +21,10 @@ data() {
         if(this.$refs.file.files.length == 0){
             return;
         }
+        else if (this.filelist.length > 0){
+            console.log('thisisit');
+            this.filelist = this.filelist.concat([...this.$refs.file.files]);
+        }
         else if (this.$refs.file.files.length > 5) {
         alert(`Only 5 files are allowed to upload.`);
         }else{
