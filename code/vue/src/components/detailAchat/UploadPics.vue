@@ -92,48 +92,7 @@ data() {
     </div>
 
 </template>
-
-<<<<<<< HEAD
-
-        }
-    },
-    methods: {
-      uploadFile() {
-        if (this.$refs.file.files.length > 5) {
-        alert(`Only 5 files are allowed to upload.`);
-        }else{
-            this.images = this.$refs.file.files;
-        }
-      },
-      dragFile(e) {
-        if (e.dataTransfer.files.length > 5) {
-        alert(`Only 5 files are allowed to upload.`);
-        }else{
-        this.images = e.dataTransfer.files;
-        }
-      },
-    deletePic(index) {
-        console.log(this.images)
-        console.log(JSON.stringify(this.images));
-        // delete this.images[0][index];
-        console.log(JSON.stringify(this.images[index]));
-        this.images = this.images[0];
-        console.log(JSON.stringify(this.images));
-       
-    },
-     
-  
-
-
-}
-}
-
-
-</script>
-=======
->>>>>>> 68e21bc3683d60c59b743b7ec12170b54dfbac99
 <style  scoped>
-
 .input{
     background: #F4F4F4;
     padding: 5% 4%;
