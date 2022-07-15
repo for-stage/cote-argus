@@ -5,6 +5,7 @@
     <Questions @open="onShow" @close="onClose"/>
     <UploadPics v-if="this.open==true" />
     <Sms/>
+    <personnel @close="exit"/>
         
     <!-- <vue-recaptcha ref="recaptcha" sitekey="6LcqpOogAAAAAPpyqWMgU128ifep-Ax_AvWDMgKI" /> -->
    
@@ -29,6 +30,7 @@ import Infos from '../components/detailAchat/Infos.vue'
 import Questions from '../components/detailAchat/Questions.vue'
 import Sms from '../components/detailAchat/Sms.vue'
 import UploadPics from '../components/detailAchat/UploadPics.vue';
+import Personnel from '../components/detailAchat/Personnel.vue';
 // import { VueRecaptcha } from 'vue-recaptcha';
 
 
@@ -42,6 +44,7 @@ export default {
          Questions,         
          Sms,
          UploadPics ,
+            Personnel,
         //  VueRecaptcha
     },
 
@@ -73,7 +76,7 @@ export default {
       },
         onClose() {
             this.open = false;
-        },
+        }
     },
    
 

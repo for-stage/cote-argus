@@ -70,4 +70,11 @@ export default {
     display: flex;
     justify-content: center;
 }
+@media (max-width: 768px) {
+   
+    .choice {
+        width: 100%;
+    }
+    
+}
 </style>

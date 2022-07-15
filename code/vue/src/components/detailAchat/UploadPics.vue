@@ -139,5 +139,12 @@ data() {
 .upload{
     margin-top:5%;
 }
+@media (max-width: 480px) {
+   .picture-uploaded{
+    width: 50px;
+    height: 50px;
+   }
+    
+}
 
 </style>

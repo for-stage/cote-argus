@@ -27,4 +27,13 @@ export default {
 h2{
     font-weight: 600;
 }
+@media (max-width: 480px) {
+    .title{
+       font-size: 70%;
+    text-align: center;
+    padding: 0 2%;
+    }
+
+    
+}
 </style>

@@ -94,5 +94,17 @@ input[type="submit"]{
     font-size:16px;
     cursor:pointer;
 }
+@media (max-width: 480px) {
+    .kilometrage-input input{
+        width: 90%;
+        font-size: 90%;
+        padding-left: 10px;
+    }
+    .kilometrage-btn {
+        width: 22%;
+    }
+    
+    
+}
 
 </style>
