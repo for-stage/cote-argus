@@ -4,6 +4,8 @@
     <StatisPage/>
 <InfoLogin/>
 </div>
+<div>HI</div>
+<TotalCalc/>
 
 </div>
    
@@ -13,6 +15,7 @@
 <script>
 import StatisPage from '../components/Admin/StatisPage.vue'
 import InfoLogin from '../components/Admin/InfoLogin.vue'
+import TotalCalc from '../components/Admin/TotalCalc.vue'
 
 
 
@@ -23,6 +26,7 @@ export default {
     components: {
         StatisPage, 
         InfoLogin, 
+        TotalCalc
     },
 
     props: {

@@ -99,5 +99,13 @@ export default {
 .info p{
     margin-bottom:0;
 }
-
+label{
+    position:relative;
+}
+label img{
+    position: absolute;
+    top: 68%;
+    right: 2%;
+    cursor:pointer;
+}
 </style>

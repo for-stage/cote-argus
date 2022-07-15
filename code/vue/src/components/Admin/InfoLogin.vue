@@ -8,14 +8,19 @@
     <div class="info">
         <p class="err" v-if="err">Click Edit button to Make change</p>
         <form>
-            <label for="name" v-on:click="error">
+            <label for="name" >
             <p>Nom d'utilisateur</p>
-            <input  id="name" type="text" name="fullname" value="Ayoub Basidi" :disabled="edit">
+            <div v-on:click="error">
+                <input  id="name" type="text" name="fullname" value="Ayoub Basidi" :disabled="edit">
+            </div>
+            
             </label>
-            <label for="pass" v-on:click="error">
+            <label for="pass" >
             <p>Mot de Passe</p>
+            <div v-on:click="error">
             <input v-if="show" id="pass" type="text" name="pwd" value="************" :disabled="edit">
-            <input v-if="hide" id="pass" type="text" name="pwd" value="code123" :disabled="edit">
+            <input  v-if="hide" id="pass" type="text" name="pwd" value="code123" :disabled="edit">
+            </div>
             <img v-if="show" v-on:click="show = false, hide = true" src="../../assets/eye.svg">
             <img v-if="hide" v-on:click="show = true, hide = false" src="../../assets/hide.svg">
             </label>
