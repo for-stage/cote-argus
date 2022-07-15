@@ -54,7 +54,10 @@ export default {
     background: white;
     border-radius: 5px;
 }
-    
+.vertical{
+    height: 0.5px;
+    background: #D9D9D9;
+}
 .h3{
     font-size: 25px;
     font-weight: 400;

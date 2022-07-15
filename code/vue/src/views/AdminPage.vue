@@ -1,6 +1,10 @@
 <template>
 <div class="container">
-<StatisPage/>
+<div class="first-line">
+    <StatisPage/>
+<InfoLogin/>
+</div>
+
 </div>
    
 
@@ -8,6 +12,7 @@
 
 <script>
 import StatisPage from '../components/Admin/StatisPage.vue'
+import InfoLogin from '../components/Admin/InfoLogin.vue'
 
 
 
@@ -17,6 +22,7 @@ export default {
     name: 'DetailAchat',
     components: {
         StatisPage, 
+        InfoLogin, 
     },
 
     props: {
