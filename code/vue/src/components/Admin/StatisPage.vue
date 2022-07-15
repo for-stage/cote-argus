@@ -49,10 +49,11 @@ export default {
 </script>
 <style  scoped>
 .content{
-    width: 65%;
+    width: 66%;
     padding: 5px 15px;
     background: white;
     border-radius: 5px;
+    box-shadow: 0 0 12px -4px black;
 }
 .vertical{
     height: 0.5px;

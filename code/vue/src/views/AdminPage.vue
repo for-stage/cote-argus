@@ -37,6 +37,11 @@ export default {
 .container{
     background: #E8E8E8;
     margin-top: 0;
-    padding: 3% 2%;
+    padding: 3% 4%;
+}
+.first-line{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 </style>
