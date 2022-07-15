@@ -1,9 +1,9 @@
 <template>
    <Infos />
-   <div class="container">
+   <div class="container" >
    <div class="quest">
-    <Questions/>
-    <UploadPics/>
+    <Questions @open="onShow" @close="onClose"/>
+    <UploadPics v-if="this.open==true" />
     <Sms/>
         
     <!-- <vue-recaptcha ref="recaptcha" sitekey="6LcqpOogAAAAAPpyqWMgU128ifep-Ax_AvWDMgKI" /> -->
@@ -48,7 +48,12 @@ export default {
     props: {
         msg: String
     },
-    data: () => ({images: null}),
+    data(){ 
+        return{
+            images: null,
+            open:'false',
+        }
+        },
     methods: {
       uploadFile() {
         this.images = this.$refs.file.files[0];
@@ -60,8 +65,18 @@ export default {
     onEvent() {
         // when you need a reCAPTCHA challenge
         this.$refs.recaptcha.execute();
-      }
-    }
+      },
+      onShow(value) {
+        console.log(value);
+        this.open = value;
+        console.log(this.open);
+      },
+        onClose() {
+            this.open = false;
+        },
+    },
+   
+
 }
 </script>
 <style scoped >
