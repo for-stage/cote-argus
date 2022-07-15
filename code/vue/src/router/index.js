@@ -4,6 +4,7 @@ import Detail from '../views/DetailAchat.vue'
 import Marque from '../views/MarqueView.vue'
 import Model from '../views/ModelView.vue'
 import Infos from '../views/InfosView.vue'
+import Admin from '../views/AdminPage.vue'
 
 const routes = [
 
@@ -34,6 +35,11 @@ const routes = [
         path: '/about',
         name: 'about',
         component: About,
+    }   ,
+    {
+        path: '/admin',
+        name: 'admin',
+        component: Admin,
     }   ,
     
 ];
