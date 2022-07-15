@@ -7,14 +7,14 @@
             <div class="vente">
                 <p class="titre">Pour Vendre</p>
                 <div class="all">
-                    <div class="check" v-for="vente in questionVendre">
+                    <div class="check" v-for="vente in questionVendre" @click="changeShow()">
                         <label class="checkinput">
-                               <p>{{vente}}</p>
+                            <p>{{ vente }}</p>
                             <input type="radio" checked="checked" name="radio">
                             <span class="checkmark"></span>
                         </label>
                     </div>
-                 
+
                 </div>
 
 
@@ -22,14 +22,14 @@
             <div class="vente">
                 <p class="titre">Pour Acheter</p>
                 <div class="all">
-                    <div class="check" v-for="vente in questionAchat">
+                    <div class="check" v-for="vente in questionAchat" @click="changeHidden()">
                         <label class="checkinput">
-                            <p>{{vente}}</p>
+                            <p>{{ vente }}</p>
                             <input type="radio" checked="checked" name="radio">
                             <span class="checkmark"></span>
                         </label>
                     </div>
-                   
+
                 </div>
 
             </div>
@@ -52,15 +52,22 @@ export default {
                 "Je vends pour acheter un véhicule d'occasion",
                 "Je vends sans projet d'achat d'un autre véhicule",
             ],
-             questionAchat: [
-                 "Je cote le véhicule que je veux acheter",
-                    "Je veux acheter un véhicule d'occasion",
-                    "Autre (Accident, Vol, Legs, succession, etc.)",
-
-               
-            ],
+            questionAchat: [
+                "Je cote le véhicule que je veux acheter",
+                "Je veux acheter un véhicule d'occasion",
+                "Autre (Accident, Vol, Legs, succession, etc.)",
+            ],  
         }
-    }
+    },
+    methods: {
+        changeShow() {
+            this.$emit('open', true);
+        },
+        changeHidden() {
+
+            this.$emit('close');
+        }
+    },
 }
 
 </script>
@@ -136,7 +143,7 @@ export default {
 .choix {
     display: flex;
     justify-content: space-between;
-    width: 93%; 
+    width: 93%;
 }
 
 .titre {
@@ -146,9 +153,7 @@ export default {
     color: #8C8C8C;
 }
 
-@media(max-width: 768px) {
-  
-}
+@media(max-width: 768px) {}
 
 @media(max-width: 480px) {
     .choix {
