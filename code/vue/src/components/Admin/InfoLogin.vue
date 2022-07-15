@@ -13,7 +13,10 @@
             </label>
             <label for="pass">
             <p>Mot de Passe</p>
-            <input id="pass" type="text" name="pwd" value="************" disabled>
+            <input v-if="show" id="pass" type="text" name="pwd" value="************" disabled>
+            <input v-if="hide" id="pass" type="text" name="pwd" value="code123" disabled>
+            <img v-if="show" v-on:click="show = false, hide = true" src="../../assets/eye.svg">
+            <img v-if="hide" v-on:click="show = true, hide = false" src="../../assets/hide.svg">
             </label>
             <button class="edit">Edit</button>
             <button class="submit">Submit</button>
@@ -29,7 +32,8 @@ export default {
     },
     data() {
         return {
-            
+            show:true,
+            hide:false,
         }
     },
      methods: {
@@ -95,5 +99,14 @@ label p{
 .edit:hover{
     background:#E5004E;
     color:white;
+}
+label{
+    position:relative;
+}
+label img{
+    position: absolute;
+    top: 68%;
+    right: 2%;
+    cursor:pointer;
 }
 </style>

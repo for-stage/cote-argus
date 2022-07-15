@@ -7,21 +7,21 @@
     <div class="vertical"></div>
     <div class="statis">
         <div class="div">
-            <div class="icon one"><img src="../../assets/visit.png"></div>
+            <div class="icon one"><img src="../../assets/visit.svg"></div>
             <div class="info">
                 <p>Total visiteur</p>
                 <h2>1,7M</h2>
             </div>
         </div>
         <div class="div">
-            <div class="icon two"><img src="../../assets/client.png"></div>
+            <div class="icon two"><img src="../../assets/client.svg"></div>
             <div class="info">
                 <p>Utilisateur Calc</p>
                 <h2>90,4k</h2>
             </div>
         </div>
         <div class="div">
-            <div class="icon three"><img src="../../assets/sms.png"></div>
+            <div class="icon three"><img src="../../assets/sms.svg"></div>
             <div class="info">
                 <p>SMS envoyer</p>
                 <h2>76,6K</h2>
@@ -99,4 +99,5 @@ export default {
 .info p{
     margin-bottom:0;
 }
+
 </style>
