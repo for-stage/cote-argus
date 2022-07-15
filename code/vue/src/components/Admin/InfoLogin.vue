@@ -6,21 +6,23 @@
     <h3>Info de connexion</h3>
     <div class="vertical"></div>
     <div class="info">
+        <p class="err" v-if="err">Click Edit button to Make change</p>
         <form>
-            <label for="name">
-            <p>Nom d’utilisateur</p>
-            <input id="name" type="text" name="fullname" value="Ayoub Basidi" disabled>
+            <label for="name" v-on:click="error">
+            <p>Nom d'utilisateur</p>
+            <input  id="name" type="text" name="fullname" value="Ayoub Basidi" :disabled="edit">
             </label>
-            <label for="pass">
+            <label for="pass" v-on:click="error">
             <p>Mot de Passe</p>
-            <input v-if="show" id="pass" type="text" name="pwd" value="************" disabled>
-            <input v-if="hide" id="pass" type="text" name="pwd" value="code123" disabled>
+            <input v-if="show" id="pass" type="text" name="pwd" value="************" :disabled="edit">
+            <input v-if="hide" id="pass" type="text" name="pwd" value="code123" :disabled="edit">
             <img v-if="show" v-on:click="show = false, hide = true" src="../../assets/eye.svg">
             <img v-if="hide" v-on:click="show = true, hide = false" src="../../assets/hide.svg">
             </label>
-            <button class="edit">Edit</button>
-            <button class="submit">Submit</button>
+            
+            <button v-if="!edit" class="submit">Submit</button>
         </form>
+        <button v-if="edit" class="edit" v-on:click="edit = false">Edit</button>
     </div>
 </div>
 
@@ -34,10 +36,22 @@ export default {
         return {
             show:true,
             hide:false,
+            edit:true,
+            err:false,
         }
     },
      methods: {
-        
+        error(){
+            if(this.edit == true){
+                this.err = true;
+                console.log(this.err);
+                setTimeout(()=>{
+                this.err = false;
+                },2000);
+            }else{
+                return;
+            }
+        },
   },
 
 }
@@ -49,6 +63,11 @@ export default {
     background: white;
     border-radius: 5px;
     box-shadow: 0 0 12px -4px black;
+}
+.err{
+    margin-bottom: 0;
+    font-size: 13px;
+    color: red;
 }
 h3{
     margin-top: 0;
@@ -80,10 +99,7 @@ label p{
     font-weight: 400;
     color: #707070;
 }
-.submit{
-    display:none;
-}
-.edit{
+.edit,.submit{
     margin-top: 7%;
     border: solid 2px #E5004E;
     color: #E5004E;
