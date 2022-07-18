@@ -2,27 +2,46 @@
 
 <template>
  <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
-<PathComponent path="Voitures particulières" />
+<PathComponent path="Voitures particulières"/>
 
 <div class="details">
     <div class="padd-details">
-      <NumPorte />
-      <DateComponent  @clicked-show-detail="clickedShowDetailMonth" @showpopup="visibilty"/>
+      <NumPorte @step="step"/>
+      <div class="part" >
+        <DateComponent  @clicked-show-detail="clickedShowDetailMonth" @showpopup="visibilty"/>
+        <div class="desactive" ref="step1"></div>
+      </div>
+      
       <div class="back-pop">
-      <YearsPopup v-if="this.showpopup" @clicked-show-detail="clickedShowDetailYear" @popupclose="choose" @close="exit"/>   
+      <YearsPopup v-if="this.showpopup" @clicked-show-detail="clickedShowDetailYear" @popupclose="choose" @close="exit" @step="step"/>   
       </div>
+      
       <DateChoice v-if="this.show" :month=" monthSelected " :year="yearSelected" />
-      <CarburantChoice />
-      <div class="same-line">
-      <BoiteVitesse/>
-      <NbrChevaux/>
+      <div ref="hide" class="hide">
+        <div class="part">
+        <CarburantChoice />
+        <div class="desactive" ref="step2"></div>
       </div>
+     
       <div class="same-line">
+            <div class="part" >
+                <BoiteVitesse/>
+                <div class="desactive" ref="step1"></div>
+            </div>
+            <div class="part">
+                <NbrChevaux/>
+                <div class="desactive" ref="step1"></div>
+            </div> 
+      </div>
+
+      <div class="same-line">  
       <LitreCylindr/>
       <LaPuissance/>
       </div>
       <KilometrageComponent />
     </div>
+      </div>
+      
       <Years/>
 
 
@@ -95,6 +114,26 @@ export default {
         },
         exit(value){
             this.showpopup = value ;
+        },
+        step(value){
+            if(value == 'step1'){
+                const el = this.$refs.step1;
+                if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                    el.classList.remove("desactive");
+                }
+            }else if(value == 'step2'){
+                const el = this.$refs.hide;
+                 if (el) {
+                    el.classList.remove("hide");
+                };
+                setTimeout('', 1000);
+                const e = this.$refs.step2;
+                if (e) {
+                    e.scrollIntoView({ behavior: "smooth" });
+                    e.classList.remove("desactive");
+                }
+            }
         }
         
     },
@@ -105,6 +144,9 @@ export default {
 
 
 <style  scoped>
+html {
+  scroll-behavior: smooth;
+}
 .details{
     width:100%;
     display:flex;
@@ -116,6 +158,19 @@ export default {
 .same-line{
     display: flex;
     justify-content: space-between;
+}
+.desactive{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ffffffb3;
+    top: 0;
+}
+.part{
+    position:relative;
+}
+.hide{
+    display:none;
 }
 @media  (max-width: 445px) {
    .same-line{
