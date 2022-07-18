@@ -29,8 +29,6 @@ export default {
             carburant: [
                 'Essence',
                 'Diesel',
-                'Hybride',
-
             ],
             selected :null,
         }
@@ -48,7 +46,8 @@ export default {
   },
   mounted(){
     if(this.carburant.length == 1){
-        this.selected= 0
+        this.selected= 0;
+        this.$emit('carburant', true);
     }
   }
 

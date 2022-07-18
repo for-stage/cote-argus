@@ -19,12 +19,12 @@
       <DateChoice v-if="this.show" :month=" monthSelected " :year="yearSelected" />
       <div ref="hide" class="hide">
         <div class="part">
-        <CarburantChoice />
+        <CarburantChoice @step="step" @carburant="arrLength"/>
         <div class="desactive" ref="step2"></div>
       </div>
      
       <div class="same-line">
-            <div class="partie" >
+            <div class="partie">
                 <BoiteVitesse/>
                 <div class="desactive" ref="step3"></div>
             </div>
@@ -100,6 +100,8 @@ export default {
             },
             show: false,
             showpopup: false,
+            run : false,
+            arr : null,
         }
     },
     methods:{
@@ -130,17 +132,56 @@ export default {
                     el.classList.remove("desactive");
                 }
             }else if(value == 'step2'){
-                const el = this.$refs.hide;
-                 if (el) {
-                    el.classList.remove("hide");
-                };
-                setTimeout('', 1000);
-                const e = this.$refs.step2;
+                if(this.arr == true){
+                   const el = this.$refs.hide;
+                    if (el) {
+                        el.classList.remove("hide");
+                    };
+                    setTimeout('', 1000);
+                    const e = this.$refs.step2;
+                    if (e) {
+                        e.scrollIntoView({ behavior: "smooth" });
+                        e.classList.remove("desactive");
+                    }
+                   const elm = this.$refs.step3;
+                        if (elm) {
+                            elm.scrollIntoView({ behavior: "smooth" });
+                            elm.classList.remove("desactive");
+                        }
+                        console.log('here');
+                }else{
+                    const el = this.$refs.hide;
+                    if (el) {
+                        el.classList.remove("hide");
+                    };
+                    setTimeout('', 1000);
+                    const e = this.$refs.step2;
+                    if (e) {
+                        e.scrollIntoView({ behavior: "smooth" });
+                        e.classList.remove("desactive");
+                    }
+                    console.log('not here');
+                }
+            }else if(value == 'step3'){
+                const e = this.$refs.step3;
                 if (e) {
                     e.scrollIntoView({ behavior: "smooth" });
                     e.classList.remove("desactive");
                 }
             }
+        },
+        directStep(value){
+                    if(value == "step3"){
+                        const e = this.$refs.step3;
+                        if (e) {
+                            e.scrollIntoView({ behavior: "smooth" });
+                            e.classList.remove("desactive");
+                        }
+                    };
+                console.log('last');
+        },
+        arrLength(){
+            this.arr = true;
         }
         
     },
