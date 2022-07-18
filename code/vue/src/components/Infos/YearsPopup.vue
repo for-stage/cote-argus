@@ -6,7 +6,7 @@
         <h3>Année de mise en circulation*</h3>
         </div>
         <div class="out">
-            <a @click="close"><img src="../../assets/out.png"></a>
+            <a @click="close">&#x2716</a>
         </div>
     </div>
     <div class="years"  >
@@ -98,8 +98,15 @@ export default {
     width:7%;
     cursor: pointer;
 }
-.out img{
-    width:100%;
+.out a{
+    /* css hover a cercle hover */
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+
+}
+.out a:hover{
+    color: #000000;
 }
 .title{
     height: 50px;
