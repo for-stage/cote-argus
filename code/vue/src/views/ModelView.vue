@@ -3,16 +3,27 @@
   <PathComponent path="Voitures particulières" />
   <SearchBar />
   <div class="models" >
-    <div class="sous-model" @click="next">
-        <div class="choice" v-for="(model,index) in models" :key="index" v-on:click="giveStyle(index)" >
-            <div class="model"  :class="{ checkeddiv: selected == index }" >
+    <div class="sous-model" >
+        <div class="choice" v-for="(model,index) in models" :key="index" v-on:click="giveStyle(index)"  >
+            <div @click="next" class="model"  :class="{ checkeddiv: selected == index }" >
                <h3 :class="{ checkedtitle: selected == index }" class="title">{{model}} </h3>
             </div>
      
         </div>
         
     </div>
+     
   </div>
+ <div class="precedent">
+  <div class="retour" @click="retour">
+    <img src="../assets/return.png" alt="">
+    <div>Retour</div>
+    
+   </div>
+ 
+ </div>
+
+  
 
 
 
@@ -57,6 +68,10 @@ export default {
     next(){
      router.push('/infos');
     },
+       retour(){
+            this.$router.push('/');
+
+        }
     
   }
 }
@@ -135,6 +150,41 @@ ul {
 
 .sous-model {
     width: 101%;
+}
+.precedent{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.retour{
+    margin-top: 30px;
+    display: flex;
+    cursor: pointer;
+    width: 80%;
+}
+.retour img{
+    border: solid 3px #E5004E;
+    padding: 8px;
+}
+.retour div{
+    border:  solid 3px #E5004E;
+    border-left: 0 ;
+    padding: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #E5004E;
+}
+.retour div{
+    display: none;
+}
+.retour:hover div{
+    display: block;
+    transition: 3s;
+}
+.retour:hover img{
+    transform: rotate(360deg);
+    transition: 1s;
+    border-right: 0ch;
 }
 
 @media(max-width: 768px) {

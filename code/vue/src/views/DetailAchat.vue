@@ -109,7 +109,7 @@ export default {
     width: 80%;
 }
 .retour{
-    margin-top: 30px;
+    margin-top: 50px;
     display: flex;
     cursor: pointer;
     width: 6%;
