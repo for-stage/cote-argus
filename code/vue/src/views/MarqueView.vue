@@ -37,7 +37,7 @@ export default {
       next(value){
         if(value){
          
-           window.location="./infos";
+           window.location="./model";
         }
         console.log('goto')
        

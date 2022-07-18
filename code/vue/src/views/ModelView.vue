@@ -2,9 +2,8 @@
   <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
   <PathComponent path="Voitures particulières" />
   <SearchBar />
-  <div class="models">
-    <div class="sous-model">
-
+  <div class="models" >
+    <div class="sous-model" @click="next">
         <div class="choice" v-for="(model,index) in models" :key="index" v-on:click="giveStyle(index)" >
             <div class="model"  :class="{ checkeddiv: selected == index }" >
                <h3 :class="{ checkedtitle: selected == index }" class="title">{{model}} </h3>
@@ -25,6 +24,7 @@
 import HeaderComponent from '../components/ModelComponent/HeaderModel.vue'
 import PathComponent from '../components/Marque/PathComponent.vue'
 import SearchBar from '../components/SearchBar.vue'
+import router from '../router'
 // import Model from '../components/ModelComponent/Model.vue'
 
 
@@ -53,7 +53,11 @@ export default {
     methods: {
     giveStyle(i) {
         this.selected = i;
-    }
+    },
+    next(){
+     router.push('/infos');
+    },
+    
   }
 }
 </script>

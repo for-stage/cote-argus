@@ -9,7 +9,7 @@
     </div>
     <div class="kilometrage-btn">
       <router-link to="/details">
-        <button  type="submit" name="Send">Send</button>
+        <button  type="submit" name="Send" @click="valide">Send</button>
         </router-link>
     </div>
     </form>
@@ -21,7 +21,17 @@ export default {
     name: 'navbar',
     props: {
         title: String
+    },
+    data() {
+        return {
+           
+        }
+    },
+      methods: {
+    valide(){
+        this.$emit('valide', true);     
     }
+  },
 }
 
 </script>

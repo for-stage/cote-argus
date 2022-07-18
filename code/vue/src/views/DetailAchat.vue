@@ -4,15 +4,15 @@
    <div class="quest">
     <Questions @open="onShow" @close="onClose"/>
     <UploadPics v-if="this.open==true" />
-    <Sms/>
-    <personnel @close="exit"/>
+    <Sms @valide="valideSms" />
+    <personnel @close="exit" v-if="this.showpopup"/>
         
     <!-- <vue-recaptcha ref="recaptcha" sitekey="6LcqpOogAAAAAPpyqWMgU128ifep-Ax_AvWDMgKI" /> -->
    
                        
                       
   
-     <div class="retour">
+     <div class="retour" @click="retour">
     <img src="../assets/return.png" alt="">
     <div>Retour</div>
     
@@ -55,6 +55,7 @@ export default {
         return{
             images: null,
             open:'false',
+            showpopup: '',
         }
         },
     methods: {
@@ -76,8 +77,25 @@ export default {
       },
         onClose() {
             this.open = false;
+        },
+     exit(value){
+            this.showpopup = value;
+        },
+        openPopup(){
+            this.showpopup = true;
+        },
+        valideSms(value){
+            this.showpopup = value;
+        
+        },
+        retour(){
+            this.$router.push('/infos');
+
         }
+
     },
+    
+    
    
 
 }
