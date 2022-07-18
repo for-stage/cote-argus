@@ -118,7 +118,6 @@ export default {
         },
         visibilty(value){
             this.showpopup = value ;
-            // console.log(this.showpopup)
         },
         choose(value){
             this.showpopup = value ;
@@ -131,8 +130,7 @@ export default {
             if(value == 'step1'){
                 const el = this.$refs.step1;
                 if (el) {
-                    el.scrollIntoView({ behavior: "smooth" });
-                    el.classList.remove("desactive");
+                    this.scroll(el);
                 }
             }else if(value == 'step2'){
                 if(this.carburant){
@@ -143,13 +141,11 @@ export default {
                     setTimeout('', 1000);
                     const e = this.$refs.step2;
                     if (e) {
-                        e.scrollIntoView({ behavior: "smooth" });
-                        e.classList.remove("desactive");
+                        this.scroll(e);
                     }
                    const elm = this.$refs.step3;
                         if (elm) {
-                            elm.scrollIntoView({ behavior: "smooth" });
-                            elm.classList.remove("desactive");
+                            this.scroll(elm);
                         }
                 }else{
                     const el = this.$refs.hide;
@@ -159,66 +155,52 @@ export default {
                     setTimeout('', 1000);
                     const e = this.$refs.step2;
                     if (e) {
-                        e.scrollIntoView({ behavior: "smooth" });
-                        e.classList.remove("desactive");
+                        this.scroll(e);
                     }
                 }
             }else if(value == 'step3'){
+                const el = this.$refs.step4;
+                const e = this.$refs.step3;
                 if(this.boit){
-                    const e = this.$refs.step3;
                     if (e) {
-                        e.scrollIntoView({ behavior: "smooth" });
-                        e.classList.remove("desactive");
+                        this.scroll(e);
                     } 
-                    const el = this.$refs.step4;
                     if (el) {
-                        el.scrollIntoView({ behavior: "smooth" });
-                        el.classList.remove("desactive");
+                        this.scroll(el);
                     } 
                 }else{
-                    const e = this.$refs.step3;
                     if (e) {
-                        e.scrollIntoView({ behavior: "smooth" });
-                        e.classList.remove("desactive");
+                        this.scroll(e);
                     } 
-                }
-                
+                }    
             }else if(value == 'step4'){
+                const e = this.$refs.step4;
+                const el = this.$refs.step5;
                 if(this.chevaux){
-                    const e = this.$refs.step4;
                     if (e) {
-                        e.scrollIntoView({ behavior: "smooth" });
-                        e.classList.remove("desactive");
+                        this.scroll(e);
                     } 
-                    const el = this.$refs.step5;
                     if (el) {
-                        el.scrollIntoView({ behavior: "smooth" });
-                        el.classList.remove("desactive");
+                        this.scroll(el);
                     } 
                 }else{
-                    const e = this.$refs.step4;
                     if (e) {
-                        e.scrollIntoView({ behavior: "smooth" });
-                        e.classList.remove("desactive");
+                        this.scroll(e);
                     } 
                 }
             }else if(value == 'step5'){
+                const e = this.$refs.step5;
+                const el = this.$refs.step6;
                 if(this.cylinder){
-                    const e = this.$refs.step5;
                     if (e) {
-                        e.scrollIntoView({ behavior: "smooth" });
-                        e.classList.remove("desactive");
+                        this.scroll(e);
                     } 
-                    const el = this.$refs.step6;
                     if (el) {
-                        el.scrollIntoView({ behavior: "smooth" });
-                        el.classList.remove("desactive");
+                        this.scroll(el);
                     } 
                 }else{
-                    const e = this.$refs.step5;
                     if (e) {
-                        e.scrollIntoView({ behavior: "smooth" });
-                        e.classList.remove("desactive");
+                        this.scroll(e);
                     } 
                 }
             }
@@ -233,6 +215,10 @@ export default {
             }else if(value == 'cylinder'){
                 this.cylinder = true;
             }
+        },
+        scroll(e){
+            e.scrollIntoView({ behavior: "smooth" });
+            e.classList.remove("desactive");
         }
         
     },
