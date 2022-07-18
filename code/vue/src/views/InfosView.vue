@@ -36,11 +36,11 @@
 
       <div class="same-line">
             <div class="partie">
-                <LitreCylindr @cylinder="arrLength"/>
+                <LitreCylindr @step="step" @cylinder="arrLength"/>
                 <div class="desactive" ref="step5"></div>
             </div>  
             <div class="partie">
-                <LaPuissance/>
+                <LaPuissance @step="step" @puissance="arrLength" />
                 <div class="desactive" ref="step6"></div>
             </div> 
       
@@ -109,6 +109,7 @@ export default {
             boit : null,
             chevaux : null,
             cylinder : false,
+            puissance : false,
         }
     },
     methods:{
@@ -207,6 +208,26 @@ export default {
                         this.scroll(e);
                     } 
                 }
+            }else if(value == "step6"){
+                const e = this.$refs.step6;
+                const el = this.$refs.step7;
+                if(this.puissance){
+                    if (e) {
+                        this.scroll(e);
+                    } 
+                    if (el) {
+                        this.scroll(el);
+                    } 
+                }else{
+                    if (e) {
+                        this.scroll(e);
+                    } 
+                }
+            }else if (value == "step7"){
+                const el = this.$refs.step7;
+                if (el) {
+                        this.scroll(el);
+                    } 
             }
         },
         arrLength(value){
@@ -218,6 +239,8 @@ export default {
                 this.chevaux = true;
             }else if(value == 'cylinder'){
                 this.cylinder = true;
+            }else if(value == 'puissance'){
+                this.puissance = true;
             }
         },
         scroll(e){
