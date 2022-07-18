@@ -25,11 +25,11 @@
      
       <div class="same-line">
             <div class="partie">
-                <BoiteVitesse/>
+                <BoiteVitesse @step="step" @boit="arrLength"/>
                 <div class="desactive" ref="step3"></div>
             </div>
             <div class="partie">
-                <NbrChevaux/>
+                <NbrChevaux @chevaux="arrLength"/>
                 <div class="desactive" ref="step4"></div>
             </div> 
       </div>
@@ -101,7 +101,9 @@ export default {
             show: false,
             showpopup: false,
             run : false,
-            arr : null,
+            carburant : null,
+            boit : null,
+            chevaux : null,
         }
     },
     methods:{
@@ -132,7 +134,7 @@ export default {
                     el.classList.remove("desactive");
                 }
             }else if(value == 'step2'){
-                if(this.arr == true){
+                if(this.carburant){
                    const el = this.$refs.hide;
                     if (el) {
                         el.classList.remove("hide");
@@ -148,7 +150,6 @@ export default {
                             elm.scrollIntoView({ behavior: "smooth" });
                             elm.classList.remove("desactive");
                         }
-                        console.log('here');
                 }else{
                     const el = this.$refs.hide;
                     if (el) {
@@ -160,28 +161,56 @@ export default {
                         e.scrollIntoView({ behavior: "smooth" });
                         e.classList.remove("desactive");
                     }
-                    console.log('not here');
                 }
             }else if(value == 'step3'){
-                const e = this.$refs.step3;
-                if (e) {
-                    e.scrollIntoView({ behavior: "smooth" });
-                    e.classList.remove("desactive");
+                if(this.boit){
+                    const e = this.$refs.step3;
+                    if (e) {
+                        e.scrollIntoView({ behavior: "smooth" });
+                        e.classList.remove("desactive");
+                    } 
+                    const el = this.$refs.step4;
+                    if (el) {
+                        el.scrollIntoView({ behavior: "smooth" });
+                        el.classList.remove("desactive");
+                    } 
+                }else{
+                    const e = this.$refs.step3;
+                    if (e) {
+                        e.scrollIntoView({ behavior: "smooth" });
+                        e.classList.remove("desactive");
+                    } 
+                }
+                
+            }else if(value == 'step4'){
+                if(this.chevaux){
+                    const e = this.$refs.step4;
+                    if (e) {
+                        e.scrollIntoView({ behavior: "smooth" });
+                        e.classList.remove("desactive");
+                    } 
+                    const el = this.$refs.step5;
+                    if (el) {
+                        el.scrollIntoView({ behavior: "smooth" });
+                        el.classList.remove("desactive");
+                    } 
+                }else{
+                    const e = this.$refs.step4;
+                    if (e) {
+                        e.scrollIntoView({ behavior: "smooth" });
+                        e.classList.remove("desactive");
+                    } 
                 }
             }
         },
-        directStep(value){
-                    if(value == "step3"){
-                        const e = this.$refs.step3;
-                        if (e) {
-                            e.scrollIntoView({ behavior: "smooth" });
-                            e.classList.remove("desactive");
-                        }
-                    };
-                console.log('last');
-        },
-        arrLength(){
-            this.arr = true;
+        arrLength(value){
+            if(value == 'carburant'){
+                this.carburant = true;
+            }else if(value == 'boit'){
+                this.boit = true;
+            }else if(value == 'chevaux'){
+                this.chevaux = true;
+            }
         }
         
     },
