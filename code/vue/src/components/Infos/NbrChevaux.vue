@@ -8,7 +8,7 @@
         </div>
         <div class="div-choice">
             <div class="choice" >
-                <div  v-for="(cheval, index) in chevaux " :key="index" v-on:click="giveStyle(index)"  class="card"  :class="{ checkeddiv: selected == index }">
+                <div  v-for="(cheval, index) in chevaux " :key="index" v-on:click="giveStyle(index);nextstep();"  class="card"  :class="{ checkeddiv: selected == index }">
                     <p :class="{ checkedtitle: selected == index }">{{ cheval }}  </p>
                 </div>
             </div>
@@ -38,6 +38,9 @@ export default {
         this.selected = i;
         console.log("imin");
         console.log(this.selected);
+    },
+    nextstep(){
+        this.$emit('step', 'step5'); 
     }
   },
   mounted(){

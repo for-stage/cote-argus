@@ -29,14 +29,14 @@
                 <div class="desactive" ref="step3"></div>
             </div>
             <div class="partie">
-                <NbrChevaux @chevaux="arrLength"/>
+                <NbrChevaux @step="step" @chevaux="arrLength"/>
                 <div class="desactive" ref="step4"></div>
             </div> 
       </div>
 
       <div class="same-line">
             <div class="partie">
-                <LitreCylindr/>
+                <LitreCylindr @cylinder="arrLength"/>
                 <div class="desactive" ref="step5"></div>
             </div>  
             <div class="partie">
@@ -104,6 +104,7 @@ export default {
             carburant : null,
             boit : null,
             chevaux : null,
+            cylinder : false,
         }
     },
     methods:{
@@ -201,6 +202,25 @@ export default {
                         e.classList.remove("desactive");
                     } 
                 }
+            }else if(value == 'step5'){
+                if(this.cylinder){
+                    const e = this.$refs.step5;
+                    if (e) {
+                        e.scrollIntoView({ behavior: "smooth" });
+                        e.classList.remove("desactive");
+                    } 
+                    const el = this.$refs.step6;
+                    if (el) {
+                        el.scrollIntoView({ behavior: "smooth" });
+                        el.classList.remove("desactive");
+                    } 
+                }else{
+                    const e = this.$refs.step5;
+                    if (e) {
+                        e.scrollIntoView({ behavior: "smooth" });
+                        e.classList.remove("desactive");
+                    } 
+                }
             }
         },
         arrLength(value){
@@ -210,6 +230,8 @@ export default {
                 this.boit = true;
             }else if(value == 'chevaux'){
                 this.chevaux = true;
+            }else if(value == 'cylinder'){
+                this.cylinder = true;
             }
         }
         
