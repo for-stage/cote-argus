@@ -45,7 +45,11 @@
             </div> 
       
       </div>
-      <KilometrageComponent />
+        <div class="part">
+            <KilometrageComponent />
+            <div class="desactive" ref="step7"></div>
+        </div> 
+      
     </div>
       </div>
       
@@ -251,7 +255,7 @@ html {
 .desactive{
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 105%;
     background: #ffffffb3;
     top: 0;
 }
