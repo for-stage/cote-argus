@@ -4,14 +4,15 @@
    <div class="quest">
     <Questions @open="onShow" @close="onClose"/>
     <UploadPics v-if="this.open==true" />
-    <Sms/>
+    <Sms @valide="valideSms" />
+    <personnel @close="exit" v-if="this.showpopup"/>
         
     <!-- <vue-recaptcha ref="recaptcha" sitekey="6LcqpOogAAAAAPpyqWMgU128ifep-Ax_AvWDMgKI" /> -->
    
                        
                       
   
-     <div class="retour">
+     <div class="retour" @click="retour">
     <img src="../assets/return.png" alt="">
     <div>Retour</div>
     
@@ -29,6 +30,7 @@ import Infos from '../components/detailAchat/Infos.vue'
 import Questions from '../components/detailAchat/Questions.vue'
 import Sms from '../components/detailAchat/Sms.vue'
 import UploadPics from '../components/detailAchat/UploadPics.vue';
+import Personnel from '../components/detailAchat/Personnel.vue';
 // import { VueRecaptcha } from 'vue-recaptcha';
 
 
@@ -42,6 +44,7 @@ export default {
          Questions,         
          Sms,
          UploadPics ,
+            Personnel,
         //  VueRecaptcha
     },
 
@@ -52,6 +55,7 @@ export default {
         return{
             images: null,
             open:'false',
+            showpopup: '',
         }
         },
     methods: {
@@ -74,7 +78,24 @@ export default {
         onClose() {
             this.open = false;
         },
+     exit(value){
+            this.showpopup = value;
+        },
+        openPopup(){
+            this.showpopup = true;
+        },
+        valideSms(value){
+            this.showpopup = value;
+        
+        },
+        retour(){
+            this.$router.push('/infos');
+
+        }
+
     },
+    
+    
    
 
 }
@@ -88,7 +109,7 @@ export default {
     width: 80%;
 }
 .retour{
-    margin-top: 30px;
+    margin-top: 50px;
     display: flex;
     cursor: pointer;
     width: 6%;

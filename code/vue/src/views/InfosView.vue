@@ -137,6 +137,10 @@ export default {
         }
         
     },
+    mounted(){
+         console.log(localStorage.getItem('marque'));
+         
+    }
    
 }
 

@@ -1,20 +1,37 @@
 <template>
 <div class="back-pop">
-<div class="popup-years"  ref="popup" :style="top">
+<div class="popup-infos"  ref="popup" :style="top">
     <div class="header">
         <div class="title">
         <h3>Année de mise en circulation*</h3>
         </div>
         <div class="out">
             <a @click="close">&#x2716</a>
+           
         </div>
+        
     </div>
-    <div class="years"  >
+    <div class="infos"  >
    
-            <div v-for="(year,index) in Years" :key="index"   class="year" @click="showDetailYear(year);nextstep();">
-                <p>{{year}}</p>
-
-        </div>
+         <form >
+            <label for="name">
+            <p>Nom </p>
+            <input id="name" type="text" name="fullname" >
+            </label>
+            <label for="name">
+            <p>Prenom</p>
+            <input id="name" type="text" name="fullname" >
+            </label> <label for="name">
+            <p>Email</p>
+            <input id="name" type="text" name="fullname" >
+            </label>
+        
+                <input class="btn " type="submit" value="continue">
+ 
+            
+           
+          
+        </form>
        
     </div>
 </div>
@@ -24,7 +41,7 @@
 <script>
 
 export default {
-    name: 'YearsPopup',
+    name: 'infosPopup',
  
 
     props: {
@@ -34,39 +51,19 @@ export default {
 
     data() {
          return {
-            yearSelected: {},
-           Years : [2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007],
             top: 0,
             value: ""
         }
     },
 
-    mounted() {
-        let height=this.$refs.popup.clientHeight;
-        this.top = height - 40;
+    mounted() {    
     },
 
     computed: {
-        top () {
-            return {
-                top: `${this.top}px`,
-            }
-        }
     },
     methods: {
-    showDetailYear(year){
-      this.yearSelected = year;
-      this.$emit('clicked-show-detail', year);
-      this.visibility();
-    },
-    visibility(){
-        this.$emit('popupclose', false);
-    },
     close(){
         this.$emit('close', false);     
-    },
-    nextstep(){
-        this.$emit('step', 'step2');    
     }
   },
 }
@@ -81,7 +78,7 @@ export default {
     color:#717171;
     text-align: center;
 }
-.popup-years{
+.popup-infos{
     border: solid 2px #6C6C6C;
     position: fixed;
     background: white;
@@ -91,7 +88,7 @@ export default {
     left: 30%;
     width: 35%;
 }
-.years{
+.infos{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -117,24 +114,56 @@ export default {
     width:100%;
 }
 .back-pop{
+    /* display:none; */
     background: rgb(0 0 0 / 40%);
     width: 100%;
     position: fixed;
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 10;
 }
+label{
+    width: 90%;
+}
+input{
+    border: solid 1px black;
+    width: 98%;
+    height: 40px;
+    padding-left: 10px;
+    font-weight: 500;
+    font-size: 1.2em;
+    border-radius: 5px;
+    background: none;
+}
+form{
+    width:100% ;
+    color: #717171;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+}
+.btn{
+    margin-top: 30px;
+    width: 40%;
+    height: 40px;
+    background: #6C6C6C;
+    color: white;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+}
 @media( max-width: 768px){
-.popup-years{
+.popup-infos{
     left: 15%;
     width: 66%;
 }
 
 }
 @media( max-width: 480px){
-.popup-years{
+.popup-infos{
     left: 7%;
     width: 80%;
 }
@@ -145,24 +174,7 @@ h3{
 
 }
 
-.year{
-background: #e8e8e8;
-    width: 24%;
-    text-align: center;
-    border-radius: 10px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #737373;
-    margin-top: 2%;
-    cursor: pointer;
-    font-weight: bold;
-}
-.year:hover{
-    background:#e5004e;
-    color:white;
-}
+
 
 @media( max-width: 480px){
 

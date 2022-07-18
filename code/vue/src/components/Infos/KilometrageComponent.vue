@@ -25,6 +25,35 @@
 </template>
 
 <style  scoped>
+input[type="text"]{
+    width: 70%;
+    height: 45px;
+    border-radius: 5px;
+    background-color: #F5F5F5;
+    border: solid 1px #6F6F6F;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+input:focus{
+    outline:none;
+
+}
+
+input[type="submit"]{
+    width: 10%;
+    height: 46px;
+    border-radius: 5px;
+    background-color: #E5004E;
+    color: white;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    margin-left: 1%;
+    font-weight: 700;
+    font-size: 14px;
+
+}
 .kilometrage{
     margin-top:5%;
 }
@@ -64,5 +93,16 @@
     font-size:16px;
     cursor:pointer;
 }
-
+@media (max-width: 480px) {
+    .kilometrage-input input{
+        width: 90%;
+        font-size: 90%;
+        padding-left: 10px;
+    }
+    .kilometrage-btn {
+        width: 22%;
+    }
+    
+    
+}
 </style>

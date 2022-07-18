@@ -4,7 +4,7 @@
          <SearchBar />
     <div class="marque">
       <div class="sous-marque" >
-        <CardMarque v-for="(car,index) in cars" :key="index" @clicked="next" :name="car.name" :logo="car.logo"/> 
+        <CardMarque v-for="(car,index) in cars" :key="index" @click="get(car.name)" @clicked="next" :name="car.name" :logo="car.logo"/> 
       </div>
 
     </div>
@@ -36,9 +36,16 @@ export default {
     methods:{
       next(value){
         if(value){
-           window.location="./infos";
+         
+           window.location="./model";
         }
         console.log('goto')
+       
+      },
+      get(value){  
+          localStorage.setItem('marque',value);
+          //get marque from localStorage
+          console.log(localStorage.getItem('marque'));
        
       }
     },
