@@ -24,19 +24,26 @@
       </div>
      
       <div class="same-line">
-            <div class="part" >
+            <div class="partie" >
                 <BoiteVitesse/>
-                <div class="desactive" ref="step1"></div>
+                <div class="desactive" ref="step3"></div>
             </div>
-            <div class="part">
+            <div class="partie">
                 <NbrChevaux/>
-                <div class="desactive" ref="step1"></div>
+                <div class="desactive" ref="step4"></div>
             </div> 
       </div>
 
-      <div class="same-line">  
-      <LitreCylindr/>
-      <LaPuissance/>
+      <div class="same-line">
+            <div class="partie">
+                <LitreCylindr/>
+                <div class="desactive" ref="step5"></div>
+            </div>  
+            <div class="partie">
+                <LaPuissance/>
+                <div class="desactive" ref="step6"></div>
+            </div> 
+      
       </div>
       <KilometrageComponent />
     </div>
@@ -172,6 +179,10 @@ html {
 }
 .part{
     position:relative;
+}
+.partie{
+    position:relative;
+    width:49%;
 }
 .hide{
     display:none;

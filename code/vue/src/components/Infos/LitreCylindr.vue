@@ -52,7 +52,7 @@ export default {
 
 .boite-choice {
     margin-top: 5%;
-    width: 49%;
+    width: 100%;
 }
 
 .choice {
