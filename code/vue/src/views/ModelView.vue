@@ -56,7 +56,7 @@ export default {
   },
     data() {
         return {
-            models:[ " Ford ", " Audi ", " BMW ", " Mercedes ", " Volkswagen ", " Opel ", ],
+            models:[ " Fiesta ", " Focus ", " C-MAX ", " Custom ", " Explorer ", " Ka ", ],
             checked :false,
             selected : null,
         }
