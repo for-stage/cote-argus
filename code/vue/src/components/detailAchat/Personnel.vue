@@ -155,6 +155,10 @@ form{
     border: none;
     cursor: pointer;
 }
+.btn:hover{
+    background: #000000;
+    transition: all 0.5s ease-in-out;
+}
 @media( max-width: 768px){
 .popup-infos{
     left: 15%;
