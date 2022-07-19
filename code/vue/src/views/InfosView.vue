@@ -96,8 +96,8 @@ export default {
     },
     data(){
         return {
-            monthSelected: "",
-            yearSelected: "",
+            monthSelected: null,
+            yearSelected: null,
             date:{
                 month: '',
                 year: ''
@@ -115,11 +115,11 @@ export default {
     methods:{
         clickedShowDetailMonth(value){
             this.monthSelected = value;
-            console.log(this.monthSelected);
+            localStorage.setItem('month',value);
         },
         clickedShowDetailYear(value){
             this.yearSelected = value;
-
+            localStorage.setItem('year',value);
         },
         visibilty(value){
             this.showpopup = value ;
@@ -250,8 +250,8 @@ export default {
         
     },
     mounted(){
-         console.log(localStorage.getItem('marque'));
-         
+        //  console.log(localStorage.getItem('marque'));
+        
     }
    
 }

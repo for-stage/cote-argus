@@ -46,7 +46,6 @@ export default {
           localStorage.setItem('marque',value);
           //get marque from localStorage
           console.log(localStorage.getItem('marque'));
-       
       }
     },
     data(){

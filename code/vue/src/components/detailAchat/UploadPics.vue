@@ -3,7 +3,9 @@ export default{
 
 data() {
         return {
-           filelist: []
+           filelist: [],
+           isLoading: false,
+           count : 0
         }
     },
     methods: {
@@ -21,21 +23,26 @@ data() {
         if(this.$refs.file.files.length == 0){
             return;
         }
-        else if (this.filelist.length > 0){
-            console.log('thisisit');
-            this.filelist = this.filelist.concat([...this.$refs.file.files]);
-        }
-        else if (this.$refs.file.files.length > 5) {
+        else if (this.count > 4 || this.$refs.file.files.length > 5) {
         alert(`Only 5 files are allowed to upload.`);
-        }else{
+        }
+        else if (this.filelist.length > 0){
+            console.log(this.filelist.length);
+            console.log(this.$refs.file.files.length);
+            this.filelist = this.filelist.concat([...this.$refs.file.files]);
+            this.count += this.$refs.file.files.length;
+            console.log(this.count);
+        }
+        else{
             this.filelist = [...this.$refs.file.files];
+            console.log(this.filelist.length);
+            this.count += this.$refs.file.files.length;
+            console.log(this.count);
         }
     },
 
     remove(i) {
-        console.log(this.filelist);
       this.filelist.splice(i, 1);
-      console.log(this.filelist);
     },
 
     dragover(event) {
@@ -125,7 +132,7 @@ data() {
 }
 
 .picture-uploaded a{
-        background: rgb(0 0 0 / 60%);
+    background: rgb(0 0 0 / 60%);
     position: absolute;
     top: 0;
     left: 0;
@@ -146,5 +153,36 @@ data() {
    }
     
 }
+input.delay {
+  margin-bottom: 15px;
+}
+
+.loading-overlay {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(100, 100, 100, .5);
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+}
+
+i.fa.fa-cog {
+  font-size: 3em;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+}
+.input-upload a{
+    position:relative;
+}
+
 
 </style>

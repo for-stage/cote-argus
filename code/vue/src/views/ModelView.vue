@@ -4,7 +4,7 @@
   <SearchBar />
   <div class="models" >
     <div class="sous-model" >
-        <div class="choice" v-for="(model,index) in models" :key="index" v-on:click="giveStyle(index)"  >
+        <div class="choice" v-for="(model,index) in models" :key="index" v-on:click="giveStyle(index),get(model)"  >
             <div @click="next" class="model"  :class="{ checkeddiv: selected == index }" >
                <h3 :class="{ checkedtitle: selected == index }" class="title">{{model}} </h3>
             </div>
@@ -56,7 +56,7 @@ export default {
   },
     data() {
         return {
-            models:[ " Ford ", " Audi ", " BMW ", " Mercedes ", " Volkswagen ", " Opel ", ],
+            models:[ " Fiesta ", " Focus ", " C-MAX ", " Custom ", " Explorer ", " Ka ", ],
             checked :false,
             selected : null,
         }
@@ -71,6 +71,11 @@ export default {
        retour(){
             this.$router.push('/');
 
+        },
+        get(value){
+            localStorage.setItem('model',value);
+          //get marque from localStorage
+          console.log(localStorage.getItem('model'));
         }
     
   }
