@@ -2,7 +2,9 @@
 
 
 defineProps({
-  title: String
+  title: String,
+  subtitle:String,
+  mark: String
 })
 
 
@@ -13,7 +15,8 @@ defineProps({
 
     <div class="header">
         <div class="title">
-            <h2>{{ title }}</h2>
+            <h2>{{ title }} {{mark}}</h2>
+            <h4>{{subtitle}}</h4>
         </div> 
     </div>
 
@@ -39,6 +42,9 @@ h2{
     h2{
     font-size: 15px;
     }
+}
+.title{
+    text-align: center;
 }
 
 </style>

@@ -1,7 +1,7 @@
 
 
 <template>
- <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
+<HeaderComponent title="Calculez la Cote Argus de votre" :mark="this.mark" :subtitle="this.subtitle"/>
 <PathComponent path="Voitures particulières"/>
 
 <div class="details">
@@ -59,7 +59,7 @@
 </div>
 </template>
 <script >
-import HeaderComponent from '../components/ModelComponent/HeaderModel.vue'
+import HeaderComponent from '../components/Marque/HeaderComponent.vue'
 import PathComponent from '../components/Marque/PathComponent.vue'
 import NumPorte from '../components/Infos/NumPorte.vue'
 import DateComponent from '../components/Infos/DateComponent.vue'
@@ -89,7 +89,6 @@ export default {
         LitreCylindr,
         LaPuissance,
         KilometrageComponent,   
-  
     },
     props: {
         msg: String
@@ -110,6 +109,8 @@ export default {
             chevaux : null,
             cylinder : false,
             puissance : false,
+            mark : null,
+            subtitle: null
         }
     },
     methods:{
@@ -250,9 +251,9 @@ export default {
         
     },
     mounted(){
-        //  console.log(localStorage.getItem('marque'));
-        
-    }
+        this.mark = localStorage.getItem('marque');
+        this.subtitle = "Otoclic vous propose de calculer la Cote Argus de votre" + this.mark + "en sélectionnant votre modèle parmi la liste ci-dessous";
+  }
    
 }
 

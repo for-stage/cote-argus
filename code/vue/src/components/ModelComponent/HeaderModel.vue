@@ -2,7 +2,8 @@
 
 
 defineProps({
-  title: String
+  title: String,
+  mark: String
 })
 
 
@@ -13,8 +14,8 @@ defineProps({
 
     <div class="header">
         <div class="title">
-            <h2>{{ title }}</h2>
-            <h4>L'argus vous propose de calculer la Cote Argus de votre Ford en sélectionnant votre modèle parmi la liste ci-dessous</h4>
+            <h2>{{ title }} {{mark}}</h2>
+            <h4>Otoclic vous propose de calculer la Cote Argus de votre {{mark}} en sélectionnant votre modèle parmi la liste ci-dessous</h4>
         </div> 
     </div>
 
