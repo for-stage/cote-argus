@@ -5,8 +5,8 @@
             <h3>Carrosserie et nombre de portes*</h3>
         </div>
         <div class="choices">
-        <div class="choice" v-for="(model,index) in models" :key="index" v-on:click="giveStyle(index)" >
-            <div class="model"  :class="{ checkeddiv: selected == index }" >
+        <div class="choice" v-for="(model,index) in models" :key="index"  >
+            <div class="model"  :class="{ checkeddiv: selected == index }" v-on:click="giveStyle(index);nextstep();" >
                 <h3 :class="{ checkedtitle: selected == index }" class="title">Fiesta <br><span>Fiesta {{model}} portes</span></h3>
             </div>
         </div>
@@ -40,8 +40,12 @@ export default {
     methods: {
     giveStyle(i) {
         this.selected = i;
-    }
+    },
+    nextstep(){
+        this.$emit('step', 'step1');     
+  }
   },
+  
   mounted(){
     if(this.models.length == 1){
         this.selected= 0;
@@ -53,6 +57,9 @@ export default {
 
 </script>
 <style  scoped>
+html {
+  scroll-behavior: smooth;
+}
 .choices{
     display: flex;
     flex-wrap: wrap;
@@ -60,6 +67,7 @@ export default {
 
 
 }
+
 .model {
     width: 92%;
     height: 70px;
@@ -124,6 +132,10 @@ ul {
     flex-wrap: wrap;
     flex-direction: column;
 
+}
+
+.choice a{
+    text-decoration:none;
 }
 
 .sous-model {

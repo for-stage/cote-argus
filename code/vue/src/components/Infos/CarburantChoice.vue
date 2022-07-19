@@ -8,7 +8,7 @@
         </div>
         <div class="div-choice">
             <div class="choice" >
-                <div  v-for="(carbur, index) in carburant " :key="index" v-on:click="giveStyle(index)"  class="card"  :class="{ checkeddiv: selected == index }">
+                <div  v-for="(carbur, index) in carburant " :key="index" v-on:click="giveStyle(index);nextstep();"  class="card"  :class="{ checkeddiv: selected == index }">
                     <p :class="{ checkedtitle: selected == index }">{{ carbur }}  </p>
                 </div>
             </div>
@@ -29,8 +29,7 @@ export default {
             carburant: [
                 'Essence',
                 'Diesel',
-                'Hybride',
-
+                'Electrique',
             ],
             selected :null,
         }
@@ -41,11 +40,15 @@ export default {
         console.log("imin");
         console.log(this.selected);
     },
+    nextstep(){
+        this.$emit('step', 'step3'); 
+    },
     
   },
   mounted(){
     if(this.carburant.length == 1){
-        this.selected= 0
+        this.selected= 0;
+        this.$emit('carburant', 'carburant');
     }
   }
 
@@ -61,7 +64,7 @@ export default {
 
 .choice {
       display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 100%;
     flex-wrap: wrap;
 }

@@ -6,7 +6,7 @@
     <h3>Indiquez le kilométrage de votre Ford Mondeo</h3>
     <form class="kilometrage-form">
     <div class="kilometrage-input">
-        <input type="text" name="kilo" placeholder="kilométrage de votre véhicule ">
+        <input type="text" name="kilo" placeholder="kilométrage de votre véhicule "/>
     </div>
     <div class="kilometrage-btn">
       <router-link to="/details">
@@ -23,6 +23,26 @@
 </div>
 
 </template>
+
+
+<script >
+export default {
+    name: 'carburant',
+    props: {
+    },
+    data() {
+        return {
+           isDisable : true,
+        }
+    },
+     methods: {
+   
+  },
+  
+
+
+}
+</script>
 
 <style  scoped>
 input[type="text"]{

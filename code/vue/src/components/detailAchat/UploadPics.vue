@@ -57,9 +57,9 @@ data() {
         <h3>Téléchargez des images de véhicules</h3>
         </div>
         <a  @dragover="dragover" @dragleave="dragleave" >
-        <div class="input" @drop="dragFile">
+        <div class="input" @click="$refs.file.click()" @drop="dragFile">
             <p>Faites Glisser ou <a>Téléchargez</a> des images de véhicules</p>
-            <input type="file" multiple name="fields[assetsFieldHandle][]" id="assetsFieldHandle" class="w-px h-px opacity-0 overflow-hidden absolute" @change="onChange" ref="file" accept=".pdf,.jpg,.jpeg,.png" />
+            <input type="file" multiple name="fields[assetsFieldHandle][]" id="assetsFieldHandle" class="w-px h-px opacity-0 overflow-hidden absolute" @change="onChange" ref="file" accept=".pdf,.jpg,.jpeg,.png" hidden/>
         </div>
         </a>
     </div>

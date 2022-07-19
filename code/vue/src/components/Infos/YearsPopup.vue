@@ -11,7 +11,7 @@
     </div>
     <div class="years"  >
    
-            <div v-for="(year,index) in Years" :key="index"   class="year" @click="showDetailYear(year)">
+            <div v-for="(year,index) in Years" :key="index"   class="year" @click="showDetailYear(year);nextstep();">
                 <p>{{year}}</p>
 
         </div>
@@ -64,6 +64,9 @@ export default {
     },
     close(){
         this.$emit('close', false);     
+    },
+    nextstep(){
+        this.$emit('step', 'step2');    
     }
   },
 }
@@ -114,13 +117,13 @@ export default {
     width:100%;
 }
 .back-pop{
-    /* display:none; */
     background: rgb(0 0 0 / 40%);
     width: 100%;
     position: fixed;
     height: 100%;
     top: 0;
     left: 0;
+    z-index: 10;
 }
 
 @media( max-width: 768px){
