@@ -5,9 +5,9 @@
             <h3>Carrosserie et nombre de portes*</h3>
         </div>
         <div class="choices">
-        <div class="choice" v-for="(model,index) in models" :key="index"  >
-            <div class="model"  :class="{ checkeddiv: selected == index }" v-on:click="giveStyle(index);nextstep();" >
-                <h3 :class="{ checkedtitle: selected == index }" class="title">Fiesta <br><span>Fiesta {{model}} portes</span></h3>
+        <div class="choice" v-for="(number,index) in num" :key="index"  >
+            <div class="model"  :class="{ checkeddiv: selected == index }" v-on:click="giveStyle(index);nextstep(number);" >
+                <h3 :class="{ checkedtitle: selected == index }" class="title">Fiesta <br><span>{{number}}</span></h3>
             </div>
         </div>
      
@@ -30,8 +30,10 @@ export default {
     },
     data() {
         return {
-            models: [
-                3,4,5
+            num: [
+                "Fiesta 3 portes",
+                "Fiesta 4 portes",
+                "Fiesta 5 portes"
             ],
             checked :false,
             selected : null,
@@ -41,13 +43,14 @@ export default {
     giveStyle(i) {
         this.selected = i;
     },
-    nextstep(){
+    nextstep(value){
         this.$emit('step', 'step1');     
+        localStorage.setItem('num',value); 
   }
   },
   
   mounted(){
-    if(this.models.length == 1){
+    if(this.num.length == 1){
         this.selected= 0;
         console.log('hell yeah');
     }

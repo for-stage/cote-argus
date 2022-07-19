@@ -8,7 +8,7 @@
         </div>
         <div class="div-choice">
             <div class="choice" >
-                <div  v-for="(carbur, index) in carburant " :key="index" v-on:click="giveStyle(index);nextstep();"  class="card"  :class="{ checkeddiv: selected == index }">
+                <div  v-for="(carbur, index) in carburant " :key="index" v-on:click="giveStyle(index);nextstep(carbur);"  class="card"  :class="{ checkeddiv: selected == index }">
                     <p :class="{ checkedtitle: selected == index }">{{ carbur }}  </p>
                 </div>
             </div>
@@ -37,8 +37,9 @@ export default {
         this.selected = i;
         console.log(this.selected);
     },
-    nextstep(){
+    nextstep(value){
         this.$emit('step', 'step4'); 
+        localStorage.setItem('boit',value); 
     }
   },
   mounted(){
