@@ -6,7 +6,10 @@
     <h3>Les statistiques de Cote argus</h3>
     <div class="vertical"></div>
     <div class="total">
-        <div></div>
+        <div>
+            <h3>Line Chart Example in Vue</h3>
+            <line-chart></line-chart>
+        </div>
         <div class="some-info">
             <div>
                 <h4>Statistique maximale</h4>
@@ -21,25 +24,18 @@
 </div>
 
 </template>
-<script >
-export default {
-    name: 'statistique',
-    props: {
-    },
-    data() {
-        return {
-            
-        }
-    },
-     methods: {
-        
-  },
+<script>
+import LineChart from "./LineChart.vue";
 
-}
+export default {
+  components: {
+    LineChart,
+  },
+};
 </script>
 <style  scoped>
 .content{
-    width: 66%;
+    width: 93%;
     padding: 5px 15px;
     background: white;
     border-radius: 5px;
