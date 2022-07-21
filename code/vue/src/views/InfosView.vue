@@ -296,7 +296,10 @@ html {
 @media  (max-width: 445px) {
    .same-line{
        flex-direction: column;
-   }
+   }.partie{
+
+    width:100%;
+}
 
     
 }

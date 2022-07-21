@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnimalControler;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +24,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('test', function () {
     return 'test';
 });
+// Route::resource('animal', AnimalControler::class );
+
+Route::get('animals', 'App\Http\Controllers\AnimalControler@index');
+Route::get('animals/{animal}', 'App\Http\Controllers\AnimalControler@show');
+Route::post('animals', 'App\Http\Controllers\AnimalControler@store');
+Route::put('animals/{animal}', 'App\Http\Controllers\AnimalControler@update');
+Route::delete('animals/{animal}', 'App\Http\Controllers\AnimalControler@destroy');
+
 

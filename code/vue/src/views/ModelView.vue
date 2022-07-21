@@ -159,9 +159,7 @@ ul {
 
 }
 
-.sous-model {
-    width: 101%;
-}
+
 .precedent{
     display: flex;
     justify-content: center;
@@ -197,7 +195,20 @@ ul {
     transition: 1s;
     border-right: 0ch;
 }
+.models {
+  display: flex;
+  justify-content: space-evenly;
+}
 
+.sous-model {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: space-around;
+  width: 80%;
+
+}
 @media(max-width: 768px) {
     ul {
         width: 80%;
@@ -219,20 +230,13 @@ ul {
     .choice{
         width: 80%;
     }
-}
-.models {
-  display: flex;
-  justify-content: space-evenly;
-}
-
+    
 .sous-model {
-  margin-top: 40px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-items: center;
-  justify-content: space-around;
-  width: 80%;
+  margin-top:6%;
+  width: 100%;
 
 }
+}
+
 
 </style>
