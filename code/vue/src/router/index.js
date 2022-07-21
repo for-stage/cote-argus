@@ -5,6 +5,7 @@ import Marque from '../views/MarqueView.vue'
 import Model from '../views/ModelView.vue'
 import Infos from '../views/InfosView.vue'
 import Admin from '../views/AdminPage.vue'
+import Table from '../views/Table.vue'
 
 const routes = [
 
@@ -40,7 +41,12 @@ const routes = [
         path: '/admin',
         name: 'admin',
         component: Admin,
-    }   ,
+    },
+    {
+        path:'/table',
+        name:'table',
+        component:Table,
+    }
     
 ];
 const router = createRouter({
