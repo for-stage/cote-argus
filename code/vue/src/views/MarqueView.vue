@@ -83,5 +83,12 @@ export default {
   width: 80%;
   flex-wrap: wrap;
 }
+@media (max-width: 480px) {
+  .marque {
+    margin-top: 7%;
+  
+}
+  
+}
 
 </style>
