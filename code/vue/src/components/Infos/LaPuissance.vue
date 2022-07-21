@@ -4,7 +4,7 @@
 
     <div class="chev-choice">
         <div class="header">
-            <h3>Indiquez le nombre de chevaux fiscaux (CV)*</h3>
+            <h3>Indiquez la puissance en chevaux (Ch) / Kilowatts (Kw)*</h3>
         </div>
         <div class="div-choice">
             <div class="choice" >

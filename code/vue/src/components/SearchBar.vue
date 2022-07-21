@@ -1,13 +1,29 @@
-<script setup>
+<script >
+export default {
+    name: 'carburant',
+    props: {
+    },
+    data() {
+        return {
+            keyword: null ,
+        }
+    },
+     methods: {
+        get(){
+            this.$emit('keyword', this.keyword);
+        }
+  },
+  
 
+}
 </script>
 
 <template>
 
 <div class="search-bar">
     <div class="search">
-    <input type="text" name="search" placeholder="Chercher ...">
-    <div class="search-btn">
+    <input type="text" name="search" placeholder="Chercher ..." v-model="keyword">
+    <div class="search-btn" v-on:click="get">
        <a><img src="../assets/search-icon.png"></a> 
     </div>
     

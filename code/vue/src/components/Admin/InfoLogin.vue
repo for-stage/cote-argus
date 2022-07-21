@@ -63,7 +63,7 @@ export default {
 </script>
 <style  scoped>
 .content{
-    width: 25%;
+    width: 89%;
     padding: 20px 22px;
     background: white;
     border-radius: 5px;
@@ -92,7 +92,7 @@ form{
 input{
     border: solid 1px black;
     width: 98%;
-    padding: 3% 1%;
+    padding: 2% 1%;
     border-radius: 5px;
     background: none;
     font-size: 15px;
@@ -105,7 +105,7 @@ label p{
     color: #707070;
 }
 .edit,.submit{
-    margin-top: 7%;
+    margin-top: 5%;
     border: solid 2px #E5004E;
     color: #E5004E;
     font-weight:400;

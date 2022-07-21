@@ -1,8 +1,9 @@
 <template>
-   <Infos />
+   <HeaderComponent :title="this.header" />
    <div class="container" >
    <div class="quest">
-    <Questions @open="onShow" @close="onClose"/>
+   <!-- <p>{{v1}} {{v2}} {{v3}} {{v4}} {{v5}} {{v6}} {{v7}} {{v8}} {{v9}} {{v10}}</p> -->
+    <Questions @open="onShow" @close="onClose"/> 
     <UploadPics v-if="this.open==true" />
     <Sms @valide="valideSms" />
     <personnel @close="exit" v-if="this.showpopup"/>
@@ -26,7 +27,7 @@
 </template>
 
 <script>
-import Infos from '../components/detailAchat/Infos.vue'
+import HeaderComponent from '../components/Marque/HeaderComponent.vue'
 import Questions from '../components/detailAchat/Questions.vue'
 import Sms from '../components/detailAchat/Sms.vue'
 import UploadPics from '../components/detailAchat/UploadPics.vue';
@@ -40,22 +41,24 @@ import Personnel from '../components/detailAchat/Personnel.vue';
 export default {
     name: 'DetailAchat',
     components: {
-        Infos, 
+        HeaderComponent, 
          Questions,         
          Sms,
          UploadPics ,
             Personnel,
         //  VueRecaptcha
+        
     },
 
     props: {
-        msg: String
+        msg: String,
     },
     data(){ 
         return{
             images: null,
             open:'false',
             showpopup: '',
+            header : null,
         }
         },
     methods: {
@@ -90,10 +93,17 @@ export default {
         },
         retour(){
             this.$router.push('/infos');
-
+            
+        },
+        value(name){
+            let value = localStorage.getItem(name) + " ";
+            return value;
         }
 
     },
+    mounted(){
+        this.header = this.value("marque") + this.value("model") + this.value("num") + this.value("chevaux") + this.value("puisssance") + "Ch " + this.value("cylinder") + "1000 KM" ;
+  }
     
     
    

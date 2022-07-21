@@ -1,5 +1,5 @@
 <template>
-  <HeaderComponent title="Calculez la Cote Argus de votre Ford" />
+  <HeaderComponent title="Calculez la Cote Argus de votre" :mark="this.mark" :subtitle="this.subtitle"/>
   <PathComponent path="Voitures particulières" />
   <SearchBar />
   <div class="models" >
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import HeaderComponent from '../components/ModelComponent/HeaderModel.vue'
+import HeaderComponent from '../components/Marque/HeaderComponent.vue'
 import PathComponent from '../components/Marque/PathComponent.vue'
 import SearchBar from '../components/SearchBar.vue'
 import router from '../router'
@@ -59,6 +59,8 @@ export default {
             models:[ " Fiesta ", " Focus ", " C-MAX ", " Custom ", " Explorer ", " Ka ", ],
             checked :false,
             selected : null,
+            mark : null,
+            subtitle: null
         }
     },
     methods: {
@@ -74,10 +76,14 @@ export default {
         },
         get(value){
             localStorage.setItem('model',value);
-          //get marque from localStorage
           console.log(localStorage.getItem('model'));
         }
     
+  },
+  mounted(){
+        this.mark = localStorage.getItem('marque');
+        this.subtitle = "Otoclic vous propose de calculer la Cote Argus de votre" + this.mark + "en sélectionnant votre modèle parmi la liste ci-dessous";
+        console.log(this.subtitle);
   }
 }
 </script>

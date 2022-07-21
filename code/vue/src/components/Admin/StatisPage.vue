@@ -49,7 +49,7 @@ export default {
 </script>
 <style  scoped>
 .content{
-    width: 66%;
+    width: 96%;
     padding: 5px 15px;
     background: white;
     border-radius: 5px;
@@ -67,7 +67,8 @@ export default {
         display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 98%;
+    padding:2%;
 }
 .div{
     display: flex;
