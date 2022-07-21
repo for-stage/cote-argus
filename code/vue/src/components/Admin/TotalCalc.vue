@@ -7,15 +7,14 @@
     <div class="vertical"></div>
     <div class="total">
         <div>
-            <h3>Line Chart Example in Vue</h3>
-            <line-chart></line-chart>
+            <canvas id="myChart" width="400" height="210"></canvas>
         </div>
         <div class="some-info">
-            <div>
+            <div class="info">
                 <h4>Statistique maximale</h4>
                 <p>Mars : 393 Calc</p>
             </div>
-            <div>
+            <div class="info">
                 <h4>Derniere mois</h4>
                 <p>Mai : 97 Calc</p>
             </div>
@@ -25,13 +24,72 @@
 
 </template>
 <script>
-// import LineChart from "./LineChart.vue";
+
+import Chart from 'chart.js/auto';
 
 export default {
-  components: {
-    // LineChart,
-  },
-};
+    name: 'statistique',
+    props: {
+    },
+    data() {
+        return {
+            labels : ['Janvier' , 'Fevrier' , 'Mars' , 'April' , 'May', 'juin'],
+            data:[563 ,729,541, 318, 642, 230]
+        }
+    },
+     mounted() {
+        const ctx = document.getElementById('myChart');
+        const labels = this.labels;
+        const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Number Of Calc',
+            data: this.data,
+              fill: {
+                target: 'origin',
+                above: '#FFAAC7',
+              },
+            backgroundColor:"white",
+            borderWidth:3,
+            borderColor: '#E5004E',
+            tension: 0.3,            
+        }]
+        };
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                plugins: {
+                    legend: {
+                        display:false
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                        display: false,
+                        },
+                        display:false,
+                    },
+                    y: {
+                        grid: {
+                        display: false,
+                        },
+                        beginAtZero:true,
+                        min:0,
+                        max:1000,
+                        ticks:{
+                            stepSize:10
+                        },
+                        display: false,
+                    }
+                }
+            }
+        });
+        myChart;
+    },
+
+}
 </script>
 <style  scoped>
 .content{
@@ -48,5 +106,13 @@ export default {
 .h3{
     font-size: 25px;
     font-weight: 400;
+}
+.some-info{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3%;
+}
+.info p{
+    color:#E5004E;
 }
 </style>
