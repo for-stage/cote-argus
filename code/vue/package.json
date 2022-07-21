@@ -8,15 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^0.27.2",
-=======
-    "@fortawesome/fontawesome-svg-core": "^6.1.1",
-    "@fortawesome/free-brands-svg-icons": "^6.1.1",
-    "@fortawesome/free-regular-svg-icons": "^6.1.1",
-    "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "@fortawesome/vue-fontawesome": "^3.0.1",
->>>>>>> 754fb5f64c60f2cd0316f61f8e00fc2ae84b8a28
     "vue": "^3.2.25",
     "vue-recaptcha": "^2.0.2",
     "vue-resource": "^1.5.3",
