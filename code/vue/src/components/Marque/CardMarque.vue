@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <div class="card" @click ="step()">
+    <div  class="card" @click ="step()">
         <div class="card-img">
             <img :src="logo" alt="hhhhh">
         </div>
@@ -40,7 +40,7 @@ export default {
     align-items: center;
     color: white;
     border: solid 2px #C1C1C1;
-    width: 23%;
+    width: 100%;
     height: 210px;
     border-radius: 5px;
     display: flex;
@@ -83,17 +83,5 @@ export default {
     justify-content: center;
     align-items: center;
     border-radius: 0 0 2px 2px;
-}
-@media (max-width: 768px) { /*breakpoint*/
- .card{
-        width: 47%;
- }
-}
-
-@media (max-width: 450px) { /*breakpoint*/
-    .card{
-            width: 100%;
-    }
- 
 }
 </style>
