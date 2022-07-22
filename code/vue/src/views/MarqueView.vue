@@ -16,6 +16,8 @@
 
     <div v-if="!this.carsSearch.length">
       <h1>warah makain walo</h1>
+<lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_lb9ljjup.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;" ></lottie-player>
+
     
     
     </div>
