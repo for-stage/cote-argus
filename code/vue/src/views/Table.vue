@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="overflow-auto">
         <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage" aria-controls="my-table">
         </b-pagination>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {pagination} from 'vue-bootstrap-pagination'
+// import {pagination} from 'vue-bootstrap-pagination'
 export default {
     name: 'Dashboard',
     components: {
@@ -38,4 +38,4 @@ export default {
         }
     }
 }
-</script>
+</script> -->

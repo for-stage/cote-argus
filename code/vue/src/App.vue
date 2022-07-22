@@ -1,5 +1,14 @@
-<script setup>
+<script>
 
+export default {
+    name: 'Dashboard',
+    components: {
+        // pagination
+    },
+    mounted(){
+      console.log("ddd")
+    }
+}
 // import HeaderComponent from './components/HeaderComponent.vue'
 // import PathComponent from './components/PathComponent.vue'
 // import CardMarque from './components/CardMarque.vue'
@@ -44,7 +53,6 @@
 
   </body> -->
   <router-view />
-
 
 </template>
 
