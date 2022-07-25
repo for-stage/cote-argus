@@ -53,16 +53,16 @@ export default {
     align-items: flex-start;
 } */
 .parent {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 0.70fr 0.4fr 2.5fr;
-    grid-column-gap: 15px;
-    grid-row-gap: 10px;
+display: grid;
+grid-template-columns: repeat(4, 1fr) 0.75fr 1fr;
+grid-template-rows: repeat(2, 1fr) 0.5fr repeat(3, 1fr);
+grid-column-gap: 10px;
+grid-row-gap: 10px;
 }
 
-.div1 { grid-area: 1 / 1 / 2 / 2; }
-.div2 { grid-area: 1 / 2 / 3 / 3; }
-.div3 { grid-area: 3 / 1 / 5 / 2; }
-.div4 { grid-area: 3 / 2 / 5 / 3; }
+.div1 { grid-area: 1 / 1 / 3 / 5; }
+.div2 { grid-area: 1 / 5 / 4 / 7; }
+.div3 { grid-area: 4 / 1 / 7 / 5; }
+.div4 { grid-area: 4 / 5 / 7 / 7; }
 
 </style>
