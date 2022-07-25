@@ -4,11 +4,7 @@
 
 <div class="content">
 
-<<<<<<< HEAD
   <div class="table-header"><input class="input-search" placeholder="cherecher ..." @change="get" v-model="keyword"><div>you have {{count}} in the result</div></div>
-=======
-  <div class="table-header"><input placeholder="cherecher ..." @change="get" v-model="keyword"><div>Vous avez {{count}} dans le résultat</div></div>
->>>>>>> f5a7710de74f4e3a551402a4b734309491bbcaee
 
 <div class="wrapper">
   
@@ -591,24 +587,20 @@ border: solid 1px #9b9b9b; padding: 7% 11%;text-align: center;cursor: pointer;
     font-size: 14px;
     color: #E5004E;
 }
-<<<<<<< HEAD
+
 .input-search{
   height: 30px;
     width: 25%;
-    border: solid 2px #E5004E;
-    padding-left: 10px;
     font-weight: 500;
 }
 .input-search:focus{
   outline: none;
   font-size: 14px;
-=======
-
+}
 
 
 @media (max-width: 480px) {
   .content[data-v-5df100ea] {
-    width: 100%;
     padding: 2% 2%;
     background: white;
     border-radius: 5px;
@@ -652,7 +644,5 @@ border: solid 1px #9b9b9b; padding: 7% 11%;text-align: center;cursor: pointer;
     font-size: 12px;
 }
 
-
->>>>>>> f5a7710de74f4e3a551402a4b734309491bbcaee
 }
 </style>
