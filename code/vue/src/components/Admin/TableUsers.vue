@@ -1,155 +1,204 @@
-<!-- 
+
 
 <template>
 
 <div class="content">
-    <div id="app">
+
+<div class="wrapper">
   
-  <table>
-    <thead>
-      <tr>
-        <th @click="sort('name')">Name</th>
-        <th @click="sort('age')">Age</th>
-        <th @click="sort('breed')">Breed</th>
-        <th @click="sort('gender')">Gender</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="cat in sortedCats">
-        <td>{{cat.name}}</td>
-        <td>{{cat.age}}</td>
-        <td>{{cat.breed}}</td>
-        <td>{{cat.gender}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <p>
-  <button @click="prevPage">Previous</button> 
-  <button @click="nextPage">Next</button>
-  </p>
+  <div class="table">
+    
+    <div class="row header">
+      <div class="cell">
+        Nom et Prenom
+      </div>
+      <div class="cell">
+        E-mail
+      </div>
+      <div class="cell">
+        Telephone
+      </div>
+      <div class="cell">
+        Nombre de calc
+      </div>
+      <div class="cell">
+        Vehicules
+      </div>
+      <div class="cell">
+        Interdire
+      </div>
+    </div>
+    
+    
+    <div class="row" v-for="(user,index) in users" :key="index">
+      <div class="cell" data-title="Nom">
+        {{user.name}}
+      </div>
+      <div class="cell" data-title="mail">
+       {{user.email}}
+      </div>
+      <div class="cell" data-title="Telephone">
+        0666666666
+      </div>
+      <div class="cell" data-title="calc">
+        8 Calc
+      </div>
+      <div class="cell" data-title="Vehicules">
+        Voir plus
+      </div>
+      <div class="cell interdire" data-title="Interdire">
+        Interdire
+      </div>
+    </div>
+
+    
+  </div>
   
-  debug: sort={{currentSort}}, dir={{currentSortDir}}, page={{currentPage}}
 </div>
+
+<div class="pagination">
+  <div class="precedent"><a>Précédent</a></div>
+  <div class="pages">
+    <div><a>2</a></div>
+    <div><a>3</a></div>
+    <div><a>4</a></div>
+  </div>
+  <div class="suivant"><a>Suivant</a></div>
+</div>
+
 </div>
 
 </template>
-<script >
-const app = new Vue({
-  el:'#app',
-  data:{
-    cats:[],
-    currentSort:'name',
-    currentSortDir:'asc',
-    pageSize:3,
-    currentPage:1
-  },
-  created:function() {
-    fetch('https://www.raymondcamden.com/.netlify/functions/get-cats')
-    .then(res => res.json())
-    .then(res => {
-      this.cats = res;
-    })
-  },
-  methods:{
-    sort:function(s) {
-      //if s == current sort, reverse
-      if(s === this.currentSort) {
-        this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
+
+<script>
+export default {
+    name: 'table',
+    props: {
+        msg: String
+    },
+    data(){
+      return{
+        users:[
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com"},
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com"},
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com"},
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com"},
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com"},
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com"},
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com"},
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com"},
+                ]
       }
-      this.currentSort = s;
     },
-    nextPage:function() {
-      if((this.currentPage*this.pageSize) < this.cats.length) this.currentPage++;
-    },
-    prevPage:function() {
-      if(this.currentPage > 1) this.currentPage--;
-    }
-
-  },
-  computed:{
-    sortedCats:function() {
-      return this.cats.sort((a,b) => {
-        let modifier = 1;
-        if(this.currentSortDir === 'desc') modifier = -1;
-        if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
-        if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
-        return 0;
-      }).filter((row, index) => {
-        let start = (this.currentPage-1)*this.pageSize;
-        let end = this.currentPage*this.pageSize;
-        if(index >= start && index < end) return true;
-      });
-    }
-  }
-})
+}
 </script>
-<style  scoped>
+
+
+<style scoped>
 .content{
-    width: 96%;
-    padding: 5px 15px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 0 12px -4px black;
-}
-.vertical{
-    height: 0.5px;
-    background: #D9D9D9;
-}
-.h3{
-    font-size: 25px;
-    font-weight: 400;
-}
-.statis{
-        display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 98%;
-    padding:2%;
-}
-.div{
-    display: flex;
-    align-items: center;
-    width: 25%;
-}
-.icon {
-    border-radius: 37px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.one{
-    background: #F7B924;
-}
-.two{
-    background: #DD3B62;
-}
-.three{
-    background: #4ECA8A;
-}
-.info{
-    margin-left: 5%;
-}
-.info h2{
-    margin-top: 5%;
-}
-.info p{
-    margin-bottom:0;
-}
-label{
-    position:relative;
-}
-label img{
-    position: absolute;
-    top: 68%;
-    right: 2%;
-    cursor:pointer;
-}
-td, th {
-  padding: 5px;
+width: 96%; padding: 2% 2%; background: white; border-radius: 5px; box-shadow: 0 0 12px -4px black; display: flex; flex-direction: column; align-items: center;
 }
 
-th {
+.wrapper {
+margin: 0 auto; padding: 3% 1%; width: 98%;
+}
+
+.table {
+width: 100%; display: table; border-spacing: 2px;text-align: center;
+    font-size: 14px;
+}
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;
+  }
+}
+
+.row {
+  display: table-row;
+}
+.row.header {
+  font-weight: 900;
+  background: #66666621;
+}
+@media screen and (max-width: 580px) {
+  .row {
+    padding: 14px 0 7px;
+    display: block;
+  }
+  .row.header {
+    padding: 0;
+    height: 6px;
+  }
+  .row.header .cell {
+    display: none;
+  }
+  .row .cell {
+    margin-bottom: 10px;
+  }
+  .row .cell:before {
+    margin-bottom: 3px;
+    content: attr(data-title);
+    min-width: 98px;
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #969696;
+    display: block;
+  }
+}
+
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+  border: solid 1px black;
+}
+.row:hover{
+  background: #66666621;
+}
+@media screen and (max-width: 580px) {
+  .cell {
+    padding: 2px 16px;
+    display: block;
+  }
+}
+.pagination{
+display: flex; width: 55%; justify-content: space-between;color:#666666;
+}
+.precedent{
+border: solid 1px #9b9b9b; padding: 3% 5%; width: 19%;text-align: center;cursor:pointer;
+}
+.precedent:hover{
+  transition: 1s;
+  background:#E5004E;
+  color:white;
+}
+
+.pages{
+display: flex; justify-content: space-around; width: 39%;
+}
+
+.pages div{
+border: solid 1px #9b9b9b; padding: 7% 11%;text-align: center;cursor: pointer;
+}
+.pages div:hover{
+  transition: 1s;
+  background:#E5004E;
+  color:white;
+}
+
+.suivant{
+border: solid 1px #9b9b9b; padding: 3% 5%; width: 19%; text-align: center;cursor: pointer;background:white;
+}
+.suivant:hover{
+  transition: 1s;
+  background:#E5004E;
+  color:white;
+}
+.interdire:hover{
+  transition: 1s;
+  background:#E5004E;
+  color:white;
   cursor:pointer;
 }
-</style> -->
+</style>
