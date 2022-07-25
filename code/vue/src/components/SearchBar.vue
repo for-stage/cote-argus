@@ -11,6 +11,7 @@ export default {
      methods: {
         get(){
             this.$emit('keyword', this.keyword);
+            this.$emit('click', true);
         }
   },
   
@@ -22,7 +23,7 @@ export default {
 
 <div class="search-bar">
     <div class="search">
-    <input type="text" name="search" placeholder="Chercher ..." v-model="keyword">
+    <input type="text" name="search" placeholder="Chercher ..." @click="get" v-model="keyword">
     <div class="search-btn" v-on:click="get">
        <a><img src="../assets/search-icon.png"></a> 
     </div>
