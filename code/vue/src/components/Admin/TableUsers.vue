@@ -99,6 +99,33 @@ export default {
                 {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
                 {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
                 {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
+                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
                 ],
                 pages:null,
                 page:[],
@@ -193,14 +220,17 @@ export default {
               const name = user.name.toString().toLowerCase();
               const phone = user.phone.toLowerCase();
               const searchTerm = this.keyword.toLowerCase();
-              
               return (
                 name.includes(searchTerm) || phone.includes(searchTerm)
               );
             });
-
-
-
+            this.start = 0;
+            this.last = 3;
+            this.firstrow = 0;
+            this.lastrow = 15;
+            this.selected = 1;
+            this.disabled = true;
+            
             let pagination = this.itemsSearch.length/15;
             this.pages = Math.ceil(pagination);
             this.page = [];
@@ -209,6 +239,9 @@ export default {
                 this.page.push(i+1);
               }
             this.count = this.itemsSearch.length;
+            if(this.page.length != 3){
+              this.disable = false;
+            }
         },
 
 
