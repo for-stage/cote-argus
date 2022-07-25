@@ -46,6 +46,11 @@ const routes = [
         path:'/table',
         name:'table',
         component:Table,
+    },
+    {
+        path:'/page',
+        name:'page',
+        component:()=>import('../views/Page.vue'),
     }
     
 ];
