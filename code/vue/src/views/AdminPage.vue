@@ -68,4 +68,33 @@ grid-row-gap: 10px;
 /* .div5 { grid-area: 7 / 7 / 10 / 9; } */
 
 
+
+@media (max-width: 480px) {
+
+    .parent[data-v-316cf2b4] {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.div1[data-v-316cf2b4] {
+    grid-area: 1 / 1 / 3 / 7;
+    width: 93%;
+}
+
+.div3[data-v-316cf2b4] {
+    /* grid-area: 4 / 1 / 10 / 7; */
+    width: 97%;
+}
+
+.div4[data-v-316cf2b4] {
+    grid-area: 4 / 7 / 7 / 9;
+    width: 93%;
+}
+
+.div2{
+    display:none;
+}
+}
+
 </style>
