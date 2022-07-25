@@ -4,7 +4,7 @@
 
 <div class="content">
 
-  <div class="table-header"><input placeholder="cherecher ..." @change="get" v-model="keyword"><div>you have {{count}} in the result</div></div>
+  <div class="table-header"><input class="input-search" placeholder="cherecher ..." @change="get" v-model="keyword"><div>you have {{count}} in the result</div></div>
 
 <div class="wrapper">
   
@@ -354,5 +354,16 @@ border: solid 1px #9b9b9b; padding: 7% 11%;text-align: center;cursor: pointer;
     width: 97%;
     font-size: 14px;
     color: #E5004E;
+}
+.input-search{
+  height: 30px;
+    width: 25%;
+    border: solid 2px #E5004E;
+    padding-left: 10px;
+    font-weight: 500;
+}
+.input-search:focus{
+  outline: none;
+  font-size: 14px;
 }
 </style>

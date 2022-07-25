@@ -1,29 +1,31 @@
 <template>
-  <HeaderComponent title="Calculez la Cote Argus de votre" :mark="this.mark" :subtitle="this.subtitle"/>
-  <PathComponent path="Voitures particulières" />
-  <SearchBar />
-  <div class="models" >
-    <div class="sous-model" >
-        <div class="choice" v-for="(model,index) in models" :key="index" v-on:click="giveStyle(index),get(model)"  >
-            <div @click="next" class="model"  :class="{ checkeddiv: selected == index }" >
-               <h3 :class="{ checkedtitle: selected == index }" class="title">{{model}} </h3>
-            </div>
-     
-        </div>
-        
-    </div>
-     
-  </div>
- <div class="precedent">
-  <div class="retour" @click="retour">
-    <img src="../assets/return.png" alt="">
-    <div>Retour</div>
-    
-   </div>
- 
- </div>
+    <HeaderComponent title="Calculez la Cote Argus de votre" :mark="this.mark" :subtitle="this.subtitle" />
+    <PathComponent path="Voitures particulières" />
+    <SearchBar @keyword="getKeyword" />
+    <div class="models">
+        <div class="sous-model">
+            <div class="choice" v-for="(model, index) in modelSearch" :key="index" v-on:click="giveStyle(index), get(model)">
+                <div @click="next" class="model" :class="{ checkeddiv: selected == index }">
+                    <h3 :class="{ checkedtitle: selected == index }" class="title">{{ model }} </h3>
+                </div>
 
-  
+            </div>
+
+        </div>
+
+    </div>
+    <div class="precedent">
+    <div class="sous-prec">
+        <div class="retour" @click="retour">
+            <img src="../assets/return.png" alt="">
+            <div>Retour</div>
+
+        </div>
+    </div>
+
+    </div>
+
+
 
 
 
@@ -41,59 +43,71 @@ import router from '../router'
 
 
 export default {
-  name: 'MarqueView',
-  components: {
-    HeaderComponent,
-    PathComponent,
-    SearchBar,
-    // Model,
+    name: 'MarqueView',
+    components: {
+        HeaderComponent,
+        PathComponent,
+        SearchBar,
+        // Model,
 
 
 
-  },
-  props: {
-    msg: String
-  },
+    },
+    props: {
+        msg: String
+    },
     data() {
         return {
-            models:[ " Fiesta ", " Focus ", " C-MAX ", " Custom ", " Explorer ", " Ka ", ],
-            checked :false,
-            selected : null,
-            mark : null,
-            subtitle: null
+            models: [" Fiesta ", " Focus ", " C-MAX ", " Custom ", " Explorer ", " Ka ",],
+            checked: false,
+            selected: null,
+            mark: null,
+            subtitle: null,
+            modelSearch: [],
+            Search: '',
         }
     },
     methods: {
-    giveStyle(i) {
-        this.selected = i;
-    },
-    next(){
-     router.push('/infos');
-    },
-       retour(){
+        giveStyle(i) {
+            this.selected = i;
+        },
+        next() {
+            router.push('/infos');
+        },
+        retour() {
             this.$router.push('/');
 
         },
-        get(value){
-            localStorage.setItem('model',value);
-          console.log(localStorage.getItem('model'));
-        }
-    
-  },
-  mounted(){
+        get(value) {
+            localStorage.setItem('model', value);
+            console.log(localStorage.getItem('model'));
+        },
+        getKeyword(value) {
+            this.Search = value;
+            this.modelSearch = this.models.filter(model => {
+                return model.toLowerCase().includes(this.Search.toLowerCase());
+            }
+            );
+
+            console.log(this.modelSearch);
+        },
+
+    },
+    mounted() {
         this.mark = localStorage.getItem('marque');
         this.subtitle = "Otoclic vous propose de calculer la Cote Argus de votre" + this.mark + "en sélectionnant votre modèle parmi la liste ci-dessous";
-        console.log(this.subtitle);
-  }
+        this.modelSearch = this.models
+    }
 }
 </script>
 <style scoped >
-.models{
+.models {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
 }
+
 .model {
     width: 92%;
     height: 70px;
@@ -160,55 +174,66 @@ ul {
 }
 
 
-.precedent{
+.precedent {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-.retour{
-    margin-top: 30px;
-    display: flex;
-    cursor: pointer;
+.sous-prec {
     width: 80%;
 }
-.retour img{
+
+.retour {
+   margin-top: 50px;
+    display: flex;
+    cursor: pointer;
+    width: 6%;
+}
+
+.retour img {
     border: solid 3px #E5004E;
     padding: 8px;
 }
-.retour div{
-    border:  solid 3px #E5004E;
-    border-left: 0 ;
+
+.retour div {
+    border: solid 3px #E5004E;
+    border-left: 0;
     padding: 8px;
     font-size: 20px;
     font-weight: bold;
     color: #E5004E;
 }
-.retour div{
+
+.retour div {
     display: none;
 }
-.retour:hover div{
+
+.retour:hover div {
     display: block;
     transition: 3s;
 }
-.retour:hover img{
+
+.retour:hover img {
     transform: rotate(360deg);
     transition: 1s;
     border-right: 0ch;
 }
+
 .models {
-  display: flex;
-  justify-content: space-evenly;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .sous-model {
-  margin-top: 40px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-items: center;
-  justify-content: space-around;
-  width: 80%;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: space-around;
+    width: 80%;
 
 }
+
 @media(max-width: 768px) {
     ul {
         width: 80%;
@@ -223,20 +248,20 @@ ul {
     .search {
         width: 80%;
     }
+
     .model {
         width: 100%;
 
     }
-    .choice{
-        width: 80%;
+
+    .choice {
+        width: 100%;
     }
-    
-.sous-model {
-  margin-top:6%;
-  width: 100%;
 
+    .sous-model {
+        margin-top: 6%;
+        width: 100%;
+
+    }
 }
-}
-
-
 </style>

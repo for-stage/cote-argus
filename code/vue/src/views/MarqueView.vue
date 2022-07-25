@@ -5,7 +5,7 @@
  
   <div class="marque">
     <div class="sous-marque">
-      <div v-for="(car, index) in carsSearch" :key="index">
+      <div class="cardFor" v-for="(car, index) in carsSearch" :key="index">
         <div class="cards">
           <CardMarque @click="get(car.name)" @clicked="next" :name="car.name" :logo="car.logo" />
         </div>
@@ -76,9 +76,6 @@ export default {
 
       console.log(this.carsSearch);
     },
-    search() {
-
-    }
   },
   data() {
     return {
@@ -123,6 +120,9 @@ h2 span{
  color: #E5004E;
  font-weight: bold;
  font-size: larger;
+}
+.cardFor{
+  width: 100%;
 }
 .cards {
   width: 260px;
