@@ -590,12 +590,58 @@ border: solid 1px #9b9b9b; padding: 7% 11%;text-align: center;cursor: pointer;
 .input-search{
   height: 30px;
     width: 25%;
-    border: solid 2px #E5004E;
-    padding-left: 10px;
     font-weight: 500;
 }
 .input-search:focus{
   outline: none;
   font-size: 14px;
+}
+
+
+@media (max-width: 480px) {
+  .content[data-v-5df100ea] {
+    padding: 2% 2%;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 12px -4px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+.table-header[data-v-5df100ea] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 97%;
+    font-size: 14px;
+    color: #E5004E;
+    height: 53px;
+    font-size: 10px;
+}
+
+.wrapper[data-v-5df100ea] {
+    margin: 0 auto;
+    padding: 3% 1%;
+    width: 98%;
+    overflow-x: auto;
+}
+
+.table[data-v-5df100ea] {
+    width: 100%;
+    display: table;
+    border-spacing: 2px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.pagination[data-v-5df100ea] {
+    display: flex;
+    width: 96%;
+    justify-content: space-between;
+    color: #666666;
+    font-size: 12px;
+}
+
 }
 </style>
