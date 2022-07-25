@@ -109,4 +109,38 @@ label img{
     right: 2%;
     cursor:pointer;
 }
+
+
+
+@media (max-width: 480px) {
+.content[data-v-35027a86] {
+    width: 100%;
+    padding: 5px 14px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 12px -4px black;
+}
+
+h3 {
+    text-align: center;
+}
+
+.statis[data-v-35027a86] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 98%;
+    padding: 2%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.div[data-v-35027a86] {
+    display: flex;
+    align-items: center;
+    width: 51%;
+}
+
+
+}
 </style>

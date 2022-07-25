@@ -115,4 +115,16 @@ export default {
 .info p{
     color:#E5004E;
 }
+
+
+@media (max-width: 480px) {
+    .content[data-v-764fe34e] {
+    width: 100%;
+    padding: 5px 15px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 12px -4px black;
+    margin-top: 5%;
+}
+}
 </style>
