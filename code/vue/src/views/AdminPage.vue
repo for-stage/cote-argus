@@ -54,15 +54,18 @@ export default {
 } */
 .parent {
 display: grid;
-grid-template-columns: repeat(4, 1fr) 0.75fr 1fr;
-grid-template-rows: repeat(2, 1fr) 0.5fr repeat(3, 1fr);
+grid-template-columns: repeat(6, 1fr) 1.5fr 1fr;
+grid-template-rows: repeat(2, 1fr) 0.5fr repeat(6, 1fr);
 grid-column-gap: 10px;
 grid-row-gap: 10px;
 }
 
-.div1 { grid-area: 1 / 1 / 3 / 5; }
-.div2 { grid-area: 1 / 5 / 4 / 7; }
-.div3 { grid-area: 4 / 1 / 7 / 5; }
-.div4 { grid-area: 4 / 5 / 7 / 7; }
+.div1 { grid-area: 1 / 1 / 3 / 7; }
+.div2 { grid-area: 1 / 7 / 4 / 9; }
+.div3 { grid-area: 4 / 1 / 10 / 7; }
+.div4 { grid-area: 4 / 7 / 7 / 9; }
+
+/* .div5 { grid-area: 7 / 7 / 10 / 9; } */
+
 
 </style>
