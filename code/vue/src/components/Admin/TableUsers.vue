@@ -587,7 +587,6 @@ border: solid 1px #9b9b9b; padding: 7% 11%;text-align: center;cursor: pointer;
     font-size: 14px;
     color: #E5004E;
 }
-
 .input-search{
   height: 30px;
     width: 25%;
