@@ -113,7 +113,7 @@ export default {
     height: 70px;
     background-color: #EEEEEE;
     border-radius: 10px;
-    border: solid 2px #909090;
+    border: solid 2px #eeeeee;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -20,7 +20,6 @@ const routes = [
         path: '/Model',
         name: 'model',
         component: Model
-       
     },
     {
         path: '/details',

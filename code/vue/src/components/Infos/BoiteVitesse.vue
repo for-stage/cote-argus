@@ -79,7 +79,7 @@ export default {
 }
 
 .card {
-    border: solid 2px #909090;
+    border: solid 2px #eeeeee;
     border-radius: 10px;
     width: 48%;
     display: flex;

@@ -3,20 +3,24 @@
 <template> 
 <div class="kilometrage">
     <h3>Recevoir la Cote Argus par SMS</h3>
-    <form class="kilometrage-form">
+    <form class="kilometrage-form" @submit.prevent="sendSms">
     <div class="kilometrage-input">
-        <input type="text" name="kilo" placeholder="Votre numero de telephone">
+        <input type="text" name="phone" v-model="sms.phone" placeholder="Votre numero de telephone">
+        <input type="text" name="message" v-model="sms.message" placeholder="message">
     </div>
     <div class="kilometrage-btn">
-      <router-link to="/details">
-        <button  type="submit" name="Send" @click="valide">Send</button>
-        </router-link>
+        <button  type="submit" name="Send">Send</button>
     </div>
     </form>
 </div>
 
+
+
+
 </template>
 <script >
+import axios from 'axios';
+import { parsePhoneNumberFromString } from 'libphonenumber-js'
 export default {
     name: 'navbar',
     props: {
@@ -24,12 +28,56 @@ export default {
     },
     data() {
         return {
+            sms:{
+                phone:null,
+                message:null,
+                formattedPhone:null,
+                sending : false,
+            }
            
         }
     },
       methods: {
     valide(){
         this.$emit('valide', true);     
+    },
+    sendSms(){
+        // alert("sent");
+
+        const phoneNumber = parsePhoneNumberFromString(this.sms.phone, 'MA');
+        if(!phoneNumber.isValid())
+        {
+            alert("Phone Number is not valid");
+        }
+        else
+        {
+            console.log(phoneNumber);
+        }
+
+
+        this.sms.formattedPhone = phoneNumber.number;
+        console.log(this.sms.formattedPhone);
+        this.sms.sending = true;
+
+        // axios.post('sendsms.php', this.sms)
+        // .then(res => {
+        //     console.log(res.data);
+        // })
+        // .catch(err => {
+
+        // })
+        // axios.post("http://localhost:3000/sendsms.php", this.sms)
+		// 		.then(res => {
+		// 			alert(res);
+		// 		})
+		// 		.catch(err => {
+		// 			console.log(err.response);
+		// 		});
+
+        const article = { title: 'Axios POST Request Example' };
+axios.post('http://localhost:3000/sendsms.php', article)
+    .then(response => console.log(response.data));
+
     }
   },
 }

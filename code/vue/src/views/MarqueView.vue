@@ -122,10 +122,10 @@ h2 span{
  font-size: larger;
 }
 .cardFor{
-  width: 100%;
+  width: 24%;
 }
 .cards {
-  width: 260px;
+    width: 100%;
   margin-top: 3px;
 
 }
