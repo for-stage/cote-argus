@@ -12,8 +12,20 @@
             </div>
 
         </div>
+         <div class="erer" v-if="!this.modelSearch.length">
+    
+      <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_lb9ljjup.json" background="transparent"
+        speed="1"  loop autoplay></lottie-player>
+    
+       <h2>No result for  <span>"{{ Search }}"</span></h2>
+  
+       
+
 
     </div>
+
+    </div>
+   
     <div class="precedent">
     <div class="sous-prec">
         <div class="retour" @click="retour">
@@ -107,6 +119,24 @@ export default {
 }
 </script>
 <style scoped >
+.erer{
+  margin-top: -120px;
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.erer lottie-player{
+  width: 500px;
+  height: 500px;
+}
+.erer h2{
+  margin-top: -100px;
+}
+h2 span{
+ color: #E5004E;
+ font-weight: bold;
+ font-size: larger;
+}
 .models {
     display: flex;
     flex-wrap: wrap;
