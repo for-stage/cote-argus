@@ -48,7 +48,7 @@
       <div class="cell" data-title="calc">
         8 Calc
       </div>
-      <div class="cell" data-title="Vehicules">
+      <div class="cell" data-title="Vehicules" v-on:click="morePage(user.name)">
         Voir plus
       </div>
       <div class="cell interdire" data-title="Interdire">
@@ -305,6 +305,9 @@ export default {
             this.actif = false;
             this.banni = true;
           }
+        },
+        morePage(user){
+          window.location = "./more?user="+user;
         },
 
 
