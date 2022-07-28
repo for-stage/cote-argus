@@ -296,7 +296,7 @@ ul {
 
     .sous-model {
         margin-top: 6%;
-        width: 100%;
+        width: 80%;
 
     }
     
