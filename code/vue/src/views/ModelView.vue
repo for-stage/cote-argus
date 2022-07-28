@@ -299,5 +299,17 @@ ul {
         width: 100%;
 
     }
+    
+  .erer lottie-player{
+    width: 300px;
+    height: 300px;
+  }
+  .erer{
+    margin-top: -50px;
+  
+}
+.erer h2{
+  margin-top: -20px;
+}
 }
 </style>
