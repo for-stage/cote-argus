@@ -1,8 +1,10 @@
-
+<!-- 
 <template>
-    <div class="about">
+     <div class="about">
+        
         <h1>About</h1>
         <p>This is the about page</p>
+        <button v-onclick="sendsms()">Send SMS</button>
         <button @click="fetchData()">warak hnaya</button>
         <div class="erreur">
             <ul>
@@ -37,106 +39,146 @@
 
         {{ animal.name }} {{ animal.type }} {{ animal.id }} <button @click="deleteAnimal(animal.id)">delete</button>
     </h1>
-
+     -->
+<!-- <button v-on:click='sendSms("hi there")'>send</button>
 
 </template> 
 
 <script>
+// import axios from 'axios';
+// export default {
+//     name: 'AboutView',
+//     data() {
+//         return {
+//             animals: [],
+//             newAnimal: {
+//                 name: '',
+//                 type: '',
+//                 color: '',
+//             },
+//             error: [],
+//         }
+//     },
+//     // created() {
+
+//     //     this.getAnimals();
+//     // },
+//     // mounted() {
+//     //     this.getAnimals();
+//     //     this.fetchData();
+//     // },
+//     methods: {
+//         sendSms(message){
+//             axios.post("http://localhost:8000/api/animals", message)
+// 				.then(res => {
+// 					alert(res.data);
+// 				})
+// 				.catch(err => {
+// 					console.log(err.response);
+// 				});
+//         },
+//         // fetchData() {
+//         //     axios.get('http://localhost:8000/api/animals')
+//         //         .then(function (response) {
+//         //             console.log(response.data);
+//         //         })
+//         //         .catch(error => {
+//         //             console.log(error);
+//         //         });
+//         // },
+//         // async getAnimals() {
+//         //     try {
+//         //         const response = await axios.get('http://localhost:8000/api/animals');
+//         //         this.animals = response.data;
+//         //         console.log(JSON.stringify(this.animals));
+//         //     }
+//         //     catch (error) {
+//         //         console.log(error);
+//         //     }
+//         // },
+//         // add animal to database
+//         // async addAnimal() {
+//         //     this.error = [];
+//         //     if (!this.newAnimal.name) {
+//         //         this.error.push('Name is required');
+//         //     }
+//         //     if (!this.newAnimal.type) {
+//         //         this.error.push('Type is required');
+//         //     }
+//         //     if (!this.newAnimal.color) {
+//         //         this.error.push('Color is required');
+//         //     }
+//         //     if (!this.error.length) {
+//         //         let formData = new FormData();
+//         //         formData.append('name', this.newAnimal.name);
+//         //         formData.append('type', this.newAnimal.type);
+//         //         formData.append('color', this.newAnimal.color);
+//         //         try {
+//         //             await axios.post('http://localhost:8000/api/animals', formData)
+//         //                 .then(function (response) {
+
+//         //                     alert(response.data.message);
+//         //                     // this.newAnimal=null;
+//         //                     // this.getAnimals();
+
+
+
+//         //                 })
+//         //             this.getAnimals();
+//         //             this.newAnimal = null;
+
+//         //         }
+//         //         catch (error) {
+//         //             console.log(error);
+//         //         }
+//         //     }
+//         // },
+//         // deleteAnimal(id) {
+//         //     if (confirm('Are you sure you want to delete this animal')) {
+//         //         axios.delete('http://localhost:8000/api/animals/' + id)
+//         //             .then(response => {
+//         //                 console.log(response);
+//         //                 this.getAnimals();
+//         //             })
+//         //             .catch(error => {
+//         //                 console.log(error);
+//         //             });
+//         //     }
+
+//         // },
+        
+
+//     }
+    // delete animal from database
+// }
+
+</script> -->
+
+
+<template>
+<button v-on:click="sendSms" >Send</button>
+</template>
+<script>
 import axios from 'axios';
 export default {
-    name: 'AboutView',
-    data() {
+    data(){
         return {
-            animals: [],
-            newAnimal: {
-                name: '',
-                type: '',
-                color: '',
-            },
-            error: [],
+            sms: "Hi",
         }
     },
-    created() {
-
-        this.getAnimals();
-    },
-    mounted() {
-        this.getAnimals();
-        this.fetchData();
-    },
-    methods: {
-        fetchData() {
-            axios.get('http://localhost:8000/api/animals')
+    methods:{
+        sendSms(){
+            console.log(this.sms);
+            axios.post('sendsms.php', {
+                    sms: this.sms
+                })
                 .then(function (response) {
                     console.log(response.data);
                 })
-                .catch(error => {
+                .catch(function (error) {
                     console.log(error);
-                });
-        },
-        async getAnimals() {
-            try {
-                const response = await axios.get('http://localhost:8000/api/animals');
-                this.animals = response.data;
-                console.log(JSON.stringify(this.animals));
-            }
-            catch (error) {
-                console.log(error);
-            }
-        },
-        // add animal to database
-        async addAnimal() {
-            this.error = [];
-            if (!this.newAnimal.name) {
-                this.error.push('Name is required');
-            }
-            if (!this.newAnimal.type) {
-                this.error.push('Type is required');
-            }
-            if (!this.newAnimal.color) {
-                this.error.push('Color is required');
-            }
-            if (!this.error.length) {
-                let formData = new FormData();
-                formData.append('name', this.newAnimal.name);
-                formData.append('type', this.newAnimal.type);
-                formData.append('color', this.newAnimal.color);
-                try {
-                    await axios.post('http://localhost:8000/api/animals', formData)
-                        .then(function (response) {
-
-                            alert(response.data.message);
-                            // this.newAnimal=null;
-                            // this.getAnimals();
-
-
-
-                        })
-                    this.getAnimals();
-                    this.newAnimal = null;
-
-                }
-                catch (error) {
-                    console.log(error);
-                }
-            }
-        },
-        deleteAnimal(id) {
-            if (confirm('Are you sure you want to delete this animal')) {
-                axios.delete('http://localhost:8000/api/animals/' + id)
-                    .then(response => {
-                        console.log(response);
-                        this.getAnimals();
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-            }
-
+            });
         }
-
     }
-    // delete animal from database
 }
-
 </script>

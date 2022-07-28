@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent title="Choisissez la catégorie et la marque de votre véhicule" />
-  <PathComponent path="Voitures particulières" />
+  <PathComponent />
   <SearchBar @keyword="getKeyword" />
  
   <div class="marque">
@@ -62,7 +62,6 @@ export default {
     },
     get(value) {
       localStorage.setItem('marque', value);
-      //get marque from localStorage
       console.log(localStorage.getItem('marque'));
     },
     getKeyword(value) {

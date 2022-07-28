@@ -1,6 +1,6 @@
 <template>
     <HeaderComponent title="Calculez la Cote Argus de votre" :mark="this.mark" :subtitle="this.subtitle" />
-    <PathComponent path="Voitures particulières" />
+    <PathComponent :stepOne="this.stepOne" />
     <SearchBar @keyword="getKeyword" />
     <div class="models">
         <div class="sous-model">
@@ -65,6 +65,7 @@ export default {
             subtitle: null,
             modelSearch: [],
             Search: '',
+            stepOne: '',
         }
     },
     methods: {
@@ -97,6 +98,11 @@ export default {
         this.mark = localStorage.getItem('marque');
         this.subtitle = "Otoclic vous propose de calculer la Cote Argus de votre" + this.mark + "en sélectionnant votre modèle parmi la liste ci-dessous";
         this.modelSearch = this.models
+
+        let path = localStorage.getItem("marque");
+        if(path != undefined){
+            this.stepOne = path;
+        }
     }
 }
 </script>

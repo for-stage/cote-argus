@@ -6,6 +6,7 @@ import Model from '../views/ModelView.vue'
 import Infos from '../views/InfosView.vue'
 import Admin from '../views/AdminPage.vue'
 import Table from '../views/Table.vue'
+import Table from '../views/MoreDetails.vue'
 
 const routes = [
 
