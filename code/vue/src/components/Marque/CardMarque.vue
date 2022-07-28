@@ -10,7 +10,6 @@ export default {
     methods:{
         step(){
            this.$emit('clicked', true);
-           console.log("click")
         }
     }
 

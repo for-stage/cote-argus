@@ -132,10 +132,10 @@ export default {
 
 /* Style the indicator (dot/circle) */
 .checkinput .checkmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     background: white;
 }

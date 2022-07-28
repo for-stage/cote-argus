@@ -2,13 +2,18 @@
 
 <template>
 
+<div class="choice">
+<div class="actifUsers" :class="{ active: actif }" v-on:click="ChangeTable('actif')"><a>Utilisateur actif</a></div>
+<div class="banniUsers" :class="{ active: banni }" v-on:click="ChangeTable('banni')"><a>Utilisateur banni</a></div>
+</div>
 <div class="content">
+
 
   <div class="table-header"><input class="input-search" placeholder="cherecher ..." @change="get" v-model="keyword"><div>you have {{count}} in the result</div></div>
 
 <div class="wrapper">
-  
-  <div class="table">
+    <h3 style="text-align:center;">{{ headerTable }}</h3>
+  <div class="table" v-if="actif">
     
     <div class="row header">
       <div class="cell">
@@ -43,11 +48,56 @@
       <div class="cell" data-title="calc">
         8 Calc
       </div>
-      <div class="cell" data-title="Vehicules">
+      <div class="cell" data-title="Vehicules" v-on:click="morePage(user.name)">
         Voir plus
       </div>
       <div class="cell interdire" data-title="Interdire">
         Interdire
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="table" v-if="banni">
+    
+    <div class="row header">
+      <div class="cell">
+        Nom et Prenom
+      </div>
+      <div class="cell">
+        E-mail
+      </div>
+      <div class="cell">
+        Telephone
+      </div>
+      <div class="cell">
+        Nombre de calc
+      </div>
+      <div class="cell">
+        Vehicules
+      </div>
+      <div class="cell">
+        Débloquer
+      </div>
+    </div>
+    
+    
+    <div class="row" v-for="(user,index) in itemsSearch.slice(this.firstrow,this.lastrow) " :key="index">
+      <div class="cell" data-title="Nom" v-html="highlightMatches(user.name)">
+      </div>
+      <div class="cell" data-title="mail" >
+       {{user.email}}
+      </div>
+      <div class="cell" data-title="Telephone" v-html="highlightMatches(user.phone)">
+      </div>
+      <div class="cell" data-title="calc">
+        8 Calc
+      </div>
+      <div class="cell" data-title="Vehicules">
+        Voir plus
+      </div>
+      <div class="cell débloquer" data-title="Interdire">
+        Débloquer
       </div>
     </div>
 
@@ -126,236 +176,6 @@ export default {
                 {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
                 {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
                 {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                                {name:"Abdellah Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"1" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"2" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"3" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"5" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"6aaz" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"7" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                                {name:"Abdellah Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"1" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"2" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"3" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"5" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"6aaz" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"7" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                                {name:"Abdellah Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"1" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"2" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"3" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"5" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"6aaz" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"7" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                                {name:"Abdellah Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"1" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"2" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"3" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"5" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"6aaz" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"7" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                                {name:"Abdellah Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"1" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"2" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"3" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"5" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"6aaz" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"7" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"9" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"0" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"42" },
-                {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"8" },
                 ],
                 pages:null,
                 page:[],
@@ -369,7 +189,9 @@ export default {
                 keyword: '',
                 itemsSearch:[],
                 count: null,
-                
+                actif :true,
+                banni :false,
+                headerTable: "Tableau des utilisateurs actif",
       }
     },
     mounted(){
@@ -473,6 +295,20 @@ export default {
               this.disable = false;
             }
         },
+        ChangeTable(type){
+          if(type == "actif"){
+            this.headerTable = "Tableau des utilisateurs actif";
+            this.actif = true;
+            this.banni = false;
+          }else{
+            this.headerTable = "Tableau des utilisateurs banni";
+            this.actif = false;
+            this.banni = true;
+          }
+        },
+        morePage(user){
+          window.location = "./more?user="+user;
+        },
 
 
         highlightMatches(text) {
@@ -491,7 +327,7 @@ export default {
 
 <style scoped>
 .content{
-width: 96%; padding: 2% 2%; background: white; border-radius: 5px; box-shadow: 0 0 12px -4px black; display: flex; flex-direction: column; align-items: center;
+width: 96%;position:relative; padding: 2% 2%; background: white; border-radius: 0 5px 5px 5px; box-shadow: 0 0 12px -4px black; display: flex; flex-direction: column; align-items: center;
 }
 
 .wrapper {
@@ -499,9 +335,6 @@ margin: 0 auto; padding: 3% 1%; width: 98%;
 }
 
 
-body {
-    background: #E8E8E8;
-}
 
 .table {
 width: 100%; display: table; border-spacing: 2px;text-align: center;
@@ -562,6 +395,12 @@ border: solid 1px #9b9b9b; padding: 7% 11%;text-align: center;cursor: pointer;
 .interdire:hover{
   transition: 1s;
   background:#E5004E;
+  color:white;
+  cursor:pointer;
+}
+.débloquer:hover{
+  transition: 1s;
+  background:#4eca8a;
   color:white;
   cursor:pointer;
 }
@@ -648,5 +487,28 @@ border: solid 1px #9b9b9b; padding: 7% 11%;text-align: center;cursor: pointer;
   width: 50%;
 }
 
+}
+
+.choice{
+  
+    display: flex;
+    justify-content: space-between;
+    width: 54%;
+
+}
+.actifUsers{
+background: #ffffff;
+    padding: 3% 12%;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+}
+.banniUsers{
+    background: #ffffff;
+    padding: 3% 12%;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+}
+.active{
+  z-index:1;
 }
 </style>

@@ -18,7 +18,7 @@
             <label for="pass" >
             <p>Mot de Passe</p>
             <div v-on:click="error">
-            <input v-if="show" id="pass" type="text" name="pwd" value="************" :disabled="edit">
+            <input v-if="show" id="pass" type="password" name="pwd" value="code123" :disabled="edit">
             <input  v-if="hide" id="pass" type="text" name="pwd" value="code123" :disabled="edit">
             </div>
             <img v-if="show" v-on:click="show = false, hide = true" src="../../assets/eye.svg">

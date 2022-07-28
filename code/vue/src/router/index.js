@@ -6,6 +6,7 @@ import Model from '../views/ModelView.vue'
 import Infos from '../views/InfosView.vue'
 import Admin from '../views/AdminPage.vue'
 import Table from '../views/Table.vue'
+import More from '../views/MoreDetails.vue'
 
 const routes = [
 
@@ -14,13 +15,11 @@ const routes = [
         path: '/',
         name: 'marque',
         component: Marque
-
     },
     {
         path: '/Model',
         name: 'model',
         component: Model
-       
     },
     {
         path: '/details',
@@ -51,6 +50,11 @@ const routes = [
         path:'/page',
         name:'page',
         component:()=>import('../views/Page.vue'),
+    },
+    {
+        path:'/more',
+        name:'more',
+        component:More,
     }
     
 ];

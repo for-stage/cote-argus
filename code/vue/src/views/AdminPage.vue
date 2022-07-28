@@ -43,9 +43,8 @@ export default {
 </script>
 <style scoped >
 .container{
-    background: #E8E8E8;
     margin-top: 0;
-    padding: 3% 4%;
+    padding: 3% 4% 0;
 }
 /* .first-line{
     display: flex;
@@ -54,16 +53,16 @@ export default {
 } */
 .parent {
 display: grid;
-grid-template-columns: repeat(6, 1fr) 1.5fr 1fr;
-grid-template-rows: repeat(2, 1fr) 0.5fr repeat(6, 1fr);
+grid-template-columns: repeat(10, 1fr);
+grid-template-rows: 1fr repeat(2, 0.5fr) repeat(7, 1fr);
 grid-column-gap: 10px;
 grid-row-gap: 10px;
 }
 
-.div1 { grid-area: 1 / 1 / 3 / 7; }
-.div2 { grid-area: 1 / 7 / 4 / 9; }
-.div3 { grid-area: 4 / 1 / 10 / 7; }
-.div4 { grid-area: 4 / 7 / 7 / 9; }
+.div1 { grid-area: 1 / 1 / 3 / 8; }
+.div2 { grid-area: 1 / 8 / 4 / 11; }
+.div3 { grid-area: 3 / 1 / 11 / 8; }
+.div4 { grid-area: 4 / 8 / 8 / 11; }
 
 /* .div5 { grid-area: 7 / 7 / 10 / 9; } */
 

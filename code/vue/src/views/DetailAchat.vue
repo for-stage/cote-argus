@@ -89,7 +89,6 @@ export default {
         },
         valideSms(value){
             this.showpopup = value;
-        
         },
         retour(){
             this.$router.push('/infos');
