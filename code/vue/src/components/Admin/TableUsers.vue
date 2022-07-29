@@ -9,7 +9,7 @@
 <div class="content">
 
 
-  <div class="table-header"><input class="input-search" placeholder="cherecher ..." @change="get" v-model="keyword"><div>you have {{count}} in the result</div></div>
+  <div class="table-header"><input class="input-search" placeholder="cherecher ..." @change="get" v-model="keyword"><div>Vous avez {{count}} dans le résultat</div></div>
 
 <div class="wrapper">
     <h3 style="text-align:center;">{{ headerTable }}</h3>
@@ -49,7 +49,7 @@
         8 Calc
       </div>
       <div class="cell" data-title="Vehicules" v-on:click="morePage(user.name)">
-        Voir plus
+        <a href="./more">Voir plus</a>
       </div>
       <div class="cell interdire" data-title="Interdire">
         Interdire
@@ -130,7 +130,7 @@ export default {
     data(){
       return{
         users:[
-                {name:"Abdellah Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"1" },
+                {name:"Abdellah Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"066666666666" },
                 {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"2" },
                 {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"3" },
                 {name:"Ayoub Basidi" , email:"ayoubbasidi@gmail.com" ,phone:"4" },
