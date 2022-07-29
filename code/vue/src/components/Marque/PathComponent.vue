@@ -4,34 +4,17 @@ export default {
   name: 'path',
 
   props: {
-        stepOne: String
+        stepOne: String,
+        stepTwo: String,
+        span: String
     },
 
   data(){
     return{
-        exist:false,
     }
   },
-
-
-    created(){
-    //     let path = localStorage.getItem("marque")
-    //     if(path != undefined){
-    //         this.stepOne = "&ensp;>&ensp;<a>" + path + "</a>";
-    //         console.log(this.stepOne);
-    //     }
-    this.check();
     
-    },
     methods:{
-        check(){
-            if(this.stepOne != ""){
-        this.exist = true; 
-        console.log("isset");
-    }else{
-        console.log(this.stepOne);
-    }
-        }
     }
 }
 </script>
@@ -39,7 +22,7 @@ export default {
 <template>
 
 <div class="path">
-    <p>Vous êtes ici :&ensp;>&ensp;<a>Marque de voiture</a><span v-if="exist">&ensp;>&ensp;</span><a>{{stepOne}}</a></p>
+    <p>Vous êtes ici :&ensp;>&ensp;<a href="./">Marque de voiture</a><span v-if="span >= '1'">&ensp;>&ensp;</span><a href="./Model">{{stepOne}}</a><span v-if="span >= '2'">&ensp;>&ensp;</span><a href="#">{{stepTwo}}</a></p>
 </div>
 
 </template>

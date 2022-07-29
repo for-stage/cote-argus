@@ -1,6 +1,6 @@
 <template>
     <HeaderComponent title="Calculez la Cote Argus de votre" :mark="this.mark" :subtitle="this.subtitle" />
-    <PathComponent :stepOne="this.stepOne" />
+    <PathComponent :stepOne="this.stepOne" span="1" />
     <SearchBar @keyword="getKeyword" />
     <div class="models">
         <div class="sous-model">

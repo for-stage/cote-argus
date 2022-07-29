@@ -2,7 +2,7 @@
 
 <template>
 <HeaderComponent title="Calculez la Cote Argus de votre" :mark="this.mark" :subtitle="this.subtitle"/>
-<PathComponent path="Voitures particulières"/>
+<PathComponent :stepOne="this.stepOne" :stepTwo="this.stepTwo" span="2" />
 
 <div class="details">
     <div class="padd-details">
@@ -110,7 +110,9 @@ export default {
             cylinder : false,
             puissance : false,
             mark : null,
-            subtitle: null
+            subtitle: null,
+            stepTwo: null,
+            stepOne: null
         }
     },
     methods:{
@@ -253,7 +255,14 @@ export default {
     mounted(){
         this.mark = localStorage.getItem('marque');
         this.subtitle = "Otoclic vous propose de calculer la Cote Argus de votre" + this.mark + "en sélectionnant votre modèle parmi la liste ci-dessous";
-  }
+
+        let firstPath = localStorage.getItem("marque");
+        let secondPath = localStorage.getItem("model");
+        if(firstPath != undefined && secondPath != undefined){
+            this.stepOne = firstPath;
+            this.stepTwo = secondPath;
+        }
+}
    
 }
 
@@ -280,7 +289,7 @@ html {
     position: absolute;
     width: 100%;
     height: 105%;
-    background: #ffffffb3;
+    background: #f7f7f77d;
     top: 0;
 }
 .part{

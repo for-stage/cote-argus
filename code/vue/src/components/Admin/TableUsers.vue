@@ -49,7 +49,7 @@
         8 Calc
       </div>
       <div class="cell" data-title="Vehicules" v-on:click="morePage(user.name)">
-        <a href="./more">Voir plus</a>
+        <a class="moreInfos" href="./more">Voir plus</a>
       </div>
       <div class="cell interdire" data-title="Interdire">
         Interdire
@@ -94,7 +94,7 @@
         8 Calc
       </div>
       <div class="cell" data-title="Vehicules">
-        Voir plus
+        <a class="moreInfos" href="./more">Voir plus</a>
       </div>
       <div class="cell débloquer" data-title="Interdire">
         Débloquer
@@ -510,5 +510,14 @@ background: #ffffff;
 }
 .active{
   z-index:1;
+}
+
+.moreInfos{
+  text-decoration:none;
+  color:black;
+}
+.moreInfos:hover{
+  text-decoration:underline;
+  color:#E5004E;
 }
 </style>

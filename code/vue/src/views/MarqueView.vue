@@ -101,7 +101,7 @@ export default {
 
 }
 </script>
-<style scoped >
+<style scoped>
 .erer{
   margin-top: -120px;
       display: flex;
