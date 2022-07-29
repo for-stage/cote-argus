@@ -430,6 +430,8 @@ border: solid 1px #9b9b9b; padding: 7% 11%;text-align: center;cursor: pointer;
   height: 30px;
     width: 25%;
     font-weight: 500;
+    border: solid 1px #9b9b9b;
+
 }
 .input-search:focus{
   outline: none;
@@ -480,6 +482,9 @@ border: solid 1px #9b9b9b; padding: 7% 11%;text-align: center;cursor: pointer;
     justify-content: space-between;
     color: #666666;
     font-size: 12px;
+}
+.input-search{
+  width: 50%;
 }
 
 }

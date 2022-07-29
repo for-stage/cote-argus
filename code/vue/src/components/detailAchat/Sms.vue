@@ -20,7 +20,7 @@
 </template>
 <script >
 import axios from 'axios';
-import { parsePhoneNumberFromString } from 'libphonenumber-js'
+// import { parsePhoneNumberFromString } from 'libphonenumber-js'
 export default {
     name: 'navbar',
     props: {
